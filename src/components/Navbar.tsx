@@ -30,11 +30,14 @@ const Navbar = () => {
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           <a href="#home" className="text-white hover:text-cyber-accent transition-colors">Home</a>
-          <a href="#videos" className="text-white hover:text-cyber-accent transition-colors">Videos</a>
+          <a href="#youtube" className="text-white hover:text-cyber-accent transition-colors">YouTube</a>
+          <a href="#design" className="text-white hover:text-cyber-accent transition-colors">Design</a>
           <a href="#art" className="text-white hover:text-cyber-accent transition-colors">JS Art</a>
+          <a href="#maxmsp" className="text-white hover:text-cyber-accent transition-colors">MaxMSP</a>
           <a href="#models" className="text-white hover:text-cyber-accent transition-colors">3D Models</a>
+          <a href="#picow" className="text-white hover:text-cyber-accent transition-colors">Pico W</a>
           <a href="#game" className="text-white hover:text-cyber-accent transition-colors">Game</a>
           <a href="#contact" className="cyber-button">Contact</a>
         </div>
@@ -60,9 +63,12 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6">
           <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</a>
-          <a href="#videos" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Videos</a>
+          <a href="#youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</a>
+          <a href="#design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Design</a>
           <a href="#art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</a>
+          <a href="#maxmsp" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">MaxMSP</a>
           <a href="#models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</a>
+          <a href="#picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</a>
           <a href="#game" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="cyber-button text-xl mt-4">Contact</a>
         </div>

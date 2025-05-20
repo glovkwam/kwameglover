@@ -32,18 +32,27 @@ const Footer = () => {
           
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-2">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-cyber-accent transition-colors">Home</a>
               </li>
               <li>
-                <a href="#videos" className="text-gray-400 hover:text-cyber-accent transition-colors">Videos</a>
+                <a href="#youtube" className="text-gray-400 hover:text-cyber-accent transition-colors">YouTube</a>
+              </li>
+              <li>
+                <a href="#design" className="text-gray-400 hover:text-cyber-accent transition-colors">Design</a>
               </li>
               <li>
                 <a href="#art" className="text-gray-400 hover:text-cyber-accent transition-colors">JS Art</a>
               </li>
               <li>
+                <a href="#maxmsp" className="text-gray-400 hover:text-cyber-accent transition-colors">MaxMSP</a>
+              </li>
+              <li>
                 <a href="#models" className="text-gray-400 hover:text-cyber-accent transition-colors">3D Models</a>
+              </li>
+              <li>
+                <a href="#picow" className="text-gray-400 hover:text-cyber-accent transition-colors">Pico W</a>
               </li>
               <li>
                 <a href="#game" className="text-gray-400 hover:text-cyber-accent transition-colors">Game</a>
