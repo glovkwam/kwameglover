@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ModelViewer from '@/components/ModelViewer';
 import { Card, CardContent } from "@/components/ui/card";
-import { AudioLines, FileCode, Cube } from 'lucide-react';
+import { AudioLines, FileCode, Cuboid } from 'lucide-react';
 
 const Models = () => {
   useEffect(() => {
