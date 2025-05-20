@@ -1,22 +1,23 @@
 
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import YouTubeSection from '@/components/YouTubeSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
-  // Change page title
+const YouTube = () => {
   useEffect(() => {
-    document.title = "Digital Artist Portfolio | Cybersecurity & Cloud Computing";
+    document.title = "YouTube Videos | Digital Artist Portfolio";
   }, []);
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
       <Navbar />
-      <Hero />
+      <div className="pt-20 animate-fade-in">
+        <YouTubeSection />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default YouTube;

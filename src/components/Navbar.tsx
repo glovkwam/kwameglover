@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -26,20 +27,21 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="text-cyber-accent text-2xl font-bold">
-          <a href="#home">Portfolio<span className="text-white">.</span></a>
+          <Link to="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
+            Portfolio<span className="text-white">.</span>
+          </Link>
         </div>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#home" className="text-white hover:text-cyber-accent transition-colors">Home</a>
-          <a href="#youtube" className="text-white hover:text-cyber-accent transition-colors">YouTube</a>
-          <a href="#design" className="text-white hover:text-cyber-accent transition-colors">Design</a>
-          <a href="#art" className="text-white hover:text-cyber-accent transition-colors">JS Art</a>
-          <a href="#maxmsp" className="text-white hover:text-cyber-accent transition-colors">MaxMSP</a>
-          <a href="#models" className="text-white hover:text-cyber-accent transition-colors">3D Models</a>
-          <a href="#picow" className="text-white hover:text-cyber-accent transition-colors">Pico W</a>
-          <a href="#game" className="text-white hover:text-cyber-accent transition-colors">Game</a>
-          <a href="#contact" className="cyber-button">Contact</a>
+          <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Home</Link>
+          <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">YouTube</Link>
+          <Link to="/design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Design</Link>
+          <Link to="/art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
+          <Link to="/models" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">3D Models</Link>
+          <Link to="/picow" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Pico W</Link>
+          <Link to="/game" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Game</Link>
+          <Link to="/contact" className="cyber-button transform transition duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,246,255,0.5)]">Contact</Link>
         </div>
         
         {/* Mobile Menu Button */}
@@ -61,16 +63,15 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6">
-          <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</a>
-          <a href="#youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</a>
-          <a href="#design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Design</a>
-          <a href="#art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</a>
-          <a href="#maxmsp" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">MaxMSP</a>
-          <a href="#models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</a>
-          <a href="#picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</a>
-          <a href="#game" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</a>
-          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="cyber-button text-xl mt-4">Contact</a>
+        <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
+          <Link to="/youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
+          <Link to="/design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Design</Link>
+          <Link to="/art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
+          <Link to="/models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
+          <Link to="/picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>
+          <Link to="/game" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="cyber-button text-xl mt-4">Contact</Link>
         </div>
       )}
     </nav>

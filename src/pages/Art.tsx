@@ -1,22 +1,23 @@
 
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import ArtGallery from '@/components/ArtGallery';
 import Footer from '@/components/Footer';
 
-const Index = () => {
-  // Change page title
+const Art = () => {
   useEffect(() => {
-    document.title = "Digital Artist Portfolio | Cybersecurity & Cloud Computing";
+    document.title = "JavaScript Art | Digital Artist Portfolio";
   }, []);
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
       <Navbar />
-      <Hero />
+      <div className="pt-20 animate-fade-in">
+        <ArtGallery />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Art;

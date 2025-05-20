@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Chip, CircuitBoard, Code } from 'lucide-react';
+import { CircuitBoard, Code } from 'lucide-react';
 
 const PicoWSection = () => {
   return (
@@ -15,10 +15,14 @@ const PicoWSection = () => {
       </p>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
-        <Card className="cyber-card row-span-2">
+        <Card className="cyber-card row-span-2 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
-              <Chip className="h-6 w-6 text-cyber-accent mr-2" />
+              <div className="h-6 w-6 text-cyber-accent mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold text-white">Interactive LED Installation</h3>
             </div>
             
@@ -26,7 +30,7 @@ const PicoWSection = () => {
               <img 
                 src="https://source.unsplash.com/random/600x400?led+lights" 
                 alt="LED Installation" 
-                className="w-full h-64 object-cover rounded-lg mb-4" 
+                className="w-full h-64 object-cover rounded-lg mb-4 hover:opacity-80 transition-opacity duration-300" 
               />
               <p className="text-gray-300 text-sm">
                 An interactive LED installation that responds to movement and sound in the environment, 
@@ -57,7 +61,7 @@ const PicoWSection = () => {
           </CardContent>
         </Card>
         
-        <Card className="cyber-card">
+        <Card className="cyber-card transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <CircuitBoard className="h-6 w-6 text-cyber-accent mr-2" />
@@ -67,7 +71,7 @@ const PicoWSection = () => {
             <img 
               src="https://source.unsplash.com/random/600x400?sensors" 
               alt="Environmental Monitor" 
-              className="w-full h-48 object-cover rounded-lg mb-4" 
+              className="w-full h-48 object-cover rounded-lg mb-4 hover:opacity-80 transition-opacity duration-300" 
             />
             
             <p className="text-gray-300 text-sm">
@@ -86,7 +90,7 @@ const PicoWSection = () => {
           </CardContent>
         </Card>
         
-        <Card className="cyber-card">
+        <Card className="cyber-card transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <Code className="h-6 w-6 text-cyber-accent mr-2" />
@@ -151,7 +155,7 @@ while True:
           </CardContent>
         </Card>
         
-        <Card className="cyber-card lg:col-span-2">
+        <Card className="cyber-card lg:col-span-2 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
           <CardContent className="p-6">
             <h3 className="text-xl font-bold text-white mb-4">Project Gallery</h3>
             
@@ -159,32 +163,32 @@ while True:
               <img 
                 src="https://source.unsplash.com/random/300x300?electronics" 
                 alt="Pico Project 1" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
               <img 
                 src="https://source.unsplash.com/random/300x300?microcontroller" 
                 alt="Pico Project 2" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
               <img 
                 src="https://source.unsplash.com/random/300x300?circuit" 
                 alt="Pico Project 3" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
               <img 
                 src="https://source.unsplash.com/random/300x300?programming" 
                 alt="Pico Project 4" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
               <img 
                 src="https://source.unsplash.com/random/300x300?iot" 
                 alt="Pico Project 5" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
               <img 
                 src="https://source.unsplash.com/random/300x300?raspberry+pi" 
                 alt="Pico Project 6" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-105 transition-transform duration-300" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
               />
             </div>
             
@@ -206,7 +210,7 @@ while True:
           href="https://github.com/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="cyber-button inline-flex mx-auto"
+          className="cyber-button inline-flex mx-auto transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
         >
           <CircuitBoard className="mr-2 h-5 w-5" />
           View Code Repository

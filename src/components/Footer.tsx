@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
@@ -15,16 +16,16 @@ const Footer = () => {
               Digital artist and aspiring cybersecurity professional, creating at the intersection of art and technology.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">
+              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">
+              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">
+              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">
+              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -34,31 +35,28 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
             <ul className="grid grid-cols-2 gap-2">
               <li>
-                <a href="#home" className="text-gray-400 hover:text-cyber-accent transition-colors">Home</a>
+                <Link to="/" className="text-gray-400 hover:text-cyber-accent transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#youtube" className="text-gray-400 hover:text-cyber-accent transition-colors">YouTube</a>
+                <Link to="/youtube" className="text-gray-400 hover:text-cyber-accent transition-colors">YouTube</Link>
               </li>
               <li>
-                <a href="#design" className="text-gray-400 hover:text-cyber-accent transition-colors">Design</a>
+                <Link to="/design" className="text-gray-400 hover:text-cyber-accent transition-colors">Design</Link>
               </li>
               <li>
-                <a href="#art" className="text-gray-400 hover:text-cyber-accent transition-colors">JS Art</a>
+                <Link to="/art" className="text-gray-400 hover:text-cyber-accent transition-colors">JS Art</Link>
               </li>
               <li>
-                <a href="#maxmsp" className="text-gray-400 hover:text-cyber-accent transition-colors">MaxMSP</a>
+                <Link to="/models" className="text-gray-400 hover:text-cyber-accent transition-colors">3D Models</Link>
               </li>
               <li>
-                <a href="#models" className="text-gray-400 hover:text-cyber-accent transition-colors">3D Models</a>
+                <Link to="/picow" className="text-gray-400 hover:text-cyber-accent transition-colors">Pico W</Link>
               </li>
               <li>
-                <a href="#picow" className="text-gray-400 hover:text-cyber-accent transition-colors">Pico W</a>
+                <Link to="/game" className="text-gray-400 hover:text-cyber-accent transition-colors">Game</Link>
               </li>
               <li>
-                <a href="#game" className="text-gray-400 hover:text-cyber-accent transition-colors">Game</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-cyber-accent transition-colors">Contact</a>
+                <Link to="/contact" className="text-gray-400 hover:text-cyber-accent transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
@@ -90,7 +88,7 @@ const Footer = () => {
             &copy; {currentYear} Digital Portfolio. All rights reserved.
           </p>
           <p className="text-gray-500 text-sm mt-4 md:mt-0">
-            Designed and Developed with ❤️ and code.
+            Designed and Developed with <span className="text-cyber-accent animate-pulse">❤️</span> and code.
           </p>
         </div>
       </div>

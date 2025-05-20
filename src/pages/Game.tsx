@@ -1,22 +1,23 @@
 
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import GameSection from '@/components/GameSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
-  // Change page title
+const Game = () => {
   useEffect(() => {
-    document.title = "Digital Artist Portfolio | Cybersecurity & Cloud Computing";
+    document.title = "Game Development | Digital Artist Portfolio";
   }, []);
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
       <Navbar />
-      <Hero />
+      <div className="pt-20 animate-fade-in">
+        <GameSection />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Game;
