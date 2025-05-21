@@ -1,7 +1,7 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap } from 'lucide-react';
-import MapSection from './MapSection';
 
 const AboutSection = () => {
   return (
@@ -93,9 +93,6 @@ const AboutSection = () => {
             </div>
           </div>
         </section>
-
-        {/* Map Section */}
-        <MapSection />
       </div>
     </div>
   );
