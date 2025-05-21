@@ -18,7 +18,7 @@ const YouTubeSection = () => {
       id: 1,
       title: "Digital Art Process",
       thumbnail: "https://source.unsplash.com/random/800x450?digital+art",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
+      youtubeId: "https://www.youtube.com/watch?v=DHzldFRClGI", // Replace with your actual YouTube video ID
       description: "A walkthrough of my digital art creation process using cutting-edge tools."
     },
     {
