@@ -54,7 +54,7 @@ const YouTubeSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
   return (
-    <section id="youtube" className="section-container bg-cyber-dark">
+    <section id="youtube" className="section-container bg-transparent">
       <h2 className="section-heading">YouTube Channel</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
         Check out my YouTube videos covering digital art techniques, cybersecurity insights, and creative tutorials.

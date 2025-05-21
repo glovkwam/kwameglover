@@ -54,7 +54,7 @@ const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
   return (
-    <section id="videos" className="section-container bg-cyber-dark">
+    <section id="videos" className="section-container bg-transparent">
       <h2 className="section-heading">Video Content</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
         Explore my video content covering digital art techniques, cybersecurity insights, and creative tutorials.

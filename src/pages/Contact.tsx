@@ -16,9 +16,7 @@ const ContactPage = () => {
       <div className="floating-orb w-72 h-72 top-1/2 right-1/3 blur-3xl opacity-20 animate-rotate-slow"></div>
       
       <Navbar />
-      <div className="pt-20 animate-fade-in relative z-10">
-        <Contact />
-      </div>
+      <Contact />
       <Footer />
     </div>
   );

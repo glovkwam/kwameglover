@@ -16,9 +16,7 @@ const Game = () => {
       <div className="floating-orb w-64 h-64 top-1/4 right-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
       
       <Navbar />
-      <div className="pt-20 animate-fade-in relative z-10">
-        <GameSection />
-      </div>
+      <GameSection />
       <Footer />
     </div>
   );

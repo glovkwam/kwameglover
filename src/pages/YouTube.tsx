@@ -16,9 +16,7 @@ const YouTube = () => {
       <div className="floating-orb w-80 h-80 bottom-0 left-1/2 blur-3xl opacity-20 animate-rotate-slow"></div>
       
       <Navbar />
-      <div className="pt-20 animate-fade-in relative z-10">
-        <YouTubeSection />
-      </div>
+      <YouTubeSection />
       <Footer />
     </div>
   );

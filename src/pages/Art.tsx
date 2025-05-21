@@ -16,9 +16,7 @@ const Art = () => {
       <div className="floating-orb w-64 h-64 bottom-1/3 right-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
       
       <Navbar />
-      <div className="pt-20 animate-fade-in relative z-10">
-        <ArtGallery />
-      </div>
+      <ArtGallery />
       <Footer />
     </div>
   );

@@ -47,7 +47,7 @@ const GraphicDesignSection = () => {
   ];
   
   return (
-    <section id="design" className="section-container bg-gradient-to-b from-cyber-dark to-cyber-light">
+    <section id="design" className="section-container bg-transparent">
       <h2 className="section-heading">Graphic Design</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
         Creative visual solutions that communicate complex technological concepts through clean, futuristic design.

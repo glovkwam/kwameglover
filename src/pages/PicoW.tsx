@@ -16,9 +16,7 @@ const PicoW = () => {
       <div className="floating-orb w-96 h-96 top-2/3 right-1/3 blur-3xl opacity-10 animate-rotate-slow"></div>
       
       <Navbar />
-      <div className="pt-20 animate-fade-in relative z-10">
-        <PicoWSection />
-      </div>
+      <PicoWSection />
       <Footer />
     </div>
   );

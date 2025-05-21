@@ -26,7 +26,7 @@ const GameSection = () => {
   };
   
   return (
-    <section id="game" className="section-container bg-cyber-light">
+    <section id="game" className="section-container bg-transparent">
       <h2 className="section-heading">Video Game</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
         Dive into my video game development, where creativity meets interactivity and digital storytelling.
