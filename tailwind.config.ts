@@ -66,9 +66,9 @@ export default {
 				cyber: {
 					dark: '#090b10',
 					light: '#141b2d',
-					accent: '#00f6ff',
-					neon: '#0072ff',
-					purple: '#7928ca',
+					accent: '#9b87f5',  // Changed from blue to purple
+					neon: '#7E69AB',    // Changed to secondary purple
+					purple: '#8B5CF6',  // Updated to a modern vivid purple
 				},
 			},
 			borderRadius: {
@@ -87,15 +87,28 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': { 
-						textShadow: '0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff'
+						textShadow: '0 0 10px #9b87f5, 0 0 20px #9b87f5, 0 0 30px #9b87f5'
 					},
 					'50%': {
-						textShadow: '0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 15px #00f6ff'
+						textShadow: '0 0 5px #9b87f5, 0 0 10px #9b87f5, 0 0 15px #9b87f5'
 					}
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'wave': {
+					'0%': { transform: 'translateX(0)' },
+					'50%': { transform: 'translateX(-25%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '0.4' },
+					'50%': { opacity: '0.8' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -103,8 +116,12 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glow': 'glow 2s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
+				'wave': 'wave 15s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 6s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 30s linear infinite'
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

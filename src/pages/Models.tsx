@@ -12,9 +12,13 @@ const Models = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
+    <div className="min-h-screen bg-cyber-dark text-white animated-bg">
+      <div className="floating-orb w-96 h-96 top-10 -left-40 blur-3xl"></div>
+      <div className="floating-orb w-80 h-80 bottom-10 -right-20 blur-3xl"></div>
+      <div className="floating-orb w-64 h-64 top-1/3 right-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
+      
       <Navbar />
-      <div className="pt-20 animate-fade-in">
+      <div className="pt-20 animate-fade-in relative z-10">
         <section className="section-container bg-cyber-dark relative overflow-hidden">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyber-purple/20 rounded-full blur-[100px] animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyber-accent/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -32,7 +36,7 @@ const Models = () => {
             <h2 className="section-heading relative z-10">MaxMSP Audio-Visual Project</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
               <div>
-                <Card className="cyber-card h-full transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
+                <Card className="cyber-card h-full transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(155,135,245,0.3)]">
                   <CardContent className="p-6">
                     <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                       <AudioLines className="h-6 w-6 mr-2 text-cyber-accent" />
@@ -71,14 +75,14 @@ const Models = () => {
               </div>
               
               <div className="relative group">
-                <div className="relative aspect-video bg-cyber-light rounded-lg overflow-hidden border border-cyber-accent/30 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
+                <div className="relative aspect-video bg-cyber-light rounded-lg overflow-hidden border border-cyber-accent/30 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(155,135,245,0.3)]">
                   <img 
                     src="https://source.unsplash.com/random/800x450?audio+visualizer" 
                     alt="MaxMSP Project" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="bg-cyber-accent/90 hover:bg-cyber-accent transition-colors duration-300 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-500">
+                    <button className="bg-cyber-accent/90 hover:bg-cyber-accent text-cyber-dark transition-colors duration-300 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-500">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-cyber-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

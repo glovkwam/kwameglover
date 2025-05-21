@@ -10,9 +10,13 @@ const PicoW = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
+    <div className="min-h-screen bg-cyber-dark text-white animated-bg">
+      <div className="floating-orb w-72 h-72 top-20 -right-20 blur-3xl"></div>
+      <div className="floating-orb w-80 h-80 bottom-40 -left-40 blur-3xl"></div>
+      <div className="floating-orb w-96 h-96 top-2/3 right-1/3 blur-3xl opacity-10 animate-rotate-slow"></div>
+      
       <Navbar />
-      <div className="pt-20 animate-fade-in">
+      <div className="pt-20 animate-fade-in relative z-10">
         <PicoWSection />
       </div>
       <Footer />
