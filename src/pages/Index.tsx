@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   // Change page title
   useEffect(() => {
-    document.title = "Digital Artist Portfolio | Cybersecurity & Cloud Computing";
+    document.title = "Kwame Glover | Cybersecurity & Cloud Computing";
   }, []);
 
   return (
