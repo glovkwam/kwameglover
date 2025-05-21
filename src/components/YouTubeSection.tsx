@@ -57,7 +57,7 @@ const YouTubeSection = () => {
     <section id="youtube" className="section-container bg-transparent">
       <h2 className="section-heading">YouTube Channel</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
-        Check out my YouTube videos covering digital art techniques, cybersecurity insights, and creative tutorials.
+        Check out my YouTube videos covering digital art techniques, Artificial intelligence insights, and technological insights.
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,7 +93,7 @@ const YouTubeSection = () => {
       
       <div className="mt-16 text-center">
         <a 
-          href="https://youtube.com/" 
+          href="https://www.youtube.com/watch?v=DHzldFRClGI" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cyber-button inline-flex mx-auto"
