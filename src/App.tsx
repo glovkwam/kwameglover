@@ -13,6 +13,7 @@ import Models from "./pages/Models";
 import PicoW from "./pages/PicoW";
 import Game from "./pages/Game";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/picow" element={<PicoW />} />
           <Route path="/game" element={<Game />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

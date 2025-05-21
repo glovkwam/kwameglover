@@ -35,6 +35,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Home</Link>
+          <Link to="/about" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">About</Link>
           <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">YouTube</Link>
           <Link to="/design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Design</Link>
           <Link to="/art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
@@ -65,6 +66,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
           <Link to="/youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
           <Link to="/design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Design</Link>
           <Link to="/art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
