@@ -1,18 +1,27 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { CircuitBoard, Code } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { CircuitBoard, Code, Settings } from 'lucide-react';
+import { useCMS } from '@/context/CMSContext';
+import CMSButton from '@/components/ui/cms-button';
 
 const PicoWSection = () => {
+  const { openCMS } = useCMS();
+
   return (
     <section id="picow" className="section-container bg-cyber-light relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-purple/10 via-transparent to-transparent"></div>
       
-      <h2 className="section-heading relative z-10">Pico W Microcontroller Projects</h2>
-      <p className="text-gray-300 max-w-2xl mb-12 relative z-10">
-        Exploring the intersection of art and technology through creative projects using the Raspberry Pi Pico W microcontroller.
-      </p>
+      <div className="flex justify-between items-center mb-8 relative z-10">
+        <div>
+          <h2 className="section-heading">Pico W Microcontroller Projects</h2>
+          <p className="text-gray-300 max-w-2xl">
+            Exploring the intersection of art and technology through creative projects using the Raspberry Pi Pico W microcontroller.
+          </p>
+        </div>
+        <CMSButton section="picow" />
+      </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
         <Card className="cyber-card row-span-2 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
