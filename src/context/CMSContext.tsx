@@ -1,14 +1,5 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-// Define types for different content sections
-export interface VideoData {
-  id: number;
-  title: string;
-  thumbnail: string;
-  youtubeId: string;
-  description: string;
-}
+import { VideoData } from '@/types/youtube';
 
 export interface CMSContextType {
   isCmsOpen: boolean;
