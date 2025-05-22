@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Youtube, Settings } from 'lucide-react';
 import YouTubeCMS from './YouTubeCMS';
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { useCMS } from '@/context/CMSContext';
 
 interface VideoData {
   id: number;
@@ -16,7 +16,7 @@ interface VideoData {
 
 const YouTubeSection = () => {
   const { toast } = useToast();
-  const [isCmsOpen, setIsCmsOpen] = useState(false);
+  const { openCMS } = useCMS();
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
   // Initialize with sample data or load from localStorage
@@ -88,7 +88,7 @@ const YouTubeSection = () => {
   };
   
   const handleManageContent = () => {
-    setIsCmsOpen(true);
+    openCMS('youtube');
   };
   
   return (
@@ -159,14 +159,6 @@ const YouTubeSection = () => {
           Visit My YouTube Channel
         </a>
       </div>
-      
-      {/* YouTube CMS */}
-      <YouTubeCMS 
-        isOpen={isCmsOpen}
-        onClose={() => setIsCmsOpen(false)}
-        initialVideos={videos}
-        onSave={handleCmsSave}
-      />
       
       {/* Video Modal */}
       {selectedVideo && (
