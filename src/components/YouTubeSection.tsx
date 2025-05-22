@@ -1,64 +1,114 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Youtube } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Youtube, Settings } from 'lucide-react';
+import YouTubeCMS from './YouTubeCMS';
+import { useToast } from "@/components/ui/use-toast";
 
 interface VideoData {
   id: number;
   title: string;
   thumbnail: string;
-  youtubeId?: string;
+  youtubeId: string;
   description: string;
 }
 
 const YouTubeSection = () => {
-  // Sample data - replace with your actual video data
-  const videos: VideoData[] = [
-    {
-      id: 1,
-      title: "Digital Art Process",
-      thumbnail: "https://source.unsplash.com/random/800x450?digital+art",
-      youtubeId: "https://www.youtube.com/watch?v=DHzldFRClGI", // Replace with your actual YouTube video ID
-      description: "A walkthrough of my digital art creation process using cutting-edge tools."
-    },
-    {
-      id: 2,
-      title: "3D Modeling Basics",
-      thumbnail: "https://source.unsplash.com/random/800x450?3d+modeling",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "Learn the basics of 3D modeling with this comprehensive tutorial."
-    },
-    {
-      id: 3,
-      title: "Cybersecurity for Artists",
-      thumbnail: "https://source.unsplash.com/random/800x450?cybersecurity",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "How artists can protect their digital creations in an online world."
-    },
-    {
-      id: 4,
-      title: "Game Development Journey",
-      thumbnail: "https://source.unsplash.com/random/800x450?game+development",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "My journey into game development - challenges and triumphs."
-    },
-    {
-      id: 5,
-      title: "Cloud Computing for Creative Projects",
-      thumbnail: "https://source.unsplash.com/random/800x450?cloud+computing",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "How cloud computing enhances my creative workflow."
-    }
-  ];
-  
+  const { toast } = useToast();
+  const [isCmsOpen, setIsCmsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
+  
+  // Initialize with sample data or load from localStorage
+  const [videos, setVideos] = useState<VideoData[]>(() => {
+    const savedVideos = localStorage.getItem('youtube-videos');
+    if (savedVideos) {
+      try {
+        return JSON.parse(savedVideos);
+      } catch (e) {
+        console.error('Error parsing saved videos', e);
+        return getDefaultVideos();
+      }
+    }
+    return getDefaultVideos();
+  });
+  
+  // Save videos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('youtube-videos', JSON.stringify(videos));
+  }, [videos]);
+
+  // Sample data function - used as fallback
+  function getDefaultVideos(): VideoData[] {
+    return [
+      {
+        id: 1,
+        title: "Digital Art Process",
+        thumbnail: "https://source.unsplash.com/random/800x450?digital+art",
+        youtubeId: "DHzldFRClGI",
+        description: "A walkthrough of my digital art creation process using cutting-edge tools."
+      },
+      {
+        id: 2,
+        title: "3D Modeling Basics",
+        thumbnail: "https://source.unsplash.com/random/800x450?3d+modeling",
+        youtubeId: "dQw4w9WgXcQ",
+        description: "Learn the basics of 3D modeling with this comprehensive tutorial."
+      },
+      {
+        id: 3,
+        title: "Cybersecurity for Artists",
+        thumbnail: "https://source.unsplash.com/random/800x450?cybersecurity",
+        youtubeId: "dQw4w9WgXcQ",
+        description: "How artists can protect their digital creations in an online world."
+      },
+      {
+        id: 4,
+        title: "Game Development Journey",
+        thumbnail: "https://source.unsplash.com/random/800x450?game+development",
+        youtubeId: "dQw4w9WgXcQ",
+        description: "My journey into game development - challenges and triumphs."
+      },
+      {
+        id: 5,
+        title: "Cloud Computing for Creative Projects",
+        thumbnail: "https://source.unsplash.com/random/800x450?cloud+computing",
+        youtubeId: "dQw4w9WgXcQ",
+        description: "How cloud computing enhances my creative workflow."
+      }
+    ];
+  }
+  
+  const handleCmsSave = (updatedVideos: VideoData[]) => {
+    setVideos(updatedVideos);
+    toast({
+      title: "YouTube Content Updated",
+      description: `Your video collection has been updated with ${updatedVideos.length} videos.`,
+    });
+  };
+  
+  const handleManageContent = () => {
+    setIsCmsOpen(true);
+  };
   
   return (
     <section id="youtube" className="section-container bg-transparent">
-      <h2 className="section-heading">YouTube Channel</h2>
-      <p className="text-gray-300 max-w-2xl mb-12">
-        Check out my YouTube videos covering digital art techniques, Artificial intelligence insights, and technological insights.
-      </p>
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h2 className="section-heading">YouTube Channel</h2>
+          <p className="text-gray-300 max-w-2xl">
+            Check out my YouTube videos covering digital art techniques, Artificial intelligence insights, and technological insights.
+          </p>
+        </div>
+        <Button
+          variant="outline" 
+          className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10"
+          onClick={handleManageContent}
+        >
+          <Settings className="mr-2 h-4 w-4" />
+          Manage Content
+        </Button>
+      </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {videos.map((video) => (
@@ -69,9 +119,16 @@ const YouTubeSection = () => {
             <CardContent className="p-0">
               <div className="relative">
                 <img 
-                  src={video.thumbnail} 
+                  src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} 
                   alt={video.title} 
                   className="w-full h-48 object-cover" 
+                  onError={(e) => {
+                    // Fallback if maxresdefault doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    if (target.src.includes('maxresdefault')) {
+                      target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+                    }
+                  }}
                 />
                 <button 
                   className="absolute inset-0 bg-cyber-dark/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity"
@@ -102,6 +159,14 @@ const YouTubeSection = () => {
           Visit My YouTube Channel
         </a>
       </div>
+      
+      {/* YouTube CMS */}
+      <YouTubeCMS 
+        isOpen={isCmsOpen}
+        onClose={() => setIsCmsOpen(false)}
+        initialVideos={videos}
+        onSave={handleCmsSave}
+      />
       
       {/* Video Modal */}
       {selectedVideo && (
