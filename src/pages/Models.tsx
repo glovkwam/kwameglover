@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -34,6 +35,7 @@ const Models = () => {
               <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
               <p className="text-gray-300 mb-6">
                 An interactive 3D experience exploring creative digital environments and immersive storytelling.
+                Created using Adobe Illustrator and Blender Substance Painter.
               </p>
               <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
                 <iframe 
@@ -47,7 +49,7 @@ const Models = () => {
               </div>
               <div className="mt-6">
                 <img 
-                  src="/lovable-uploads/2d9e9148-7e79-4554-ab82-77a8e99c4ec2.png" 
+                  src="https://cdn.glitch.global/93c093d6-9c56-4aeb-8bee-ed8806236dd4/VR.JPEG?v=1668817067984" 
                   alt="Wonderland Project" 
                   className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
                 />
@@ -74,14 +76,14 @@ const Models = () => {
               </div>
               <div className="mt-6">
                 <img 
-                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
+                  src="/lovable-uploads/6acd0d18-9717-4cd3-8d7f-1b1035ecb5cf.png" 
                   alt="My Room Blend" 
                   className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
                 />
               </div>
             </CardContent>
           </Card>
-            
+          
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
@@ -91,10 +93,181 @@ const Models = () => {
               </p>
               <div className="flex justify-center">
                 <img 
-                  src="https://cdn.glitch.global/93c093d6-9c56-4aeb-8bee-ed8806236dd4/VR.JPEG?v=1668817067984" 
+                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
                   alt="VR Project" 
                   className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
                 />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-20">
+          <h2 className="section-heading relative z-10">JavaScript Artwork</h2>
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-white mb-4">Interactive Butterfly Animation</h3>
+              <p className="text-gray-300 mb-6">
+                A creative JavaScript animation that responds to mouse movement, featuring dynamic shapes and colors.
+              </p>
+              <div className="w-full max-w-3xl mx-auto bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                <iframe 
+                  srcdoc={`
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>JavaScript Animation</title>
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+                      <style>
+                        body { margin: 0; padding: 0; overflow: hidden; background-color: #111; }
+                        canvas { display: block; }
+                      </style>
+                    </head>
+                    <body>
+                      <script>
+                        let mic;
+                        let ground;
+                        let stars;
+                        let sunX = 0;
+                        
+                        let myInt = 52;
+                        let yoff = 0;
+                        const dots = [];
+                        var x = 280;
+                        var y = 280;
+                        function setup() {
+                          createCanvas(350, 350);
+                          frameRate(10);
+                          mic = new p5.AudioIn();
+                          mic.start();
+                          stars = createGraphics(width, height);
+                          stars.background(32, 0, 64);
+                          for (let i = 0; i < 1000; i++) {
+                            stars.stroke(255);
+                            stars.strokeWeight(2);
+                            stars.point(random(width), random(height));
+                          }
+                          ground = createGraphics(width, height * 0.25);
+                          ground.background(32);
+                          for (let i = 0; i < 1000; i++) {
+                            ground.noStroke();
+                            ground.fill(0, random(50), 0);
+                            ground.square(random(ground.width), random(ground.height), 10);
+                          }
+                        }
+                        
+                        function draw() {
+                          image(stars, 0, 0);
+                          image(ground, 0, height * 0.75);
+                        
+                          push();
+                          translate(width / 2, height / 2);
+                          let da = PI / 200;
+                          let dx = 0.03;
+                          let xoff = 0;
+                        
+                          beginShape();
+                          for (let a = 0; a <= TWO_PI; a += da) {
+                            let n = noise(xoff, yoff);
+                            let r = sin(2 * a) * map(n, 0, 1, 5, 300);
+                            let x = r * cos(a);
+                            let y = r * sin(a);
+                            if (a < PI) {
+                              xoff += dx;
+                            } else {
+                              xoff -= dx;
+                            }
+                            vertex(x, y);
+                          }
+                          endShape();
+                          pop();
+                          yoff += 0.01;
+                          
+                          push();
+                          fill(229, 220, 170);
+                          noStroke();
+                          circle(sunX, height / 9, 50);
+                          sunX = (sunX + 3) % width;
+                          pop();
+                          
+                          push();
+                          stroke(100);
+                          strokeWeight(10);
+                          line(250, 200, 300, 50, 90, 100);
+                          pop();
+                          
+                          push();
+                          stroke(100);
+                          strokeWeight(10);
+                          line(250, 210, 200, 50, 90, 90);
+                          pop();
+                          
+                          body();
+                          head();
+                          leftEye(width / 2.1, height / 2.4);
+                          rightEye();
+                          mouth();
+                          
+                          for (var i=0; i<10; i++) {
+                            var xDis = random(-180, 180);
+                            var yDis = random(-180, 180);
+                            butterfly(mouseX+xDis, mouseY+yDis);
+                          }
+                         
+                          x = x+random(-5, 6);
+                          y = y+random(-4, 4);
+                          butterfly(x, y);
+                        }
+                        
+                        function mouth() {
+                          ellipse(height / 2, width / 2.2, 30, 10);
+                        }
+                        
+                        function head() {
+                          fill(100, 10, 250);
+                          ellipse(width / 2, height / 2.3, 70);
+                        }
+                        
+                        function leftEye(xpos, ypos) {
+                          fill(25, 250, 10);
+                          ellipse(xpos, ypos, 10, 10);
+                        }
+                        
+                        function rightEye() {
+                          ellipse(width / 1.9, height / 2.4, 10, 10);
+                        }
+                        
+                        function body() {
+                          fill(108, 10, 250);
+                          ellipse(width / 2, height / 1.6, 50, 200);
+                        }
+                        
+                        function butterfly(x, y) {
+                          line(x-15,y-10,x,y);
+                          line(x+15,y-10,x,y);
+                          fill(255, 220, 0);
+                          ellipse(x-25,y+20,35,30);
+                          ellipse(x-25,y+40,35,30);
+                          ellipse(x+25,y+20,35,30);
+                          ellipse(x+25,y+40,35,30);
+                          ellipse(x,y+30,30,60);
+                        }
+                      </script>
+                    </body>
+                    </html>
+                  `}
+                  width="100%" 
+                  height="400" 
+                  className="border-0"
+                  title="JavaScript Animation"
+                ></iframe>
+              </div>
+              <div className="mt-6 text-center">
+                <p className="text-gray-300 text-sm">
+                  This interactive animation combines visual elements with user interaction. Move your mouse to interact with the butterflies.
+                </p>
               </div>
             </CardContent>
           </Card>

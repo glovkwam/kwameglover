@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Youtube, Video } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -41,33 +41,45 @@ const VideoSection = () => {
     },
     {
       id: 4,
-      title: "3D Animation Project",
+      title: "AI Takeover",
       vimeoId: "1087220508",
       description: "Showcase of 3D animation techniques and creative process.",
       type: 'vimeo'
     },
     {
       id: 5,
-      title: "Motion Graphics Demo",
+      title: "Humanity Reborn",
       vimeoId: "1087221195",
       description: "Demonstration of motion graphics skills and effects.",
       type: 'vimeo'
     },
     {
       id: 6,
-      title: "Visual Effects Reel",
+      title: "The Future of Creatorkwam",
       vimeoId: "1087225071",
       description: "A compilation of visual effects work showcasing technical skills.",
       type: 'vimeo'
     },
     {
       id: 7,
-      title: "Editing Portfolio",
+      title: "The Kaiju Returns",
       vimeoId: "1087228874",
       description: "Video editing portfolio with various styles and techniques.",
       type: 'vimeo'
     }
   ];
+  
+  // Add script for Vimeo player
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://player.vimeo.com/api/player.js";
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   
   return (
     <section id="videos" className="section-container bg-transparent">
@@ -84,7 +96,7 @@ const VideoSection = () => {
           </TabsTrigger>
           <TabsTrigger value="vimeo" className="data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark">
             <Video className="mr-2 h-4 w-4" />
-            Vimeo
+            Video Editing
           </TabsTrigger>
         </TabsList>
         
@@ -129,18 +141,19 @@ const VideoSection = () => {
                 <CardContent className="p-0">
                   <div className="relative aspect-video">
                     <iframe 
+                      src={`https://player.vimeo.com/video/${video.vimeoId}`} 
                       width="100%" 
                       height="100%" 
-                      src={`https://player.vimeo.com/video/${video.vimeoId}`} 
-                      title={video.title}
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture" 
                       allowFullScreen
-                      className="rounded-t-lg"
+                      title={video.title}
+                      className="rounded-t-lg absolute top-0 left-0"
+                      style={{width: '100%', height: '100%'}}
                     ></iframe>
                   </div>
                   
-                  <div className="p-5">
+                  <div className="p-5 mt-[56.25%]">
                     <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
                     <p className="text-gray-300 text-sm">{video.description}</p>
                   </div>
