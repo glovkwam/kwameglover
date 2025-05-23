@@ -16,7 +16,7 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with the correct IDs
+  // Updated video data with the correct IDs from the embed codes provided
   const videos: VideoData[] = [
     {
       id: 1,
@@ -77,7 +77,9 @@ const VideoSection = () => {
     document.body.appendChild(script);
     
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
   
@@ -115,7 +117,8 @@ const VideoSection = () => {
                       src={`https://www.youtube.com/embed/${video.youtubeId}`} 
                       title={video.title}
                       frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                       className="rounded-t-lg"
                     ></iframe>
@@ -139,21 +142,19 @@ const VideoSection = () => {
                 className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]"
               >
                 <CardContent className="p-0">
-                  <div className="relative aspect-video">
+                  <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
                     <iframe 
-                      src={`https://player.vimeo.com/video/${video.vimeoId}`} 
-                      width="100%" 
-                      height="100%" 
+                      src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`} 
                       frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture" 
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       allowFullScreen
                       title={video.title}
-                      className="rounded-t-lg absolute top-0 left-0"
-                      style={{width: '100%', height: '100%'}}
+                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
+                      className="rounded-t-lg"
                     ></iframe>
                   </div>
                   
-                  <div className="p-5 mt-[56.25%]">
+                  <div className="p-5">
                     <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
                     <p className="text-gray-300 text-sm">{video.description}</p>
                   </div>

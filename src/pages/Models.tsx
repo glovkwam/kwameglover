@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -30,6 +29,23 @@ const Models = () => {
         </p>
         
         <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
+              <p className="text-gray-300 mb-6">
+                A virtual reality exploration showcasing immersive design techniques and interactive elements.
+                Created with Adobe Illustrator and Blender Substance Painter.
+              </p>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
+                  alt="VR Project" 
+                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
+                />
+              </div>
+            </CardContent>
+          </Card>
+        
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
@@ -76,26 +92,9 @@ const Models = () => {
               </div>
               <div className="mt-6">
                 <img 
-                  src="/lovable-uploads/6acd0d18-9717-4cd3-8d7f-1b1035ecb5cf.png" 
+                  src="/lovable-uploads/1188abf2-1e5e-44d2-baa4-888c4a383c40.png" 
                   alt="My Room Blend" 
                   className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
-                />
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="cyber-card overflow-hidden">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
-              <p className="text-gray-300 mb-6">
-                A virtual reality exploration showcasing immersive design techniques and interactive elements.
-                Created with Adobe Illustrator and Blender Substance Painter.
-              </p>
-              <div className="flex justify-center">
-                <img 
-                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
-                  alt="VR Project" 
-                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
                 />
               </div>
             </CardContent>
