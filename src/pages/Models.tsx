@@ -112,7 +112,7 @@ const Models = () => {
               </p>
               <div className="w-full max-w-3xl mx-auto bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
                 <iframe 
-                  srcdoc={`
+                  srcDoc={`
                     <!DOCTYPE html>
                     <html lang="en">
                     <head>
