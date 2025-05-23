@@ -32,6 +32,66 @@ const Models = () => {
         <ModelViewer />
         
         <div className="mt-20">
+          <h2 className="section-heading relative z-10">Interactive 3D Projects</h2>
+          
+          <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
+            <Card className="cyber-card overflow-hidden">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
+                <p className="text-gray-300 mb-6">
+                  An interactive 3D experience exploring creative digital environments and immersive storytelling.
+                </p>
+                <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                  <iframe 
+                    src="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/" 
+                    frameBorder="0" 
+                    scrolling="yes" 
+                    width="100%" 
+                    height="100%" 
+                    className="absolute inset-0"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="cyber-card overflow-hidden">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
+                <p className="text-gray-300 mb-6">
+                  A virtual reality exploration showcasing immersive design techniques and interactive elements.
+                </p>
+                <div className="flex justify-center">
+                  <img 
+                    src="https://cdn.glitch.global/93c093d6-9c56-4aeb-8bee-ed8806236dd4/VR.JPEG?v=1668817067984" 
+                    alt="VR Project" 
+                    className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="cyber-card overflow-hidden">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-4">My Room Blend</h3>
+                <p className="text-gray-300 mb-6">
+                  An interactive 3D room environment with custom design elements and interactive features.
+                </p>
+                <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                  <iframe 
+                    src="https://myroomblend.glitch.me/" 
+                    frameBorder="0" 
+                    scrolling="yes" 
+                    width="100%" 
+                    height="100%" 
+                    className="absolute inset-0"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className="mt-20">
           <h2 className="section-heading relative z-10">MaxMSP Audio-Visual Project</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
             <div>

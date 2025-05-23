@@ -1,90 +1,160 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Youtube } from 'lucide-react';
+import { Youtube, Video } from 'lucide-react';
+import { extractYouTubeId } from '@/utils/youtubeUtils';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface VideoData {
   id: number;
   title: string;
   youtubeId?: string;
+  vimeoId?: string;
   description: string;
+  type: 'youtube' | 'vimeo';
 }
 
 const VideoSection = () => {
+  const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
+  
   // Sample data - replace with your actual video data
   const videos: VideoData[] = [
     {
       id: 1,
-      title: "How Good  is Deepseek AI?",
-      youtubeId: "8vxFQ_BkX0Q&t", // Replace with your actual YouTube video ID
-      description: "How good is Deepseek AI? This Chinese AI is OVERPOWERED!"
+      title: "How Good is Deepseek AI?",
+      youtubeId: "8vxFQ_BkX0Q",
+      description: "How good is Deepseek AI? This Chinese AI is OVERPOWERED!",
+      type: 'youtube'
     },
     {
       id: 2,
-      title: "3D Modeling Basics",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "Learn the basics of 3D modeling with this comprehensive tutorial."
+      title: "The Gap",
+      youtubeId: "TzpTxhnCqok",
+      description: "Insightful video about the creative process and improvement.",
+      type: 'youtube'
     },
     {
       id: 3,
-      title: "Cybersecurity for Artists",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "How artists can protect their digital creations in an online world."
+      title: "Deep Learning Tutorial",
+      youtubeId: "o_eVrpslFBM",
+      description: "Learn about deep learning techniques and applications.",
+      type: 'youtube'
     },
     {
       id: 4,
-      title: "Game Development Journey",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "My journey into game development - challenges and triumphs."
+      title: "3D Animation Project",
+      vimeoId: "1087220508",
+      description: "Showcase of 3D animation techniques and creative process.",
+      type: 'vimeo'
     },
     {
       id: 5,
-      title: "Cloud Computing for Creative Projects",
-      youtubeId: "dQw4w9WgXcQ", // Replace with your actual YouTube video ID
-      description: "How cloud computing enhances my creative workflow."
+      title: "Motion Graphics Demo",
+      vimeoId: "1087221195",
+      description: "Demonstration of motion graphics skills and effects.",
+      type: 'vimeo'
+    },
+    {
+      id: 6,
+      title: "Visual Effects Reel",
+      vimeoId: "1087225071",
+      description: "A compilation of visual effects work showcasing technical skills.",
+      type: 'vimeo'
+    },
+    {
+      id: 7,
+      title: "Editing Portfolio",
+      vimeoId: "1087228874",
+      description: "Video editing portfolio with various styles and techniques.",
+      type: 'vimeo'
     }
   ];
   
   return (
     <section id="videos" className="section-container bg-transparent">
       <h2 className="section-heading">Video Content</h2>
-      <p className="text-gray-300 max-w-2xl mb-12">
-        Explore my video content covering digital art techniques, cybersecurity insights, and creative tutorials.
+      <p className="text-gray-300 max-w-2xl mb-8">
+        Explore my video content covering digital art techniques, creative process, and technical demonstrations.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
-        {videos.map((video) => (
-          <Card 
-            key={video.id} 
-            className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)]"
-          >
-            <CardContent className="p-0">
-              {/* Embedded YouTube Video */}
-              <div className="relative aspect-video">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={`https://www.youtube.com/embed/${video.youtubeId}`} 
-                  title={video.title}
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  className="rounded-t-lg"
-                ></iframe>
-              </div>
-              
-              {/* Video Info */}
-              <div className="p-5">
-                <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
-                <p className="text-gray-300 text-sm">{video.description}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <Tabs defaultValue="youtube" className="w-full max-w-5xl mx-auto">
+        <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
+          <TabsTrigger value="youtube" className="data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark">
+            <Youtube className="mr-2 h-4 w-4" />
+            YouTube
+          </TabsTrigger>
+          <TabsTrigger value="vimeo" className="data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark">
+            <Video className="mr-2 h-4 w-4" />
+            Vimeo
+          </TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="youtube" className="focus-visible:outline-none focus-visible:ring-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.filter(v => v.type === 'youtube').map((video) => (
+              <Card 
+                key={video.id} 
+                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)]"
+              >
+                <CardContent className="p-0">
+                  <div className="relative aspect-video">
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`} 
+                      title={video.title}
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                      className="rounded-t-lg"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="p-5">
+                    <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
+                    <p className="text-gray-300 text-sm">{video.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="vimeo" className="focus-visible:outline-none focus-visible:ring-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {videos.filter(v => v.type === 'vimeo').map((video) => (
+              <Card 
+                key={video.id} 
+                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(155,135,245,0.3)]"
+              >
+                <CardContent className="p-0">
+                  <div className="relative aspect-video">
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      src={`https://player.vimeo.com/video/${video.vimeoId}`} 
+                      title={video.title}
+                      frameBorder="0" 
+                      allow="autoplay; fullscreen; picture-in-picture" 
+                      allowFullScreen
+                      className="rounded-t-lg"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="p-5">
+                    <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
+                    <p className="text-gray-300 text-sm">{video.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
       
       <div className="mt-16 text-center">
         <a 
-          href="https://www.youtube.com/watch?v=DHzldFRClGI" 
+          href="https://www.youtube.com/@CreatorKwam" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cyber-button inline-flex mx-auto"
