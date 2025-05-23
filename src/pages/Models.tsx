@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -22,73 +21,83 @@ const Models = () => {
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyber-purple/20 rounded-full blur-[100px] animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyber-accent/20 rounded-full blur-[100px] animate-pulse"></div>
         
-        <h2 className="section-heading relative z-10">3D Models & Interactive Media</h2>
+        <h2 className="section-heading relative z-10">Interactive 3D Projects</h2>
         <p className="text-gray-300 max-w-3xl mb-12 relative z-10 animate-fade-in">
           A collection of 3D models and interactive media projects created using Blender, MaxMSP, 
           Cinema 4D, and Adobe Creative Suite. These projects showcase the intersection of visual art, 
           sound design, and interactive technology.
         </p>
         
-        <ModelViewer />
-        
-        <div className="mt-20">
-          <h2 className="section-heading relative z-10">Interactive 3D Projects</h2>
+        <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
+              <p className="text-gray-300 mb-6">
+                An interactive 3D experience exploring creative digital environments and immersive storytelling.
+              </p>
+              <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                <iframe 
+                  src="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/" 
+                  frameBorder="0" 
+                  scrolling="yes" 
+                  width="100%" 
+                  height="100%" 
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
+              <div className="mt-6">
+                <img 
+                  src="/lovable-uploads/2d9e9148-7e79-4554-ab82-77a8e99c4ec2.png" 
+                  alt="Wonderland Project" 
+                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
+                />
+              </div>
+            </CardContent>
+          </Card>
           
-          <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
-            <Card className="cyber-card overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
-                <p className="text-gray-300 mb-6">
-                  An interactive 3D experience exploring creative digital environments and immersive storytelling.
-                </p>
-                <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
-                  <iframe 
-                    src="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/" 
-                    frameBorder="0" 
-                    scrolling="yes" 
-                    width="100%" 
-                    height="100%" 
-                    className="absolute inset-0"
-                  ></iframe>
-                </div>
-              </CardContent>
-            </Card>
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-white mb-4">My Room Blend</h3>
+              <p className="text-gray-300 mb-6">
+                An interactive 3D room environment with custom design elements and interactive features.
+                Created using Adobe Illustrator and Blender Substance Painter.
+              </p>
+              <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                <iframe 
+                  src="https://myroomblend.glitch.me/" 
+                  frameBorder="0" 
+                  scrolling="yes" 
+                  width="100%" 
+                  height="100%" 
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
+              <div className="mt-6">
+                <img 
+                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
+                  alt="My Room Blend" 
+                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
+                />
+              </div>
+            </CardContent>
+          </Card>
             
-            <Card className="cyber-card overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
-                <p className="text-gray-300 mb-6">
-                  A virtual reality exploration showcasing immersive design techniques and interactive elements.
-                </p>
-                <div className="flex justify-center">
-                  <img 
-                    src="https://cdn.glitch.global/93c093d6-9c56-4aeb-8bee-ed8806236dd4/VR.JPEG?v=1668817067984" 
-                    alt="VR Project" 
-                    className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
-                  />
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="cyber-card overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">My Room Blend</h3>
-                <p className="text-gray-300 mb-6">
-                  An interactive 3D room environment with custom design elements and interactive features.
-                </p>
-                <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
-                  <iframe 
-                    src="https://myroomblend.glitch.me/" 
-                    frameBorder="0" 
-                    scrolling="yes" 
-                    width="100%" 
-                    height="100%" 
-                    className="absolute inset-0"
-                  ></iframe>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
+              <p className="text-gray-300 mb-6">
+                A virtual reality exploration showcasing immersive design techniques and interactive elements.
+                Created with Adobe Illustrator and Blender Substance Painter.
+              </p>
+              <div className="flex justify-center">
+                <img 
+                  src="https://cdn.glitch.global/93c093d6-9c56-4aeb-8bee-ed8806236dd4/VR.JPEG?v=1668817067984" 
+                  alt="VR Project" 
+                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
+                />
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="mt-20">
@@ -143,7 +152,7 @@ const Models = () => {
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="bg-cyber-accent/90 hover:bg-cyber-accent text-cyber-dark transition-colors duration-300 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-cyber-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 010 9.87v4.263a1 1 0 01.555.832l3.197-2.132a1 1 0 000-1.664z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </button>

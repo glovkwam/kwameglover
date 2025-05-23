@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Youtube, Video } from 'lucide-react';
-import { extractYouTubeId } from '@/utils/youtubeUtils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface VideoData {
@@ -17,7 +16,7 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Sample data - replace with your actual video data
+  // Updated video data with the correct IDs
   const videos: VideoData[] = [
     {
       id: 1,
