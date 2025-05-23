@@ -11,6 +11,7 @@ import PicoW from './pages/PicoW';
 import Models from './pages/Models';
 import GraphicDesign from './pages/GraphicDesign';
 import JavaScriptArt from './pages/JavaScriptArt';
+import Game from './pages/Game';
 import { CMSProvider } from './context/CMSContext';
 import GlobalCMS from './components/GlobalCMS';
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/models" element={<Models />} />
             <Route path="/design" element={<GraphicDesign />} />
             <Route path="/javascript-art" element={<JavaScriptArt />} />
+            <Route path="/game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

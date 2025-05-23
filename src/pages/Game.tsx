@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const Game = () => {
   useEffect(() => {
-    document.title = "Game Development | Digital Artist Portfolio";
+    document.title = "Nanotech Warrior | CreatorKwam";
   }, []);
 
   return (
@@ -16,7 +16,9 @@ const Game = () => {
       <div className="floating-orb w-64 h-64 top-1/4 right-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
       
       <Navbar />
-      <GameSection />
+      <div className="pt-28 pb-16">
+        <GameSection />
+      </div>
       <Footer />
     </div>
   );

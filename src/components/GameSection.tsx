@@ -7,8 +7,8 @@ import { Gamepad, Link, Code } from 'lucide-react';
 const GameSection = () => {
   // Replace with your actual game information
   const gameInfo = {
-    title: "Cyber Defense",
-    description: "An immersive game where players defend a digital network from cyber attacks. Combining strategy, action, and cybersecurity concepts, players must protect critical infrastructure while learning about real security principles.",
+    title: "Nanotech Warrior",
+    description: "An immersive game where players take on the role of a futuristic warrior equipped with nanotech abilities. Navigate through a cybernetic world, upgrade your abilities, and face increasingly challenging adversaries in this action-packed adventure.",
     features: [
       "Multiple levels with increasing difficulty",
       "Interactive network defense mechanics",
@@ -34,28 +34,24 @@ const GameSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          <Card className="cyber-card overflow-hidden">
+          {/* Game Embed */}
+          <Card className="cyber-card overflow-hidden mb-8">
             <CardContent className="p-0">
-              <div className="relative aspect-video">
-                <img 
-                  src={gameInfo.thumbnail} 
-                  alt={gameInfo.title} 
-                  className="w-full h-full object-cover" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Gamepad className="h-5 w-5 text-cyber-accent" />
-                    <span className="text-cyber-accent font-semibold text-sm uppercase tracking-wider">
-                      Game Project
-                    </span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white">{gameInfo.title}</h3>
-                </div>
+              <div className="aspect-video">
+                <iframe 
+                  src="https://itch.io/embed-upload/9110770?color=121212" 
+                  allowFullScreen
+                  width="100%" 
+                  height="600"
+                  title="Nanotech Warrior"
+                  className="w-full border-0"
+                  frameBorder="0"
+                ></iframe>
               </div>
             </CardContent>
           </Card>
           
+          {/* Screenshots */}
           <div className="mt-8 grid grid-cols-2 gap-4">
             {gameInfo.screenshots.map((screenshot, index) => (
               <div key={index} className={`rounded-lg overflow-hidden ${index === 2 ? 'col-span-2' : ''}`}>
@@ -98,10 +94,15 @@ const GameSection = () => {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark">
+              <a 
+                href="https://glovkwam.itch.io/nanotech-warrior" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark"
+              >
                 <Gamepad className="mr-2 h-4 w-4" />
-                Play Demo
-              </Button>
+                Play on itch.io
+              </a>
               <Button variant="outline" className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10">
                 <Code className="mr-2 h-4 w-4" />
                 View Technical Details
