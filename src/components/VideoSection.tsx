@@ -16,7 +16,7 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with the correct IDs from the embed codes provided
+  // Updated video data with all 7 videos including the two new YouTube videos
   const videos: VideoData[] = [
     {
       id: 1,
@@ -41,27 +41,41 @@ const VideoSection = () => {
     },
     {
       id: 4,
+      title: "New YouTube Video 1",
+      youtubeId: "DHzldFRClGI",
+      description: "Latest YouTube content showcasing creative techniques.",
+      type: 'youtube'
+    },
+    {
+      id: 5,
+      title: "New YouTube Video 2",
+      youtubeId: "ui4381ptGXQ",
+      description: "Another exciting YouTube video with educational content.",
+      type: 'youtube'
+    },
+    {
+      id: 6,
       title: "AI Takeover",
       vimeoId: "1087220508",
       description: "Showcase of 3D animation techniques and creative process.",
       type: 'vimeo'
     },
     {
-      id: 5,
+      id: 7,
       title: "Humanity Reborn",
       vimeoId: "1087221195",
       description: "Demonstration of motion graphics skills and effects.",
       type: 'vimeo'
     },
     {
-      id: 6,
+      id: 8,
       title: "The Future of Creatorkwam",
       vimeoId: "1087225071",
       description: "A compilation of visual effects work showcasing technical skills.",
       type: 'vimeo'
     },
     {
-      id: 7,
+      id: 9,
       title: "The Kaiju Returns",
       vimeoId: "1087228874",
       description: "Video editing portfolio with various styles and techniques.",
@@ -90,13 +104,19 @@ const VideoSection = () => {
         Explore my video content covering digital art techniques, creative process, and technical demonstrations.
       </p>
       
-      <Tabs defaultValue="youtube" className="w-full max-w-5xl mx-auto">
-        <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
-          <TabsTrigger value="youtube" className="data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark">
+      <Tabs defaultValue="youtube" className="w-full max-w-6xl mx-auto">
+        <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2 bg-cyber-light">
+          <TabsTrigger 
+            value="youtube" 
+            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark"
+          >
             <Youtube className="mr-2 h-4 w-4" />
             YouTube
           </TabsTrigger>
-          <TabsTrigger value="vimeo" className="data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark">
+          <TabsTrigger 
+            value="vimeo" 
+            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark"
+          >
             <Video className="mr-2 h-4 w-4" />
             Video Editing
           </TabsTrigger>

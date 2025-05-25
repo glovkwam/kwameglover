@@ -1,7 +1,7 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ModelViewer from '@/components/ModelViewer';
 import { Card, CardContent } from "@/components/ui/card";
 import { AudioLines, FileCode, Cuboid } from 'lucide-react';
 
@@ -29,23 +29,6 @@ const Models = () => {
         </p>
         
         <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
-          <Card className="cyber-card overflow-hidden">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
-              <p className="text-gray-300 mb-6">
-                A virtual reality exploration showcasing immersive design techniques and interactive elements.
-                Created with Adobe Illustrator and Blender Substance Painter.
-              </p>
-              <div className="flex justify-center">
-                <img 
-                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
-                  alt="VR Project" 
-                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-white mb-4">Wonderland Project</h3>
@@ -99,174 +82,20 @@ const Models = () => {
               </div>
             </CardContent>
           </Card>
-        </div>
 
-        <div className="mt-20">
-          <h2 className="section-heading relative z-10">JavaScript Artwork</h2>
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-4">Interactive Butterfly Animation</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">VR Project</h3>
               <p className="text-gray-300 mb-6">
-                A creative JavaScript animation that responds to mouse movement, featuring dynamic shapes and colors.
+                A virtual reality exploration showcasing immersive design techniques and interactive elements.
+                Created with Adobe Illustrator and Blender Substance Painter.
               </p>
-              <div className="w-full max-w-3xl mx-auto bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
-                <iframe 
-                  srcDoc={`
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                      <meta charset="UTF-8">
-                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <title>JavaScript Animation</title>
-                      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-                      <style>
-                        body { margin: 0; padding: 0; overflow: hidden; background-color: #111; }
-                        canvas { display: block; }
-                      </style>
-                    </head>
-                    <body>
-                      <script>
-                        let mic;
-                        let ground;
-                        let stars;
-                        let sunX = 0;
-                        
-                        let myInt = 52;
-                        let yoff = 0;
-                        const dots = [];
-                        var x = 280;
-                        var y = 280;
-                        function setup() {
-                          createCanvas(350, 350);
-                          frameRate(10);
-                          mic = new p5.AudioIn();
-                          mic.start();
-                          stars = createGraphics(width, height);
-                          stars.background(32, 0, 64);
-                          for (let i = 0; i < 1000; i++) {
-                            stars.stroke(255);
-                            stars.strokeWeight(2);
-                            stars.point(random(width), random(height));
-                          }
-                          ground = createGraphics(width, height * 0.25);
-                          ground.background(32);
-                          for (let i = 0; i < 1000; i++) {
-                            ground.noStroke();
-                            ground.fill(0, random(50), 0);
-                            ground.square(random(ground.width), random(ground.height), 10);
-                          }
-                        }
-                        
-                        function draw() {
-                          image(stars, 0, 0);
-                          image(ground, 0, height * 0.75);
-                        
-                          push();
-                          translate(width / 2, height / 2);
-                          let da = PI / 200;
-                          let dx = 0.03;
-                          let xoff = 0;
-                        
-                          beginShape();
-                          for (let a = 0; a <= TWO_PI; a += da) {
-                            let n = noise(xoff, yoff);
-                            let r = sin(2 * a) * map(n, 0, 1, 5, 300);
-                            let x = r * cos(a);
-                            let y = r * sin(a);
-                            if (a < PI) {
-                              xoff += dx;
-                            } else {
-                              xoff -= dx;
-                            }
-                            vertex(x, y);
-                          }
-                          endShape();
-                          pop();
-                          yoff += 0.01;
-                          
-                          push();
-                          fill(229, 220, 170);
-                          noStroke();
-                          circle(sunX, height / 9, 50);
-                          sunX = (sunX + 3) % width;
-                          pop();
-                          
-                          push();
-                          stroke(100);
-                          strokeWeight(10);
-                          line(250, 200, 300, 50, 90, 100);
-                          pop();
-                          
-                          push();
-                          stroke(100);
-                          strokeWeight(10);
-                          line(250, 210, 200, 50, 90, 90);
-                          pop();
-                          
-                          body();
-                          head();
-                          leftEye(width / 2.1, height / 2.4);
-                          rightEye();
-                          mouth();
-                          
-                          for (var i=0; i<10; i++) {
-                            var xDis = random(-180, 180);
-                            var yDis = random(-180, 180);
-                            butterfly(mouseX+xDis, mouseY+yDis);
-                          }
-                         
-                          x = x+random(-5, 6);
-                          y = y+random(-4, 4);
-                          butterfly(x, y);
-                        }
-                        
-                        function mouth() {
-                          ellipse(height / 2, width / 2.2, 30, 10);
-                        }
-                        
-                        function head() {
-                          fill(100, 10, 250);
-                          ellipse(width / 2, height / 2.3, 70);
-                        }
-                        
-                        function leftEye(xpos, ypos) {
-                          fill(25, 250, 10);
-                          ellipse(xpos, ypos, 10, 10);
-                        }
-                        
-                        function rightEye() {
-                          ellipse(width / 1.9, height / 2.4, 10, 10);
-                        }
-                        
-                        function body() {
-                          fill(108, 10, 250);
-                          ellipse(width / 2, height / 1.6, 50, 200);
-                        }
-                        
-                        function butterfly(x, y) {
-                          line(x-15,y-10,x,y);
-                          line(x+15,y-10,x,y);
-                          fill(255, 220, 0);
-                          ellipse(x-25,y+20,35,30);
-                          ellipse(x-25,y+40,35,30);
-                          ellipse(x+25,y+20,35,30);
-                          ellipse(x+25,y+40,35,30);
-                          ellipse(x,y+30,30,60);
-                        }
-                      </script>
-                    </body>
-                    </html>
-                  `}
-                  width="100%" 
-                  height="400" 
-                  className="border-0"
-                  title="JavaScript Animation"
-                ></iframe>
-              </div>
-              <div className="mt-6 text-center">
-                <p className="text-gray-300 text-sm">
-                  This interactive animation combines visual elements with user interaction. Move your mouse to interact with the butterflies.
-                </p>
+              <div className="flex justify-center">
+                <img 
+                  src="/lovable-uploads/f1e40aed-80c8-46d5-b76d-f4017f33d0d0.png" 
+                  alt="VR Project" 
+                  className="rounded-md border border-cyber-accent/30 max-h-80 object-contain"
+                />
               </div>
             </CardContent>
           </Card>
@@ -316,19 +145,14 @@ const Models = () => {
             
             <div className="relative group">
               <div className="relative aspect-video bg-cyber-light rounded-lg overflow-hidden border border-cyber-accent/30 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(155,135,245,0.3)]">
-                <img 
-                  src="https://source.unsplash.com/random/800x450?audio+visualizer" 
-                  alt="MaxMSP Project" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-cyber-accent/90 hover:bg-cyber-accent text-cyber-dark transition-colors duration-300 rounded-full p-4 transform scale-0 group-hover:scale-100 transition-transform duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-cyber-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 010 9.87v4.263a1 1 0 01.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </button>
-                </div>
+                <video 
+                  src="/kg.mp4" 
+                  controls
+                  className="w-full h-full object-cover"
+                  poster="https://source.unsplash.com/random/800x450?audio+visualizer"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-cyber-accent/20 rounded-full blur-3xl animate-pulse"></div>

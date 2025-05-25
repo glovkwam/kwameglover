@@ -40,9 +40,10 @@ const JavaScriptArt = () => {
               </p>
               <div className="aspect-square w-full bg-cyber-dark relative rounded-md border border-cyber-accent/30 overflow-hidden">
                 <iframe 
-                  src="./RNDM.html" 
+                  src="/RNDM.html" 
                   title="Random Triangles Artwork" 
                   className="w-full h-full border-0"
+                  style={{ width: '100%', height: '100%' }}
                 ></iframe>
               </div>
             </CardContent>
@@ -60,9 +61,10 @@ const JavaScriptArt = () => {
               </p>
               <div className="aspect-square w-full bg-cyber-dark relative rounded-md border border-cyber-accent/30 overflow-hidden">
                 <iframe 
-                  src="./rr.html" 
+                  src="/rr.html" 
                   title="Random Cubes Artwork" 
                   className="w-full h-full border-0"
+                  style={{ width: '100%', height: '100%' }}
                 ></iframe>
               </div>
             </CardContent>
@@ -80,9 +82,10 @@ const JavaScriptArt = () => {
               </p>
               <div className="aspect-square w-full bg-cyber-dark relative rounded-md border border-cyber-accent/30 overflow-hidden">
                 <iframe 
-                  src="./fye.html" 
+                  src="/fye.html" 
                   title="Butterfly Animation" 
                   className="w-full h-full border-0"
+                  style={{ width: '100%', height: '100%' }}
                 ></iframe>
               </div>
             </CardContent>
@@ -100,9 +103,10 @@ const JavaScriptArt = () => {
               </p>
               <div className="aspect-square w-full bg-cyber-dark relative rounded-md border border-cyber-accent/30 overflow-hidden">
                 <iframe 
-                  src="./RNDM2.html" 
+                  src="/RNDM2.html" 
                   title="Kwam's Flower" 
                   className="w-full h-full border-0"
+                  style={{ width: '100%', height: '100%' }}
                 ></iframe>
               </div>
             </CardContent>
@@ -120,9 +124,10 @@ const JavaScriptArt = () => {
               </p>
               <div className="aspect-square w-full bg-cyber-dark relative rounded-md border border-cyber-accent/30 overflow-hidden">
                 <iframe 
-                  src="./fl.html" 
+                  src="/fl.html" 
                   title="Fireworks Display" 
                   className="w-full h-full border-0"
+                  style={{ width: '100%', height: '100%' }}
                 ></iframe>
               </div>
             </CardContent>
