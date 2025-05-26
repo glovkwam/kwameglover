@@ -20,7 +20,8 @@ const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({ embedId, title = "Embedded 
         pointerEvents: 'auto',
         border: 'none',
         outline: 'none',
-        zIndex: 10
+        zIndex: 10,
+        cursor: 'default' // Fixed cursor to prevent glitchy behavior
       }}
     />
   </div>
