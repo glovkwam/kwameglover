@@ -32,7 +32,7 @@ const GameSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          {/* Game Embed */}
+          {/* Game Embed - Made Larger and More Interactive */}
           <Card className="cyber-card overflow-hidden mb-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-0">
               <div className="aspect-video bg-black relative overflow-hidden w-full">
@@ -40,15 +40,19 @@ const GameSection = () => {
                   src="https://glovkwam.github.io/Nanotech-Warrior/" 
                   width="100%" 
                   height="100%"
-                  title="Nanotech Warrior"
-                  className="w-full h-full border-0 cursor-pointer"
+                  title="Nanotech Warrior - Click to Play"
+                  className="w-full h-full border-0"
                   frameBorder="0"
                   allowFullScreen
+                  allow="gamepad; fullscreen"
                   style={{ 
-                    minHeight: '400px',
-                    pointerEvents: 'auto'
+                    minHeight: '500px',
+                    cursor: 'pointer'
                   }}
                 ></iframe>
+                <div className="absolute top-4 left-4 bg-cyber-accent/90 text-cyber-dark px-3 py-1 rounded-full text-sm font-semibold">
+                  Click to Play
+                </div>
               </div>
             </CardContent>
           </Card>

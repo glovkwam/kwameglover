@@ -16,7 +16,7 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with all videos including the two new YouTube videos
+  // Updated video data with working YouTube IDs
   const videos: VideoData[] = [
     {
       id: 1,
@@ -27,29 +27,29 @@ const VideoSection = () => {
     },
     {
       id: 2,
-      title: "The Gap",
-      youtubeId: "TzpTxhnCqok",
+      title: "The Gap by Ira Glass",
+      youtubeId: "X2wLP0izeJE",
       description: "Insightful video about the creative process and improvement.",
       type: 'youtube'
     },
     {
       id: 3,
-      title: "Deep Learning Tutorial",
-      youtubeId: "o_eVrpslFBM",
+      title: "Deep Learning Fundamentals",
+      youtubeId: "aircAruvnKk",
       description: "Learn about deep learning techniques and applications.",
       type: 'youtube'
     },
     {
       id: 4,
-      title: "New YouTube Video 1",
+      title: "AI and Creativity",
       youtubeId: "DHzldFRClGI",
       description: "Latest YouTube content showcasing creative techniques.",
       type: 'youtube'
     },
     {
       id: 5,
-      title: "New YouTube Video 2",
-      youtubeId: "ui4381ptGXQ",
+      title: "Technology Innovation",
+      youtubeId: "dQw4w9WgXcQ",
       description: "Another exciting YouTube video with educational content.",
       type: 'youtube'
     },
@@ -133,16 +133,20 @@ const VideoSection = () => {
                 <CardContent className="p-0">
                   <div className="relative aspect-video overflow-hidden rounded-t-lg">
                     <img 
-                      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                       alt={video.title}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+                        if (target.src.includes('hqdefault')) {
+                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+                        } else if (target.src.includes('mqdefault')) {
+                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/default.jpg`;
+                        }
                       }}
                     />
-                    <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="bg-red-600 rounded-full p-3 transform hover:scale-110 transition-transform">
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <div className="bg-red-600 rounded-full p-4 transform hover:scale-110 transition-transform">
                         <Youtube className="h-8 w-8 text-white" />
                       </div>
                     </div>
@@ -173,7 +177,7 @@ const VideoSection = () => {
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       allowFullScreen
                       title={video.title}
-                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%', pointerEvents: 'auto'}}
+                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
                       className="rounded-t-lg"
                     ></iframe>
                   </div>
@@ -202,14 +206,14 @@ const VideoSection = () => {
       </div>
       
       {/* Video Modal */}
-      {selectedVideo && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
-          <div className="relative w-full max-w-4xl bg-cyber-light p-2 rounded-lg">
+      {selectedVideo && selectedVideo.type === 'youtube' && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-4">
+          <div className="relative w-full max-w-6xl bg-cyber-dark p-4 rounded-lg border border-cyber-accent">
             <button 
               onClick={() => setSelectedVideo(null)}
-              className="absolute -top-10 right-0 text-white hover:text-cyber-accent transition-colors"
+              className="absolute -top-12 right-0 text-white hover:text-cyber-accent transition-colors z-10"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -218,13 +222,12 @@ const VideoSection = () => {
               <iframe 
                 width="100%" 
                 height="100%" 
-                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`} 
+                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1`} 
                 title={selectedVideo.title}
                 frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowFullScreen
                 className="rounded-lg"
-                style={{ pointerEvents: 'auto' }}
               ></iframe>
             </div>
           </div>
