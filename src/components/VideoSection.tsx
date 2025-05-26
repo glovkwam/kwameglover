@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Youtube, Video } from 'lucide-react';
@@ -123,7 +124,7 @@ const VideoSection = () => {
                 className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)]"
               >
                 <CardContent className="p-0">
-                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                  <div className="relative aspect-video overflow-hidden rounded-t-lg bg-black">
                     <YoutubeEmbed embedId={video.youtubeId!} title={video.title} />
                   </div>
                   
