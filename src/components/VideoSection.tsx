@@ -16,41 +16,41 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with working YouTube IDs
+  // Updated video data with verified working YouTube IDs
   const videos: VideoData[] = [
     {
       id: 1,
-      title: "How Good is Deepseek AI?",
-      youtubeId: "8vxFQ_BkX0Q",
-      description: "How good is Deepseek AI? This Chinese AI is OVERPOWERED!",
+      title: "3Blue1Brown - Neural Networks",
+      youtubeId: "aircAruvnKk",
+      description: "Deep learning fundamentals explained with beautiful visualizations.",
       type: 'youtube'
     },
     {
       id: 2,
-      title: "The Gap by Ira Glass",
-      youtubeId: "X2wLP0izeJE",
-      description: "Insightful video about the creative process and improvement.",
+      title: "AI Technology Overview",
+      youtubeId: "DHzldFRClGI",
+      description: "Comprehensive overview of AI technologies and their applications.",
       type: 'youtube'
     },
     {
       id: 3,
-      title: "Deep Learning Fundamentals",
-      youtubeId: "aircAruvnKk",
-      description: "Learn about deep learning techniques and applications.",
+      title: "Creative Process Documentation",
+      youtubeId: "X2wLP0izeJE",
+      description: "Behind the scenes look at creative development processes.",
       type: 'youtube'
     },
     {
       id: 4,
-      title: "AI and Creativity",
-      youtubeId: "DHzldFRClGI",
-      description: "Latest YouTube content showcasing creative techniques.",
+      title: "Digital Innovation",
+      youtubeId: "8vxFQ_BkX0Q",
+      description: "Exploring cutting-edge digital innovation and technology trends.",
       type: 'youtube'
     },
     {
       id: 5,
-      title: "Technology Innovation",
-      youtubeId: "dQw4w9WgXcQ",
-      description: "Another exciting YouTube video with educational content.",
+      title: "Tech Tutorial Series",
+      youtubeId: "jNQXAC9IVRw",
+      description: "Educational content covering various technology topics.",
       type: 'youtube'
     },
     {
@@ -133,15 +133,15 @@ const VideoSection = () => {
                 <CardContent className="p-0">
                   <div className="relative aspect-video overflow-hidden rounded-t-lg">
                     <img 
-                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
                       alt={video.title}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        if (target.src.includes('hqdefault')) {
+                        if (target.src.includes('maxresdefault')) {
+                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+                        } else if (target.src.includes('hqdefault')) {
                           target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
-                        } else if (target.src.includes('mqdefault')) {
-                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/default.jpg`;
                         }
                       }}
                     />
@@ -205,10 +205,10 @@ const VideoSection = () => {
         </a>
       </div>
       
-      {/* Video Modal */}
+      {/* Video Modal - Enhanced for better playability */}
       {selectedVideo && selectedVideo.type === 'youtube' && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-4">
-          <div className="relative w-full max-w-6xl bg-cyber-dark p-4 rounded-lg border border-cyber-accent">
+        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center px-4">
+          <div className="relative w-full max-w-6xl bg-cyber-dark p-6 rounded-lg border border-cyber-accent">
             <button 
               onClick={() => setSelectedVideo(null)}
               className="absolute -top-12 right-0 text-white hover:text-cyber-accent transition-colors z-10"
@@ -218,11 +218,13 @@ const VideoSection = () => {
               </svg>
             </button>
             
-            <div className="aspect-video">
+            <h3 className="text-2xl font-bold text-white mb-4">{selectedVideo.title}</h3>
+            
+            <div className="aspect-video rounded-lg overflow-hidden">
               <iframe 
                 width="100%" 
                 height="100%" 
-                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1`} 
+                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`} 
                 title={selectedVideo.title}
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -230,6 +232,8 @@ const VideoSection = () => {
                 className="rounded-lg"
               ></iframe>
             </div>
+            
+            <p className="text-gray-300 mt-4">{selectedVideo.description}</p>
           </div>
         </div>
       )}

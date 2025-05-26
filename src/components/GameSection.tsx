@@ -32,26 +32,29 @@ const GameSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          {/* Game Embed - Made Larger and More Interactive */}
+          {/* Game Embed - Made Much Larger and More Interactive */}
           <Card className="cyber-card overflow-hidden mb-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-0">
-              <div className="aspect-video bg-black relative overflow-hidden w-full">
+              <div className="relative bg-black w-full" style={{ height: '600px' }}>
                 <iframe 
                   src="https://glovkwam.github.io/Nanotech-Warrior/" 
                   width="100%" 
                   height="100%"
-                  title="Nanotech Warrior - Click to Play"
-                  className="w-full h-full border-0"
+                  title="Nanotech Warrior - Interactive Game"
+                  className="w-full h-full border-0 rounded-lg"
                   frameBorder="0"
                   allowFullScreen
-                  allow="gamepad; fullscreen"
+                  allow="gamepad; fullscreen; pointer-lock; autoplay"
                   style={{ 
-                    minHeight: '500px',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    backgroundColor: 'black'
                   }}
                 ></iframe>
-                <div className="absolute top-4 left-4 bg-cyber-accent/90 text-cyber-dark px-3 py-1 rounded-full text-sm font-semibold">
-                  Click to Play
+                <div className="absolute top-4 left-4 bg-cyber-accent/90 text-cyber-dark px-4 py-2 rounded-full text-sm font-bold animate-pulse">
+                  🎮 Click Inside to Play
+                </div>
+                <div className="absolute top-4 right-4 bg-black/80 text-cyber-accent px-3 py-1 rounded-full text-xs">
+                  Use Arrow Keys + Space
                 </div>
               </div>
             </CardContent>
