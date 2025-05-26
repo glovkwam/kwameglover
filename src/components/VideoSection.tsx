@@ -16,7 +16,7 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with all 7 videos including the two new YouTube videos
+  // Updated video data with all videos including the two new YouTube videos
   const videos: VideoData[] = [
     {
       id: 1,
@@ -108,14 +108,14 @@ const VideoSection = () => {
         <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2 bg-cyber-light">
           <TabsTrigger 
             value="youtube" 
-            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark"
+            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark hover:bg-cyber-accent/20 transition-colors"
           >
             <Youtube className="mr-2 h-4 w-4" />
             YouTube
           </TabsTrigger>
           <TabsTrigger 
             value="vimeo" 
-            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark"
+            className="text-white data-[state=active]:bg-cyber-accent data-[state=active]:text-cyber-dark hover:bg-cyber-accent/20 transition-colors"
           >
             <Video className="mr-2 h-4 w-4" />
             Video Editing
@@ -134,7 +134,7 @@ const VideoSection = () => {
                     <iframe 
                       width="100%" 
                       height="100%" 
-                      src={`https://www.youtube.com/embed/${video.youtubeId}`} 
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?enablejsapi=1&origin=${window.location.origin}`} 
                       title={video.title}
                       frameBorder="0" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -190,7 +190,7 @@ const VideoSection = () => {
           href="https://www.youtube.com/@CreatorKwam" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="cyber-button inline-flex mx-auto"
+          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-colors"
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel

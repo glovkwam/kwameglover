@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CircuitBoard, Code, Settings } from 'lucide-react';
+import { CircuitBoard, Code, Settings, Youtube } from 'lucide-react';
 import { useCMS } from '@/context/CMSContext';
 import CMSButton from '@/components/ui/cms-button';
 
@@ -37,8 +38,8 @@ const PicoWSection = () => {
             
             <div className="mb-6">
               <img 
-                src="https://source.unsplash.com/random/600x400?led+lights" 
-                alt="LED Installation" 
+                src="/lovable-uploads/25d42dd4-e8f5-4d65-a4b0-6220484599cc.png" 
+                alt="LED Installation with colorful lights" 
                 className="w-full h-64 object-cover rounded-lg mb-4 hover:opacity-80 transition-opacity duration-300" 
               />
               <p className="text-gray-300 text-sm">
@@ -78,8 +79,8 @@ const PicoWSection = () => {
             </div>
             
             <img 
-              src="https://source.unsplash.com/random/600x400?sensors" 
-              alt="Environmental Monitor" 
+              src="/lovable-uploads/6e26be77-e99e-4d4c-b403-98f2381291fa.png" 
+              alt="Circuit board with Pico W setup" 
               className="w-full h-48 object-cover rounded-lg mb-4 hover:opacity-80 transition-opacity duration-300" 
             />
             
@@ -95,6 +96,83 @@ const PicoWSection = () => {
                 <li>Cloud connectivity via MQTT</li>
                 <li>Custom visualization interface</li>
               </ul>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card className="cyber-card transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
+          <CardContent className="p-6">
+            <div className="flex items-center mb-4">
+              <Youtube className="h-6 w-6 text-cyber-accent mr-2" />
+              <h3 className="text-xl font-bold text-white">Project Showcase</h3>
+            </div>
+            
+            <div className="aspect-video bg-black relative overflow-hidden rounded-lg mb-4">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/sk48wbHVxoU" 
+                title="Pico W Project Showcase"
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="rounded-lg"
+              ></iframe>
+            </div>
+            
+            <p className="text-gray-300 text-sm">
+              Watch this short video showcasing the Pico W projects in action,
+              demonstrating the interactive capabilities and creative potential.
+            </p>
+          </CardContent>
+        </Card>
+        
+        <Card className="cyber-card lg:col-span-2 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-bold text-white mb-4">Project Gallery</h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <img 
+                src="/lovable-uploads/0aee3bf7-b921-4b7c-9e6b-4978c6d975c5.png" 
+                alt="Pico W Project - LED Strip Setup" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+              <img 
+                src="/lovable-uploads/85bb239c-3627-4c27-9299-7c7252651640.png" 
+                alt="Pico W Project - Interactive Installation" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+              <img 
+                src="/lovable-uploads/1cb7422b-abd0-4ce2-bce1-b829d14c1d1d.png" 
+                alt="Pico W Project - Circuit Details" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+              <img 
+                src="https://source.unsplash.com/random/300x300?programming" 
+                alt="Programming Setup" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+              <img 
+                src="https://source.unsplash.com/random/300x300?iot" 
+                alt="IoT Implementation" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+              <img 
+                src="https://source.unsplash.com/random/300x300?raspberry+pi" 
+                alt="Raspberry Pi Projects" 
+                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
+              />
+            </div>
+            
+            <div className="mt-6">
+              <h4 className="text-md font-semibold text-cyber-accent mb-2">Future Directions</h4>
+              <p className="text-gray-300 text-sm">
+                I'm currently exploring how these microcontroller projects can integrate with cybersecurity concepts,
+                creating interactive installations that visualize network security principles and data privacy concerns.
+                The next phase involves connecting these physical computing projects to cloud infrastructure for remote
+                monitoring and control.
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -163,60 +241,11 @@ while True:
             </pre>
           </CardContent>
         </Card>
-        
-        <Card className="cyber-card lg:col-span-2 transform transition-all duration-500 hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-bold text-white mb-4">Project Gallery</h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <img 
-                src="https://source.unsplash.com/random/300x300?electronics" 
-                alt="Pico Project 1" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-              <img 
-                src="https://source.unsplash.com/random/300x300?microcontroller" 
-                alt="Pico Project 2" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-              <img 
-                src="https://source.unsplash.com/random/300x300?circuit" 
-                alt="Pico Project 3" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-              <img 
-                src="https://source.unsplash.com/random/300x300?programming" 
-                alt="Pico Project 4" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-              <img 
-                src="https://source.unsplash.com/random/300x300?iot" 
-                alt="Pico Project 5" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-              <img 
-                src="https://source.unsplash.com/random/300x300?raspberry+pi" 
-                alt="Pico Project 6" 
-                className="w-full h-28 object-cover rounded-lg hover:scale-110 transition-transform duration-500" 
-              />
-            </div>
-            
-            <div className="mt-6">
-              <h4 className="text-md font-semibold text-cyber-accent mb-2">Future Directions</h4>
-              <p className="text-gray-300 text-sm">
-                I'm currently exploring how these microcontroller projects can integrate with cybersecurity concepts,
-                creating interactive installations that visualize network security principles and data privacy concerns.
-                The next phase involves connecting these physical computing projects to cloud infrastructure for remote
-                monitoring and control.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
       
       <div className="mt-16 text-center relative z-10">
         <a 
-          href="https://github.com/" 
+          href="https://github.com/glovkwam" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cyber-button inline-flex mx-auto transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"

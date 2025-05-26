@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Home</Link>
           <Link to="/about" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">About</Link>
           <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">YouTube</Link>
-          <Link to="/design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Design</Link>
+          <Link to="/web-design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Web Design</Link>
           <Link to="/art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
           <Link to="/models" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">3D Models</Link>
           <Link to="/picow" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Pico W</Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
           <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
           <Link to="/youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
-          <Link to="/design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Design</Link>
+          <Link to="/web-design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Web Design</Link>
           <Link to="/art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
           <Link to="/models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
           <Link to="/picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>

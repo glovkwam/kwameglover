@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import PicoW from './pages/PicoW';
 import Models from './pages/Models';
-import GraphicDesign from './pages/GraphicDesign';
+import WebDesign from './pages/WebDesign';
 import JavaScriptArt from './pages/JavaScriptArt';
 import Game from './pages/Game';
 import { CMSProvider } from './context/CMSContext';
@@ -28,7 +28,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/picow" element={<PicoW />} />
             <Route path="/models" element={<Models />} />
-            <Route path="/design" element={<GraphicDesign />} />
+            <Route path="/web-design" element={<WebDesign />} />
             <Route path="/javascript-art" element={<JavaScriptArt />} />
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<NotFound />} />

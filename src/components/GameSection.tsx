@@ -36,7 +36,7 @@ const GameSection = () => {
           {/* Game Embed */}
           <Card className="cyber-card overflow-hidden mb-8">
             <CardContent className="p-0">
-              <div className="aspect-video bg-black relative overflow-hidden">
+              <div className="aspect-[392/827] bg-black relative overflow-hidden max-w-md mx-auto">
                 <iframe 
                   src="https://glovkwam.github.io/Nanotech-Warrior/" 
                   width="100%" 
@@ -45,6 +45,7 @@ const GameSection = () => {
                   className="w-full h-full border-0"
                   frameBorder="0"
                   allowFullScreen
+                  style={{ minHeight: '600px' }}
                 ></iframe>
               </div>
             </CardContent>
@@ -57,7 +58,7 @@ const GameSection = () => {
                 <img 
                   src={screenshot} 
                   alt={`Game Screenshot ${index + 1}`} 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
                 />
               </div>
             ))}
@@ -97,7 +98,7 @@ const GameSection = () => {
                 href="https://glovkwam.itch.io/nanotech-warrior" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark"
+                className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-colors"
               >
                 <Gamepad className="mr-2 h-4 w-4" />
                 Play on itch.io
@@ -106,7 +107,7 @@ const GameSection = () => {
                 href="https://glovkwam.github.io/Nanotech-Warrior/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10"
+                className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-colors"
               >
                 <Link className="mr-2 h-4 w-4" />
                 Play Online
