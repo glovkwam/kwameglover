@@ -1,95 +1,48 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Github, Youtube } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
   return (
-    <footer className="bg-cyber-dark border-t border-cyber-accent/20">
-      <div className="max-w-7xl mx-auto py-12 px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-cyber-accent">Portfolio</h3>
-            <p className="text-gray-400">
-              Digital artist and aspiring cybersecurity professional, creating at the intersection of art and technology.
-            </p>
-            <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Github className="h-5 w-5" />
+    <footer className="bg-cyber-light border-t border-cyber-accent/20 py-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-cyber-accent to-cyber-purple rounded-full flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L16 6L14.74 12.26L22 12L15.74 13.09L18 16L11.74 14.74L12 22L10.91 15.74L8 18L9.26 11.74L2 12L8.26 10.91L6 8L12.26 9.26L12 2Z" fill="white"/>
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-cyber-accent">CreatorKwam</span>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            <h4 className="text-cyber-accent font-semibold">Connect</h4>
+            <div className="flex space-x-4">
+              <a
+                href="https://github.com/glovkwam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-cyber-accent transition-colors duration-300"
+              >
+                <Github size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Youtube className="h-5 w-5" />
+              <a
+                href="https://www.youtube.com/@CreatorKwam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-cyber-accent transition-colors duration-300"
+              >
+                <Youtube size={20} />
               </a>
             </div>
           </div>
           
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
-            <ul className="grid grid-cols-2 gap-2">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-cyber-accent transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link to="/youtube" className="text-gray-400 hover:text-cyber-accent transition-colors">YouTube</Link>
-              </li>
-              <li>
-                <Link to="/design" className="text-gray-400 hover:text-cyber-accent transition-colors">Design</Link>
-              </li>
-              <li>
-                <Link to="/art" className="text-gray-400 hover:text-cyber-accent transition-colors">JS Art</Link>
-              </li>
-              <li>
-                <Link to="/models" className="text-gray-400 hover:text-cyber-accent transition-colors">3D Models</Link>
-              </li>
-              <li>
-                <Link to="/picow" className="text-gray-400 hover:text-cyber-accent transition-colors">Pico W</Link>
-              </li>
-              <li>
-                <Link to="/game" className="text-gray-400 hover:text-cyber-accent transition-colors">Game</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-400 hover:text-cyber-accent transition-colors">Contact</Link>
-              </li>
-            </ul>
+          <div className="text-center md:text-right">
+            <p className="text-gray-400 text-sm">
+              © 2024 CreatorKwam. All rights reserved.
+            </p>
           </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">About</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Projects</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Blog</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resources</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Privacy Policy</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="border-t border-cyber-accent/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {currentYear} Digital Portfolio. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-sm mt-4 md:mt-0">
-            Designed and Developed with <span className="text-cyber-accent animate-pulse">❤️</span> and code.
-          </p>
         </div>
       </div>
     </footer>

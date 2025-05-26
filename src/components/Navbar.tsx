@@ -1,81 +1,106 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { cn } from '@/lib/utils';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navigation = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'YouTube', path: '/videos' },
+    { name: 'Web Design', path: '/web-design' },
+    { name: 'JS Art', path: '/js-art' },
+    { name: '3D Models', path: '/models' },
+    { name: 'Pico W', path: '/pico-w' },
+    { name: 'Game', path: '/game' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12",
-      isScrolled ? "bg-cyber-dark/90 backdrop-blur-md py-3 shadow-lg" : "py-6"
-    )}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="text-cyber-accent text-2xl font-bold">
-          <Link to="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-            Portfolio<span className="text-white">.</span>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? 'bg-cyber-dark/90 backdrop-blur-md border-b border-cyber-accent/20' : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex justify-between items-center h-16">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-cyber-accent to-cyber-purple rounded-full flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L13.09 8.26L16 6L14.74 12.26L22 12L15.74 13.09L18 16L11.74 14.74L12 22L10.91 15.74L8 18L9.26 11.74L2 12L8.26 10.91L6 8L12.26 9.26L12 2Z" fill="white"/>
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-cyber-accent">Portfolio</span>
           </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`text-sm font-medium transition-all duration-300 hover:text-cyber-accent relative ${
+                  location.pathname === item.path ? 'text-cyber-accent' : 'text-gray-300'
+                }`}
+              >
+                {item.name}
+                {location.pathname === item.path && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyber-accent to-cyber-purple"></div>
+                )}
+              </Link>
+            ))}
+          </div>
+
+          {/* Contact Button */}
+          <div className="hidden lg:block">
+            <Link
+              to="/contact"
+              className="cyber-button text-sm px-4 py-2"
+            >
+              Contact
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden text-gray-300 hover:text-cyber-accent transition-colors"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-        
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Home</Link>
-          <Link to="/about" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">About</Link>
-          <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">YouTube</Link>
-          <Link to="/web-design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Web Design</Link>
-          <Link to="/art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
-          <Link to="/models" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">3D Models</Link>
-          <Link to="/picow" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Pico W</Link>
-          <Link to="/game" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Game</Link>
-          <Link to="/contact" className="cyber-button transform transition duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,246,255,0.5)]">Contact</Link>
-        </div>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          )}
-        </button>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="lg:hidden absolute top-16 left-0 w-full bg-cyber-dark/95 backdrop-blur-md border-b border-cyber-accent/20">
+            <div className="px-6 py-4 space-y-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-sm font-medium transition-all duration-300 hover:text-cyber-accent ${
+                    location.pathname === item.path ? 'text-cyber-accent' : 'text-gray-300'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-      
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
-          <Link to="/youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
-          <Link to="/web-design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Web Design</Link>
-          <Link to="/art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
-          <Link to="/models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
-          <Link to="/picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>
-          <Link to="/game" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</Link>
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="cyber-button text-xl mt-4">Contact</Link>
-        </div>
-      )}
     </nav>
   );
 };
