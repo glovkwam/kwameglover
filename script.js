@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.feature-card, .card, .hero-content').forEach(el => {
         observer.observe(el);
     });
+
+    // Initialize interactive elements
+    makeVideosClickable();
+    makeGameClickable();
+    makeLinksClickable();
 });
 
 // Video functionality
@@ -81,41 +86,61 @@ function makeVideosClickable() {
     
     videoContainers.forEach(container => {
         const iframe = container.querySelector('iframe');
-        if (iframe && iframe.src.includes('youtube.com')) {
-            // Make YouTube videos clickable
+        if (iframe) {
+            // Make videos clickable and interactive
             iframe.style.pointerEvents = 'auto';
             container.style.cursor = 'pointer';
+            container.classList.add('clickable');
             
-            container.addEventListener('click', function(e) {
-                if (e.target === container) {
-                    const src = iframe.src;
-                    if (!src.includes('autoplay=1')) {
-                        iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
-                    }
-                }
+            // Add hover effect
+            container.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
             });
+            
+            container.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+
+            // Enable autoplay on click for YouTube videos
+            if (iframe.src.includes('youtube.com')) {
+                container.addEventListener('click', function(e) {
+                    if (e.target === container || e.target === iframe) {
+                        const src = iframe.src;
+                        if (!src.includes('autoplay=1')) {
+                            iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+                        }
+                    }
+                });
+            }
         }
     });
 }
 
 // Game functionality
 function makeGameClickable() {
-    const gameContainers = document.querySelectorAll('.game-container, .video-container');
+    const gameContainers = document.querySelectorAll('.game-container, .game-iframe-container');
     
     gameContainers.forEach(container => {
         const iframe = container.querySelector('iframe');
         if (iframe) {
             iframe.style.pointerEvents = 'auto';
             container.style.cursor = 'pointer';
+            container.classList.add('clickable');
             
             // Add hover effect
             container.addEventListener('mouseenter', function() {
-                container.style.transform = 'scale(1.02)';
-                container.style.transition = 'transform 0.3s ease';
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
             });
             
             container.addEventListener('mouseleave', function() {
-                container.style.transform = 'scale(1)';
+                this.style.transform = 'scale(1)';
+            });
+
+            // Make sure iframe is interactive
+            iframe.addEventListener('load', function() {
+                this.style.pointerEvents = 'auto';
             });
         }
     });
@@ -123,13 +148,14 @@ function makeGameClickable() {
 
 // External links functionality
 function makeLinksClickable() {
-    const externalLinks = document.querySelectorAll('.external-link, a[href^="http"]');
+    const externalLinks = document.querySelectorAll('.external-link, a[href^="http"], a[target="_blank"]');
     
     externalLinks.forEach(link => {
         link.style.pointerEvents = 'auto';
         link.style.cursor = 'pointer';
+        link.classList.add('clickable');
         
-        // Ensure target and rel attributes are set
+        // Ensure target and rel attributes are set for external links
         if (link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'))) {
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
@@ -145,21 +171,34 @@ function makeLinksClickable() {
             this.style.color = '#00f6ff';
             this.style.transform = 'translateX(0)';
         });
+
+        // Ensure click events work
+        link.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // Let the default action happen (opening the link)
+        });
+    });
+
+    // Also handle navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+        
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('#')) {
+                window.location.href = href;
+            }
+        });
     });
 }
-
-// Initialize interactive elements when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    makeVideosClickable();
-    makeGameClickable();
-    makeLinksClickable();
-});
 
 // Utility function to create video embed
 function createVideoEmbed(videoId, type = 'youtube') {
     if (type === 'youtube') {
         return `
-            <div class="video-container">
+            <div class="video-container clickable">
                 <iframe 
                     src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=${window.location.origin}" 
                     title="YouTube video player" 
@@ -172,7 +211,7 @@ function createVideoEmbed(videoId, type = 'youtube') {
         `;
     } else if (type === 'vimeo') {
         return `
-            <div class="video-container">
+            <div class="video-container clickable">
                 <iframe 
                     src="https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479" 
                     frameborder="0" 
@@ -207,8 +246,42 @@ function displayJavaScriptArt() {
             title: "Fireworks Display",
             description: "An interactive fireworks simulation that responds to user clicks, creating colorful explosions.",
             file: "fl.html"
+        },
+        {
+            title: "Kwam's Flower",
+            description: "A beautiful 3D flower animation with mathematical precision and artistic flair.",
+            file: "RNDM2.html"
         }
     ];
 
     return artworks;
 }
+
+// Enhanced click handling for better compatibility
+document.addEventListener('click', function(e) {
+    // Ensure external links work
+    if (e.target.matches('.external-link, .external-link *')) {
+        const link = e.target.closest('.external-link');
+        if (link && link.href) {
+            window.open(link.href, '_blank', 'noopener,noreferrer');
+        }
+    }
+});
+
+// Force enable pointer events on all interactive elements
+function forceInteractivity() {
+    const interactiveSelectors = [
+        'a', 'button', 'iframe', '.video-container', '.game-container', 
+        '.nav-link', '.external-link', '.btn', '.clickable'
+    ];
+    
+    interactiveSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(element => {
+            element.style.pointerEvents = 'auto';
+            element.style.cursor = 'pointer';
+        });
+    });
+}
+
+// Run on page load
+window.addEventListener('load', forceInteractivity);
