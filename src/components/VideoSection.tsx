@@ -134,11 +134,10 @@ const VideoSection = () => {
                     <iframe 
                       width="100%" 
                       height="100%" 
-                      src={`https://www.youtube.com/embed/${video.youtubeId}?enablejsapi=1&origin=${window.location.origin}`} 
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`} 
                       title={video.title}
                       frameBorder="0" 
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                       className="rounded-t-lg"
                     ></iframe>
@@ -164,7 +163,7 @@ const VideoSection = () => {
                 <CardContent className="p-0">
                   <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
                     <iframe 
-                      src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`} 
+                      src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`} 
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       allowFullScreen
