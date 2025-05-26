@@ -15,8 +15,6 @@ interface VideoData {
 }
 
 const VideoSection = () => {
-  const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
-  
   // Updated with your specific YouTube video IDs
   const videos: VideoData[] = [
     {
