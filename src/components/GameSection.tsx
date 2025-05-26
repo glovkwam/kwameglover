@@ -16,11 +16,10 @@ const GameSection = () => {
       "Stunning visuals and sound design"
     ],
     technologies: ["Unity", "C#", "Photoshop", "Adobe After Effects"],
-    thumbnail: "https://source.unsplash.com/random/1200x800?video+game",
     screenshots: [
-      "https://source.unsplash.com/random/800x450?game+screenshot+1",
-      "https://source.unsplash.com/random/800x450?game+screenshot+2",
-      "https://source.unsplash.com/random/800x450?game+screenshot+3"
+      "/lovable-uploads/45b9641a-59f8-48ff-b75b-20ce167bfad5.png",
+      "/lovable-uploads/d981768f-0eab-4fe0-b14b-2a93f334ae71.png",
+      "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
   
@@ -34,18 +33,21 @@ const GameSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           {/* Game Embed */}
-          <Card className="cyber-card overflow-hidden mb-8">
+          <Card className="cyber-card overflow-hidden mb-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-0">
-              <div className="aspect-[392/827] bg-black relative overflow-hidden max-w-md mx-auto">
+              <div className="aspect-video bg-black relative overflow-hidden w-full">
                 <iframe 
                   src="https://glovkwam.github.io/Nanotech-Warrior/" 
                   width="100%" 
                   height="100%"
                   title="Nanotech Warrior"
-                  className="w-full h-full border-0"
+                  className="w-full h-full border-0 cursor-pointer"
                   frameBorder="0"
                   allowFullScreen
-                  style={{ minHeight: '600px' }}
+                  style={{ 
+                    minHeight: '400px',
+                    pointerEvents: 'auto'
+                  }}
                 ></iframe>
               </div>
             </CardContent>
@@ -54,11 +56,11 @@ const GameSection = () => {
           {/* Screenshots */}
           <div className="mt-8 grid grid-cols-2 gap-4">
             {gameInfo.screenshots.map((screenshot, index) => (
-              <div key={index} className={`rounded-lg overflow-hidden ${index === 2 ? 'col-span-2' : ''}`}>
+              <div key={index} className={`rounded-lg overflow-hidden ${index === 2 ? 'col-span-2' : ''} transition-transform duration-300 hover:scale-105`}>
                 <img 
                   src={screenshot} 
-                  alt={`Game Screenshot ${index + 1}`} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                  alt={`Nanotech Warrior Screenshot ${index + 1}`} 
+                  className="w-full h-full object-cover" 
                 />
               </div>
             ))}
@@ -98,7 +100,7 @@ const GameSection = () => {
                 href="https://glovkwam.itch.io/nanotech-warrior" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-colors"
+                className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <Gamepad className="mr-2 h-4 w-4" />
                 Play on itch.io
@@ -107,7 +109,7 @@ const GameSection = () => {
                 href="https://glovkwam.github.io/Nanotech-Warrior/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-colors"
+                className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <Link className="mr-2 h-4 w-4" />
                 Play Online

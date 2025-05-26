@@ -127,20 +127,25 @@ const VideoSection = () => {
             {videos.filter(v => v.type === 'youtube').map((video) => (
               <Card 
                 key={video.id} 
-                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)]"
+                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)] cursor-pointer"
+                onClick={() => setSelectedVideo(video)}
               >
                 <CardContent className="p-0">
-                  <div className="relative aspect-video">
-                    <iframe 
-                      width="100%" 
-                      height="100%" 
-                      src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`} 
-                      title={video.title}
-                      frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      allowFullScreen
-                      className="rounded-t-lg"
-                    ></iframe>
+                  <div className="relative aspect-video overflow-hidden rounded-t-lg">
+                    <img 
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="bg-red-600 rounded-full p-3 transform hover:scale-110 transition-transform">
+                        <Youtube className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="p-5">
@@ -168,7 +173,7 @@ const VideoSection = () => {
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       allowFullScreen
                       title={video.title}
-                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}}
+                      style={{position:'absolute',top:0,left:0,width:'100%',height:'100%', pointerEvents: 'auto'}}
                       className="rounded-t-lg"
                     ></iframe>
                   </div>
@@ -189,12 +194,42 @@ const VideoSection = () => {
           href="https://www.youtube.com/@CreatorKwam" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-colors"
+          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel
         </a>
       </div>
+      
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
+          <div className="relative w-full max-w-4xl bg-cyber-light p-2 rounded-lg">
+            <button 
+              onClick={() => setSelectedVideo(null)}
+              className="absolute -top-10 right-0 text-white hover:text-cyber-accent transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="aspect-video">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`} 
+                title={selectedVideo.title}
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="rounded-lg"
+                style={{ pointerEvents: 'auto' }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
