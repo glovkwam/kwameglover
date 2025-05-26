@@ -226,15 +226,15 @@ def hsv_to_rgb(h, s, v):
     x = c * (1 - abs((h / 60) % 2 - 1))
     m = v - c
     
-    if 0 <= h < 60:
+    if 0 &lt;= h &lt; 60:
         r, g, b = c, x, 0
-    elif 60 <= h < 120:
+    elif 60 &lt;= h &lt; 120:
         r, g, b = x, c, 0
-    elif 120 <= h < 180:
+    elif 120 &lt;= h &lt; 180:
         r, g, b = 0, c, x
-    elif 180 <= h < 240:
+    elif 180 &lt;= h &lt; 240:
         r, g, b = 0, x, c
-    elif 240 <= h < 300:
+    elif 240 &lt;= h &lt; 300:
         r, g, b = x, 0, c
     else:
         r, g, b = c, 0, x
