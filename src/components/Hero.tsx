@@ -40,7 +40,7 @@ const Hero = () => {
     <section id="home" className="pt-20 min-h-screen hero-gradient relative overflow-hidden flex items-center">
       {/* Background grid decoration */}
       <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: 'radial-gradient(#9b87f5 1px, transparent 1px), radial-gradient(#9b87f5 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(#00f6ff 1px, transparent 1px), radial-gradient(#00f6ff 1px, transparent 1px)',
         backgroundSize: '40px 40px',
         backgroundPosition: '0 0, 20px 20px'
       }}></div>
@@ -61,13 +61,13 @@ const Hero = () => {
               I create digital art, JavaScript visualizations, 3D models, and video games while pursuing my passion in cybersecurity and cloud computing.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link to="/contact" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+              <Link to="/contact" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,246,255,0.5)]">
                 Get In Touch
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link to="/videos" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+              <Link to="/youtube" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,246,255,0.5)]">
                 View My Work
               </Link>
             </div>
@@ -75,7 +75,7 @@ const Hero = () => {
           
           <div className="md:w-1/2 mt-12 md:mt-0 animate-float">
             <div ref={profileRef} className="relative transition-all duration-300">
-              <div className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-r from-cyber-accent/30 to-cyber-purple/30 flex items-center justify-center overflow-hidden border border-cyber-accent/50 shadow-[0_0_30px_rgba(155,135,245,0.2)] transition-all duration-500">
+              <div className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-r from-cyber-accent/30 to-cyber-purple/30 flex items-center justify-center overflow-hidden border border-cyber-accent/50 shadow-[0_0_30px_rgba(0,246,255,0.2)] transition-all duration-500">
                 <img 
                   src="/lovable-uploads/48edb253-4d87-43c3-aa41-0ad7b797e209.png" 
                   alt="Kwame Glover" 
