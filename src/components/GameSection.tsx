@@ -32,10 +32,10 @@ const GameSection = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-          {/* Enhanced Game Embed - Larger and More Interactive */}
+          {/* Enhanced Game Embed - 16:9 Aspect Ratio and Wider */}
           <Card className="cyber-card overflow-hidden mb-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-0">
-              <div className="relative bg-black w-full" style={{ height: '700px' }}>
+              <div className="game-responsive">
                 <iframe 
                   src="https://glovkwam.github.io/Nanotech-Warrior/" 
                   width="100%" 
@@ -46,8 +46,12 @@ const GameSection = () => {
                   allowFullScreen
                   allow="gamepad; fullscreen; pointer-lock; autoplay; clipboard-write"
                   style={{ 
+                    pointerEvents: 'auto',
                     cursor: 'pointer',
-                    backgroundColor: 'black'
+                    backgroundColor: 'black',
+                    border: 'none',
+                    outline: 'none',
+                    zIndex: 10
                   }}
                   loading="eager"
                 ></iframe>
