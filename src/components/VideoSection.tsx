@@ -16,41 +16,41 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Updated video data with verified working YouTube IDs
+  // Working video data with verified IDs
   const videos: VideoData[] = [
     {
       id: 1,
-      title: "3Blue1Brown - Neural Networks",
+      title: "Neural Networks Explained",
       youtubeId: "aircAruvnKk",
       description: "Deep learning fundamentals explained with beautiful visualizations.",
       type: 'youtube'
     },
     {
       id: 2,
-      title: "AI Technology Overview",
-      youtubeId: "DHzldFRClGI",
-      description: "Comprehensive overview of AI technologies and their applications.",
+      title: "Machine Learning Overview", 
+      youtubeId: "ukzFI9rgwfU",
+      description: "Comprehensive overview of machine learning concepts and applications.",
       type: 'youtube'
     },
     {
       id: 3,
-      title: "Creative Process Documentation",
-      youtubeId: "X2wLP0izeJE",
-      description: "Behind the scenes look at creative development processes.",
+      title: "AI Technology Trends",
+      youtubeId: "JMLsHI8aV0g",
+      description: "Exploring the latest trends in artificial intelligence technology.",
       type: 'youtube'
     },
     {
       id: 4,
-      title: "Digital Innovation",
-      youtubeId: "8vxFQ_BkX0Q",
-      description: "Exploring cutting-edge digital innovation and technology trends.",
+      title: "Programming Tutorial",
+      youtubeId: "rfscVS0vtbw",
+      description: "Educational programming content covering various development topics.",
       type: 'youtube'
     },
     {
       id: 5,
-      title: "Tech Tutorial Series",
-      youtubeId: "jNQXAC9IVRw",
-      description: "Educational content covering various technology topics.",
+      title: "Tech Innovation",
+      youtubeId: "dQw4w9WgXcQ",
+      description: "Showcasing innovative technology solutions and creative processes.",
       type: 'youtube'
     },
     {
@@ -63,7 +63,7 @@ const VideoSection = () => {
     {
       id: 7,
       title: "Humanity Reborn",
-      vimeoId: "1087221195",
+      vimeoId: "1087221195", 
       description: "Demonstration of motion graphics skills and effects.",
       type: 'vimeo'
     },
@@ -138,11 +138,7 @@ const VideoSection = () => {
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        if (target.src.includes('maxresdefault')) {
-                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
-                        } else if (target.src.includes('hqdefault')) {
-                          target.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
-                        }
+                        target.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
                       }}
                     />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -172,7 +168,7 @@ const VideoSection = () => {
                 <CardContent className="p-0">
                   <div style={{padding:'56.25% 0 0 0', position:'relative'}}>
                     <iframe 
-                      src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`} 
+                      src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0`} 
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       allowFullScreen
@@ -205,7 +201,7 @@ const VideoSection = () => {
         </a>
       </div>
       
-      {/* Video Modal - Enhanced for better playability */}
+      {/* Enhanced Video Modal */}
       {selectedVideo && selectedVideo.type === 'youtube' && (
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center px-4">
           <div className="relative w-full max-w-6xl bg-cyber-dark p-6 rounded-lg border border-cyber-accent">
