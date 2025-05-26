@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Youtube, Video } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import YoutubeEmbed from './YoutubeEmbed';
 
 interface VideoData {
   id: number;
@@ -120,25 +120,11 @@ const VideoSection = () => {
             {videos.filter(v => v.type === 'youtube').map((video) => (
               <Card 
                 key={video.id} 
-                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)] cursor-pointer"
-                onClick={() => setSelectedVideo(video)}
+                className="cyber-card transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_rgba(0,246,255,0.3)]"
               >
                 <CardContent className="p-0">
                   <div className="relative aspect-video overflow-hidden rounded-t-lg">
-                    <img 
-                      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
-                      alt={video.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <div className="bg-red-600 rounded-full p-4 transform hover:scale-110 transition-transform">
-                        <Youtube className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
+                    <YoutubeEmbed embedId={video.youtubeId!} title={video.title} />
                   </div>
                   
                   <div className="p-5">
@@ -193,39 +179,6 @@ const VideoSection = () => {
           Visit My YouTube Channel
         </a>
       </div>
-      
-      {/* Enhanced Video Modal */}
-      {selectedVideo && selectedVideo.type === 'youtube' && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center px-4">
-          <div className="relative w-full max-w-6xl bg-cyber-dark p-6 rounded-lg border border-cyber-accent">
-            <button 
-              onClick={() => setSelectedVideo(null)}
-              className="absolute -top-12 right-0 text-white hover:text-cyber-accent transition-colors z-10"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            <h3 className="text-2xl font-bold text-white mb-4">{selectedVideo.title}</h3>
-            
-            <div className="aspect-video rounded-lg overflow-hidden">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`} 
-                title={selectedVideo.title}
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                className="rounded-lg"
-              ></iframe>
-            </div>
-            
-            <p className="text-gray-300 mt-4">{selectedVideo.description}</p>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
