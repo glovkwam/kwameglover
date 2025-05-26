@@ -16,66 +16,59 @@ interface VideoData {
 const VideoSection = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
   
-  // Working video data with verified IDs
+  // Updated with your specific YouTube video IDs
   const videos: VideoData[] = [
     {
       id: 1,
-      title: "Neural Networks Explained",
-      youtubeId: "aircAruvnKk",
-      description: "Deep learning fundamentals explained with beautiful visualizations.",
+      title: "Featured Video 1",
+      youtubeId: "8vxFQ_BkX0Q",
+      description: "Educational content showcasing technical skills and creative process.",
       type: 'youtube'
     },
     {
       id: 2,
-      title: "Machine Learning Overview", 
-      youtubeId: "ukzFI9rgwfU",
-      description: "Comprehensive overview of machine learning concepts and applications.",
+      title: "Featured Video 2", 
+      youtubeId: "o_eVrpslFBM",
+      description: "In-depth tutorial covering advanced techniques and methodologies.",
       type: 'youtube'
     },
     {
       id: 3,
-      title: "AI Technology Trends",
-      youtubeId: "JMLsHI8aV0g",
-      description: "Exploring the latest trends in artificial intelligence technology.",
+      title: "Featured Video 3",
+      youtubeId: "Ao1EbN3yDJw",
+      description: "Comprehensive overview of project development and implementation.",
       type: 'youtube'
     },
     {
       id: 4,
-      title: "Programming Tutorial",
-      youtubeId: "rfscVS0vtbw",
-      description: "Educational programming content covering various development topics.",
+      title: "Featured Video 4",
+      youtubeId: "cC3g35h3qoU",
+      description: "Detailed walkthrough of creative processes and technical solutions.",
       type: 'youtube'
     },
     {
       id: 5,
-      title: "Tech Innovation",
-      youtubeId: "dQw4w9WgXcQ",
-      description: "Showcasing innovative technology solutions and creative processes.",
-      type: 'youtube'
-    },
-    {
-      id: 6,
       title: "AI Takeover",
       vimeoId: "1087220508",
       description: "Showcase of 3D animation techniques and creative process.",
       type: 'vimeo'
     },
     {
-      id: 7,
+      id: 6,
       title: "Humanity Reborn",
       vimeoId: "1087221195", 
       description: "Demonstration of motion graphics skills and effects.",
       type: 'vimeo'
     },
     {
-      id: 8,
+      id: 7,
       title: "The Future of Creatorkwam",
       vimeoId: "1087225071",
       description: "A compilation of visual effects work showcasing technical skills.",
       type: 'vimeo'
     },
     {
-      id: 9,
+      id: 8,
       title: "The Kaiju Returns",
       vimeoId: "1087228874",
       description: "Video editing portfolio with various styles and techniques.",
@@ -123,7 +116,7 @@ const VideoSection = () => {
         </TabsList>
         
         <TabsContent value="youtube" className="focus-visible:outline-none focus-visible:ring-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {videos.filter(v => v.type === 'youtube').map((video) => (
               <Card 
                 key={video.id} 
