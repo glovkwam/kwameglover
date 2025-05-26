@@ -194,6 +194,7 @@
   position: relative;
   height: 0;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 .video-responsive iframe {
@@ -205,4 +206,10 @@
   pointer-events: auto;
   border: none;
   outline: none;
+  cursor: pointer;
+}
+
+.video-responsive:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
 }
