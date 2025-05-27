@@ -23,14 +23,26 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = () => {
-    console.log('Itch button clicked');
-    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+  const handleItchClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Itch button clicked - opening itch.io');
+    try {
+      window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening itch.io link:', error);
+    }
   };
 
-  const handlePlayClick = () => {
-    console.log('Play button clicked');
-    window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
+  const handlePlayClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Play button clicked - opening game');
+    try {
+      window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening game link:', error);
+    }
   };
   
   return (
@@ -121,22 +133,21 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button 
+                <Button 
                   onClick={handleItchClick}
-                  className="inline-flex items-center justify-center rounded-md px-6 py-3 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
-                  type="button"
+                  className="bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3"
                 >
                   <Gamepad className="mr-2 h-4 w-4" />
                   Play on itch.io
-                </button>
-                <button 
+                </Button>
+                <Button 
                   onClick={handlePlayClick}
-                  className="inline-flex items-center justify-center rounded-md px-6 py-3 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
-                  type="button"
+                  variant="outline"
+                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3"
                 >
                   <Link className="mr-2 h-4 w-4" />
                   Play Online
-                </button>
+                </Button>
               </div>
             </div>
           </div>
