@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,13 +22,11 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleItchClick = () => {
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
 
-  const handlePlayClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handlePlayClick = () => {
     window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
   };
   
@@ -53,7 +50,7 @@ const GameSection = () => {
                 className="w-full h-full border-0 rounded-lg"
                 frameBorder="0"
                 allowFullScreen
-                allow="gamepad; fullscreen; pointer-lock; autoplay; clipboard-write"
+                allow="gamepad; fullscreen; pointer-lock; clipboard-write"
                 style={{ 
                   pointerEvents: 'auto',
                   cursor: 'pointer',
@@ -121,20 +118,21 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button 
+                <Button 
                   onClick={handleItchClick}
-                  className="inline-flex items-center justify-center rounded-md px-6 py-3 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
+                  className="bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark font-medium px-6 py-3"
                 >
                   <Gamepad className="mr-2 h-4 w-4" />
                   Play on itch.io
-                </button>
-                <button 
+                </Button>
+                <Button 
                   onClick={handlePlayClick}
-                  className="inline-flex items-center justify-center rounded-md px-6 py-3 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
+                  variant="outline"
+                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 font-medium px-6 py-3"
                 >
                   <Link className="mr-2 h-4 w-4" />
                   Play Online
-                </button>
+                </Button>
               </div>
             </div>
           </div>
