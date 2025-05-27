@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -239,6 +240,35 @@
 }
 
 .game-responsive:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.game-responsive-narrow {
+  overflow: hidden;
+  padding-bottom: 50%; /* Slightly taller than the wide version */
+  position: relative;
+  height: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  width: 100%;
+  max-width: 1200px; /* Narrower than the original 1600px */
+}
+
+.game-responsive-narrow iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.game-responsive-narrow:hover {
   transform: scale(1.02);
   transition: transform 0.2s ease;
 }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,25 +24,27 @@ const GameSection = () => {
   };
 
   const handleItchClick = () => {
+    console.log('Itch button clicked');
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
 
   const handlePlayClick = () => {
+    console.log('Play button clicked');
     window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
   };
   
   return (
     <section id="game" className="section-container bg-transparent">
-      <h2 className="section-heading">Video Game</h2>
+      <h2 className="section-heading">Nanotech Warrior</h2>
       <p className="text-gray-300 max-w-2xl mb-12">
         Dive into my video game development, where creativity meets interactivity and digital storytelling.
       </p>
       
       <div className="space-y-12">
-        {/* Enhanced Game Embed - Full Width and Wider */}
-        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
+        {/* Game Embed - Made Less Wide */}
+        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-5xl mx-auto">
           <CardContent className="p-0">
-            <div className="game-responsive mx-auto">
+            <div className="game-responsive-narrow mx-auto">
               <iframe 
                 src="https://glovkwam.github.io/Nanotech-Warrior/" 
                 width="100%" 
@@ -118,21 +121,22 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <Button 
+                <button 
                   onClick={handleItchClick}
-                  className="bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark font-medium px-6 py-3"
+                  className="inline-flex items-center justify-center rounded-md px-6 py-3 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
+                  type="button"
                 >
                   <Gamepad className="mr-2 h-4 w-4" />
                   Play on itch.io
-                </Button>
-                <Button 
+                </button>
+                <button 
                   onClick={handlePlayClick}
-                  variant="outline"
-                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 font-medium px-6 py-3"
+                  className="inline-flex items-center justify-center rounded-md px-6 py-3 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
+                  type="button"
                 >
                   <Link className="mr-2 h-4 w-4" />
                   Play Online
-                </Button>
+                </button>
               </div>
             </div>
           </div>
