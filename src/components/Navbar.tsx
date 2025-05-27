@@ -20,6 +20,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleMobileMenuToggle = () => {
+    console.log('Mobile menu toggle clicked');
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileMenuClose = () => {
+    console.log('Mobile menu item clicked');
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12",
@@ -47,8 +57,9 @@ const Navbar = () => {
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden text-white cursor-pointer"
+          onClick={handleMobileMenuToggle}
+          type="button"
         >
           {isMobileMenuOpen ? (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
@@ -65,15 +76,15 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
-          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
-          <Link to="/youtube" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
-          <Link to="/web-design" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Web Design</Link>
-          <Link to="/art" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
-          <Link to="/models" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
-          <Link to="/picow" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>
-          <Link to="/game" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</Link>
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="cyber-button text-xl mt-4">Contact</Link>
+          <Link to="/" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
+          <Link to="/about" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
+          <Link to="/youtube" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
+          <Link to="/web-design" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Web Design</Link>
+          <Link to="/art" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
+          <Link to="/models" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
+          <Link to="/picow" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>
+          <Link to="/game" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</Link>
+          <Link to="/contact" onClick={handleMobileMenuClose} className="cyber-button text-xl mt-4">Contact</Link>
         </div>
       )}
     </nav>

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Gamepad, Link, Code } from 'lucide-react';
 
 const GameSection = () => {
@@ -23,26 +22,14 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleItchClick = () => {
     console.log('Itch button clicked - opening itch.io');
-    try {
-      window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
-    } catch (error) {
-      console.error('Error opening itch.io link:', error);
-    }
+    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
 
-  const handlePlayClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handlePlayClick = () => {
     console.log('Play button clicked - opening game');
-    try {
-      window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
-    } catch (error) {
-      console.error('Error opening game link:', error);
-    }
+    window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
   };
   
   return (
@@ -133,21 +120,22 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <Button 
+                <button 
                   onClick={handleItchClick}
-                  className="bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3"
+                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer"
+                  type="button"
                 >
-                  <Gamepad className="mr-2 h-4 w-4" />
+                  <Gamepad className="h-4 w-4" />
                   Play on itch.io
-                </Button>
-                <Button 
+                </button>
+                <button 
                   onClick={handlePlayClick}
-                  variant="outline"
-                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3"
+                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent"
+                  type="button"
                 >
-                  <Link className="mr-2 h-4 w-4" />
+                  <Link className="h-4 w-4" />
                   Play Online
-                </Button>
+                </button>
               </div>
             </div>
           </div>
