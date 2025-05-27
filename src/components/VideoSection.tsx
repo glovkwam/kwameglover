@@ -95,6 +95,11 @@ const VideoSection = () => {
     console.log('Tab changed to:', value);
     setActiveTab(value);
   };
+
+  const handleYouTubeClick = () => {
+    console.log('Opening YouTube channel');
+    window.open('https://www.youtube.com/@CreatorKwam', '_blank', 'noopener,noreferrer');
+  };
   
   return (
     <section id="videos" className="section-container bg-transparent">
@@ -176,8 +181,9 @@ const VideoSection = () => {
       
       <div className="mt-16 text-center">
         <button
-          onClick={() => window.open('https://www.youtube.com/@CreatorKwam', '_blank')}
-          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+          onClick={handleYouTubeClick}
+          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer border-none outline-none"
+          style={{ pointerEvents: 'auto' }}
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel

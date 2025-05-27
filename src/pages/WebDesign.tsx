@@ -34,6 +34,11 @@ const WebDesign = () => {
     }
   ];
 
+  const handleSiteClick = (url: string) => {
+    console.log('Opening site:', url);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="min-h-screen bg-cyber-dark text-white animated-bg">
       <div className="floating-orb w-96 h-96 top-60 -right-40 blur-3xl"></div>
@@ -75,8 +80,9 @@ const WebDesign = () => {
                   ))}
                 </div>
                 <button
-                  onClick={() => window.open(site.url, '_blank')}
-                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
+                  onClick={() => handleSiteClick(site.url)}
+                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer border-none outline-none"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   View Site <ExternalLink className="ml-2 h-4 w-4" />
                 </button>
