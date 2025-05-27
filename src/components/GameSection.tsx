@@ -22,14 +22,28 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = () => {
+  const handleItchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Itch button clicked - opening itch.io');
-    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+    const url = 'https://glovkwam.itch.io/nanotech-warrior';
+    const newWindow = window.open(url, '_blank');
+    if (!newWindow) {
+      console.error('Failed to open new window, trying location.href');
+      window.location.href = url;
+    }
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Play button clicked - opening game');
-    window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
+    const url = 'https://glovkwam.github.io/Nanotech-Warrior/';
+    const newWindow = window.open(url, '_blank');
+    if (!newWindow) {
+      console.error('Failed to open new window, trying location.href');
+      window.location.href = url;
+    }
   };
   
   return (

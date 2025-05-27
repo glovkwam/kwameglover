@@ -95,6 +95,18 @@ const VideoSection = () => {
     console.log('Tab changed to:', value);
     setActiveTab(value);
   };
+
+  const handleYouTubeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('YouTube button clicked - opening channel');
+    const url = 'https://www.youtube.com/@CreatorKwam';
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!newWindow) {
+      console.error('Failed to open new window, trying location.href');
+      window.location.href = url;
+    }
+  };
   
   return (
     <section id="videos" className="section-container bg-transparent">
@@ -176,8 +188,9 @@ const VideoSection = () => {
       
       <div className="mt-16 text-center">
         <button 
-          onClick={() => window.open('https://www.youtube.com/@CreatorKwam', '_blank', 'noopener,noreferrer')}
+          onClick={handleYouTubeClick}
           className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+          type="button"
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel

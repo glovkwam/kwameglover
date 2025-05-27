@@ -34,6 +34,17 @@ const WebDesign = () => {
     }
   ];
 
+  const handleSiteClick = (url: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Opening site:', url);
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!newWindow) {
+      console.error('Failed to open new window, trying location.href');
+      window.location.href = url;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-cyber-dark text-white animated-bg">
       <div className="floating-orb w-96 h-96 top-60 -right-40 blur-3xl"></div>
@@ -74,14 +85,13 @@ const WebDesign = () => {
                     </span>
                   ))}
                 </div>
-                <a 
-                  href={site.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                <button 
+                  onClick={(e) => handleSiteClick(site.url, e)}
+                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
+                  type="button"
                 >
                   View Site <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
+                </button>
               </CardContent>
             </Card>
           ))}
