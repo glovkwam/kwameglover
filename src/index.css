@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -217,13 +216,13 @@
 
 .game-responsive {
   overflow: hidden;
-  padding-bottom: 50%; /* Reduced from 56.25% to make it wider */
+  padding-bottom: 45%; /* Further reduced for even wider aspect ratio */
   position: relative;
   height: 0;
   pointer-events: auto;
   cursor: pointer;
   width: 100%;
-  max-width: 1400px; /* Increased from 1200px to make it wider */
+  max-width: 1600px; /* Increased from 1400px to make it significantly wider */
 }
 
 .game-responsive iframe {
