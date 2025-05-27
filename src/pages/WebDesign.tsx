@@ -34,13 +34,12 @@ const WebDesign = () => {
     }
   ];
 
-  const handleSiteClick = (url: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSiteClick = (url: string) => {
     console.log('Opening site:', url);
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
+    try {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening site:', error);
       window.location.href = url;
     }
   };
@@ -85,13 +84,16 @@ const WebDesign = () => {
                     </span>
                   ))}
                 </div>
-                <button 
-                  onClick={(e) => handleSiteClick(site.url, e)}
-                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
-                  type="button"
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleSiteClick(site.url)}
+                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer no-underline"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   View Site <ExternalLink className="ml-2 h-4 w-4" />
-                </button>
+                </a>
               </CardContent>
             </Card>
           ))}

@@ -22,27 +22,25 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleItchClick = () => {
     console.log('Itch button clicked - opening itch.io');
-    const url = 'https://glovkwam.itch.io/nanotech-warrior';
-    const newWindow = window.open(url, '_blank');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
+    try {
+      const url = 'https://glovkwam.itch.io/nanotech-warrior';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening itch.io:', error);
+      window.location.href = 'https://glovkwam.itch.io/nanotech-warrior';
     }
   };
 
-  const handlePlayClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handlePlayClick = () => {
     console.log('Play button clicked - opening game');
-    const url = 'https://glovkwam.github.io/Nanotech-Warrior/';
-    const newWindow = window.open(url, '_blank');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
+    try {
+      const url = 'https://glovkwam.github.io/Nanotech-Warrior/';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening game:', error);
+      window.location.href = 'https://glovkwam.github.io/Nanotech-Warrior/';
     }
   };
   
@@ -134,22 +132,28 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button 
+                <a
+                  href="https://glovkwam.itch.io/nanotech-warrior"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={handleItchClick}
-                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer"
-                  type="button"
+                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer no-underline"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <Gamepad className="h-4 w-4" />
                   Play on itch.io
-                </button>
-                <button 
+                </a>
+                <a
+                  href="https://glovkwam.github.io/Nanotech-Warrior/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={handlePlayClick}
-                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent"
-                  type="button"
+                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent no-underline"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <Link className="h-4 w-4" />
                   Play Online
-                </button>
+                </a>
               </div>
             </div>
           </div>

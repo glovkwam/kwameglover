@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Youtube, Video } from 'lucide-react';
@@ -96,15 +95,14 @@ const VideoSection = () => {
     setActiveTab(value);
   };
 
-  const handleYouTubeClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleYouTubeClick = () => {
     console.log('YouTube button clicked - opening channel');
-    const url = 'https://www.youtube.com/@CreatorKwam';
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
+    try {
+      const url = 'https://www.youtube.com/@CreatorKwam';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error('Error opening YouTube channel:', error);
+      window.location.href = 'https://www.youtube.com/@CreatorKwam';
     }
   };
   
@@ -187,14 +185,17 @@ const VideoSection = () => {
       </Tabs>
       
       <div className="mt-16 text-center">
-        <button 
+        <a
+          href="https://www.youtube.com/@CreatorKwam"
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={handleYouTubeClick}
-          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
-          type="button"
+          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer no-underline"
+          style={{ pointerEvents: 'auto' }}
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel
-        </button>
+        </a>
       </div>
     </section>
   );
