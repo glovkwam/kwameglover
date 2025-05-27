@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -141,15 +142,13 @@ const YouTubeSection = () => {
       </div>
       
       <div className="mt-16 text-center">
-        <a 
-          href="https://www.youtube.com/watch?v=DHzldFRClGI" 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <button
+          onClick={() => window.open('https://www.youtube.com/watch?v=DHzldFRClGI', '_blank')}
           className="cyber-button inline-flex mx-auto"
         >
           <Youtube className="mr-2 h-5 w-5" />
           Visit My YouTube Channel
-        </a>
+        </button>
       </div>
       
       {/* Video Modal */}
