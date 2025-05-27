@@ -22,6 +22,16 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
+
+  const handleItchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+  };
+
+  const handlePlayClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
+  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -111,24 +121,20 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://glovkwam.itch.io/nanotech-warrior" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                <button 
+                  onClick={handleItchClick}
+                  className="inline-flex items-center justify-center rounded-md px-6 py-3 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
                 >
                   <Gamepad className="mr-2 h-4 w-4" />
                   Play on itch.io
-                </a>
-                <a 
-                  href="https://glovkwam.github.io/Nanotech-Warrior/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md px-4 py-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                </button>
+                <button 
+                  onClick={handlePlayClick}
+                  className="inline-flex items-center justify-center rounded-md px-6 py-3 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer font-medium"
                 >
                   <Link className="mr-2 h-4 w-4" />
                   Play Online
-                </a>
+                </button>
               </div>
             </div>
           </div>
