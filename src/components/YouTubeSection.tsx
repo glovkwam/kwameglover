@@ -83,13 +83,6 @@ const YouTubeSection = () => {
   const handleManageContent = () => {
     openCMS('youtube');
   };
-
-  const handleYouTubeChannelClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Opening YouTube channel');
-    window.open('https://www.youtube.com/watch?v=DHzldFRClGI', '_blank', 'noopener,noreferrer');
-  };
   
   return (
     <section id="youtube" className="section-container bg-transparent">
@@ -149,14 +142,15 @@ const YouTubeSection = () => {
       </div>
       
       <div className="mt-16 text-center">
-        <button
-          onClick={handleYouTubeChannelClick}
-          type="button"
-          className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 mx-auto z-50 relative"
+        <a
+          href="https://www.youtube.com/watch?v=DHzldFRClGI"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 mx-auto cursor-pointer"
         >
           <Youtube className="h-5 w-5" />
           Visit My YouTube Channel
-        </button>
+        </a>
       </div>
       
       {/* Video Modal */}
