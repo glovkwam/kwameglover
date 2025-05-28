@@ -86,10 +86,19 @@ const JavaScriptArt = () => {
                         width: '100%', 
                         height: '100%',
                         border: 'none',
-                        display: 'block'
+                        display: 'block',
+                        pointerEvents: 'auto'
                       }}
                       allowFullScreen
                       loading="lazy"
+                      onError={(e) => {
+                        console.log(`Failed to load ${artwork.file}`, e);
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div class="flex items-center justify-center h-full text-gray-400"><p>Art piece temporarily unavailable</p></div>`;
+                        }
+                      }}
                     ></iframe>
                   </div>
                   

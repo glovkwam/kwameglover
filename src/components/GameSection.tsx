@@ -21,6 +21,14 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
+
+  const handleItchClick = () => {
+    window.open("https://glovkwam.itch.io/nanotech-warrior", "_blank", "noopener,noreferrer");
+  };
+
+  const handleOnlineClick = () => {
+    window.open("https://glovkwam.github.io/Nanotech-Warrior/", "_blank", "noopener,noreferrer");
+  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -110,24 +118,20 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://glovkwam.itch.io/nanotech-warrior"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cyber-button transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
+                <button
+                  onClick={handleItchClick}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 cursor-pointer font-medium"
                 >
-                  <Gamepad className="mr-2 h-5 w-5" />
+                  <Gamepad className="h-5 w-5" />
                   Play on itch.io
-                </a>
-                <a
-                  href="https://glovkwam.github.io/Nanotech-Warrior/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cyber-button transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
+                </button>
+                <button
+                  onClick={handleOnlineClick}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 cursor-pointer font-medium"
                 >
-                  <Link className="mr-2 h-5 w-5" />
+                  <Link className="h-5 w-5" />
                   Play Online
-                </a>
+                </button>
               </div>
             </div>
           </div>
