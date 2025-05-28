@@ -21,14 +21,6 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
-
-  const handleItchClick = () => {
-    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleOnlineClick = () => {
-    window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
-  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -122,18 +114,18 @@ const GameSection = () => {
                   href="https://glovkwam.itch.io/nanotech-warrior"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 cursor-pointer"
+                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
                 >
-                  <Gamepad className="h-4 w-4" />
+                  <Gamepad className="mr-2 h-5 w-5" />
                   Play on itch.io
                 </a>
                 <a
                   href="https://glovkwam.github.io/Nanotech-Warrior/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 border-cyber-accent text-cyber-accent hover:bg-cyber-accent hover:text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 cursor-pointer"
+                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
                 >
-                  <Link className="h-4 w-4" />
+                  <Link className="mr-2 h-5 w-5" />
                   Play Online
                 </a>
               </div>
