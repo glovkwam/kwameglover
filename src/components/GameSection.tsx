@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Gamepad, Link, Code } from 'lucide-react';
+import { Gamepad, Link } from 'lucide-react';
 
 const GameSection = () => {
   const gameInfo = {
@@ -38,7 +38,6 @@ const GameSection = () => {
       </p>
       
       <div className="space-y-12">
-        {/* Game Embed - Made Less Wide */}
         <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-5xl mx-auto">
           <CardContent className="p-0">
             <div className="game-responsive-narrow mx-auto">
@@ -74,9 +73,7 @@ const GameSection = () => {
           </CardContent>
         </Card>
         
-        {/* Content Section - Smaller Width */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Screenshots - Constrained Width */}
           <div className="grid grid-cols-2 gap-4">
             {gameInfo.screenshots.map((screenshot, index) => (
               <div key={index} className={`rounded-lg overflow-hidden ${index === 2 ? 'col-span-2' : ''} transition-transform duration-300 hover:scale-105`}>
@@ -120,14 +117,14 @@ const GameSection = () => {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={handleItchClick}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 cursor-pointer font-medium"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyber-accent text-cyber-accent rounded-md hover:bg-cyber-accent/10 hover:scale-105 transition-all duration-300 font-medium"
                 >
                   <Gamepad className="h-5 w-5" />
                   Play on itch.io
                 </button>
                 <button
                   onClick={handleOnlineClick}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 cursor-pointer font-medium"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyber-accent text-cyber-accent rounded-md hover:bg-cyber-accent/10 hover:scale-105 transition-all duration-300 font-medium"
                 >
                   <Link className="h-5 w-5" />
                   Play Online

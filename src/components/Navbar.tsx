@@ -21,12 +21,10 @@ const Navbar = () => {
   }, []);
 
   const handleMobileMenuToggle = () => {
-    console.log('Mobile menu toggle clicked');
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleMobileMenuClose = () => {
-    console.log('Mobile menu item clicked');
     setIsMobileMenuOpen(false);
   };
 
@@ -42,20 +40,23 @@ const Navbar = () => {
           </Link>
         </div>
         
-        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Home</Link>
           <Link to="/about" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">About</Link>
           <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">YouTube</Link>
           <Link to="/web-design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Web Design</Link>
-          <Link to="/art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
+          <Link to="/javascript-art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">JS Art</Link>
           <Link to="/models" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">3D Models</Link>
           <Link to="/picow" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Pico W</Link>
           <Link to="/game" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110">Game</Link>
-          <Link to="/contact" className="cyber-button transform transition duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(0,246,255,0.5)]">Contact</Link>
+          <Link 
+            to="/contact" 
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-transparent border-2 border-cyber-accent text-cyber-accent rounded-md hover:bg-cyber-accent/10 transition-all duration-300 font-medium"
+          >
+            Contact
+          </Link>
         </div>
         
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-white cursor-pointer"
           onClick={handleMobileMenuToggle}
@@ -73,18 +74,23 @@ const Navbar = () => {
         </button>
       </div>
       
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
           <Link to="/" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Home</Link>
           <Link to="/about" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">About</Link>
           <Link to="/youtube" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">YouTube</Link>
           <Link to="/web-design" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Web Design</Link>
-          <Link to="/art" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
+          <Link to="/javascript-art" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">JS Art</Link>
           <Link to="/models" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">3D Models</Link>
           <Link to="/picow" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Pico W</Link>
           <Link to="/game" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">Game</Link>
-          <Link to="/contact" onClick={handleMobileMenuClose} className="cyber-button text-xl mt-4">Contact</Link>
+          <Link 
+            to="/contact" 
+            onClick={handleMobileMenuClose} 
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-cyber-accent text-cyber-accent rounded-md hover:bg-cyber-accent/10 transition-all duration-300 font-medium text-xl mt-4"
+          >
+            Contact
+          </Link>
         </div>
       )}
     </nav>

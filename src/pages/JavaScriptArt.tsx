@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, MousePointer, Layers, Sparkles } from 'lucide-react';
+import { Code, MousePointer, Layers, Sparkles, ExternalLink } from 'lucide-react';
 
 const JavaScriptArt = () => {
   useEffect(() => {
@@ -41,6 +41,10 @@ const JavaScriptArt = () => {
     }
   ];
 
+  const handleViewFullscreen = (file: string) => {
+    window.open(`/${file}`, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="min-h-screen bg-cyber-dark text-white animated-bg">
       <div className="floating-orb w-96 h-96 top-10 -left-40 blur-3xl"></div>
@@ -49,9 +53,6 @@ const JavaScriptArt = () => {
       
       <Navbar />
       <section className="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyber-purple/20 rounded-full blur-[100px] animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyber-accent/20 rounded-full blur-[100px] animate-pulse"></div>
-        
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
           JavaScript <span className="text-cyber-accent">Art Gallery</span>
         </h2>
@@ -91,15 +92,16 @@ const JavaScriptArt = () => {
                       }}
                       allowFullScreen
                       loading="lazy"
-                      onError={(e) => {
-                        console.log(`Failed to load ${artwork.file}`, e);
-                        e.currentTarget.style.display = 'none';
-                        const parent = e.currentTarget.parentElement;
-                        if (parent) {
-                          parent.innerHTML = `<div class="flex items-center justify-center h-full text-gray-400"><p>Art piece temporarily unavailable</p></div>`;
-                        }
-                      }}
                     ></iframe>
+                    <div className="absolute top-4 right-4">
+                      <button
+                        onClick={() => handleViewFullscreen(artwork.file)}
+                        className="inline-flex items-center justify-center gap-1 px-3 py-2 bg-cyber-accent/90 text-cyber-dark rounded-md hover:bg-cyber-accent transition-all duration-300 text-sm font-medium"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Fullscreen
+                      </button>
+                    </div>
                   </div>
                   
                   <div className="p-4 bg-cyber-light/5 border-t border-cyber-accent/10">
