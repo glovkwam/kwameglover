@@ -22,12 +22,16 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = () => {
+  const handleItchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Opening itch.io page');
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
 
-  const handleOnlineClick = () => {
+  const handleOnlineClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Opening online game');
     window.open('https://glovkwam.github.io/Nanotech-Warrior/', '_blank', 'noopener,noreferrer');
   };
@@ -122,16 +126,16 @@ const GameSection = () => {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={handleItchClick}
-                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer border-none outline-none"
-                  style={{ pointerEvents: 'auto' }}
+                  type="button"
+                  className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 z-50 relative"
                 >
                   <Gamepad className="h-4 w-4" />
                   Play on itch.io
                 </button>
                 <button
                   onClick={handleOnlineClick}
-                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent outline-none"
-                  style={{ pointerEvents: 'auto' }}
+                  type="button"
+                  className="border-2 border-cyber-accent text-cyber-accent hover:bg-cyber-accent hover:text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 z-50 relative"
                 >
                   <Link className="h-4 w-4" />
                   Play Online

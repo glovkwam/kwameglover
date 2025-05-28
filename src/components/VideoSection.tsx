@@ -96,7 +96,9 @@ const VideoSection = () => {
     setActiveTab(value);
   };
 
-  const handleYouTubeClick = () => {
+  const handleYouTubeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Opening YouTube channel');
     window.open('https://www.youtube.com/@CreatorKwam', '_blank', 'noopener,noreferrer');
   };
@@ -182,10 +184,10 @@ const VideoSection = () => {
       <div className="mt-16 text-center">
         <button
           onClick={handleYouTubeClick}
-          className="cyber-button inline-flex mx-auto hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer border-none outline-none"
-          style={{ pointerEvents: 'auto' }}
+          type="button"
+          className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 mx-auto z-50 relative"
         >
-          <Youtube className="mr-2 h-5 w-5" />
+          <Youtube className="h-5 w-5" />
           Visit My YouTube Channel
         </button>
       </div>

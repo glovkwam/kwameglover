@@ -34,7 +34,9 @@ const WebDesign = () => {
     }
   ];
 
-  const handleSiteClick = (url: string) => {
+  const handleSiteClick = (url: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     console.log('Opening site:', url);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -80,11 +82,11 @@ const WebDesign = () => {
                   ))}
                 </div>
                 <button
-                  onClick={() => handleSiteClick(site.url)}
-                  className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer border-none outline-none"
-                  style={{ pointerEvents: 'auto' }}
+                  onClick={handleSiteClick(site.url)}
+                  type="button"
+                  className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-2 px-4 rounded-md transition-colors duration-200 flex items-center gap-2 w-full justify-center z-50 relative"
                 >
-                  View Site <ExternalLink className="ml-2 h-4 w-4" />
+                  View Site <ExternalLink className="h-4 w-4" />
                 </button>
               </CardContent>
             </Card>
