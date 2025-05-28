@@ -114,7 +114,8 @@ const GameSection = () => {
                   href="https://glovkwam.itch.io/nanotech-warrior"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
+                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)] cursor-pointer"
+                  style={{ textDecoration: 'none' }}
                 >
                   <Gamepad className="mr-2 h-5 w-5" />
                   Play on itch.io
@@ -123,7 +124,8 @@ const GameSection = () => {
                   href="https://glovkwam.github.io/Nanotech-Warrior/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
+                  className="cyber-button inline-flex transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)] cursor-pointer"
+                  style={{ textDecoration: 'none' }}
                 >
                   <Link className="mr-2 h-5 w-5" />
                   Play Online
