@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -21,8 +22,9 @@ const GameSection = () => {
     ]
   };
   
-  const handleItchClick = () => {
-    console.log('Itch.io embed clicked - opening link');
+  const handleItchClick = (e) => {
+    console.log('Itch.io link clicked!');
+    e.preventDefault();
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
   
@@ -116,15 +118,25 @@ const GameSection = () => {
           </div>
         </div>
         
-        {/* Itch.io Link - Simple text link */}
+        {/* Itch.io Link - Simple text link with debugging */}
         <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-3xl mx-auto">
-          <CardContent className="p-8 text-center">
+          <CardContent className="p-8 text-center" style={{ position: 'relative', zIndex: 20 }}>
             <h3 className="text-xl font-bold text-white mb-4">Play on itch.io</h3>
             <a 
               href="https://glovkwam.itch.io/nanotech-warrior"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyber-accent hover:text-cyber-accent/80 transition-colors duration-300 underline"
+              onClick={handleItchClick}
+              className="text-cyber-accent hover:text-cyber-accent/80 transition-colors duration-300 underline cursor-pointer inline-block"
+              style={{ 
+                pointerEvents: 'auto', 
+                zIndex: 30,
+                position: 'relative',
+                display: 'inline-block',
+                padding: '8px 16px'
+              }}
+              onMouseEnter={() => console.log('Mouse entered itch.io link')}
+              onMouseLeave={() => console.log('Mouse left itch.io link')}
             >
               Play Nanotech Warrior on itch.io
             </a>
@@ -139,3 +151,4 @@ const GameSection = () => {
 };
 
 export default GameSection;
+
