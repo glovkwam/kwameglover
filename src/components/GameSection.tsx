@@ -65,24 +65,6 @@ const GameSection = () => {
           </CardContent>
         </Card>
         
-        {/* Itch.io Embed */}
-        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-3xl mx-auto">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">Play on itch.io</h3>
-            <div className="flex justify-center">
-              <iframe 
-                frameBorder="0" 
-                src="https://itch.io/embed/3080260" 
-                width="552" 
-                height="167"
-                className="rounded-lg"
-              >
-                <a href="https://glovkwam.itch.io/nanotech-warrior">Nanotech Warrior by glovkwam</a>
-              </iframe>
-            </div>
-          </CardContent>
-        </Card>
-        
         {/* Content Section - Smaller Width */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Screenshots - Constrained Width */}
@@ -128,6 +110,26 @@ const GameSection = () => {
             </div>
           </div>
         </div>
+        
+        {/* Itch.io Embed - Moved to bottom and made clickable */}
+        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-3xl mx-auto">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">Play on itch.io</h3>
+            <div className="flex justify-center">
+              <a href="https://glovkwam.itch.io/nanotech-warrior" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
+                <iframe 
+                  frameBorder="0" 
+                  src="https://itch.io/embed/3080260" 
+                  width="552" 
+                  height="167"
+                  className="rounded-lg pointer-events-none"
+                >
+                  <a href="https://glovkwam.itch.io/nanotech-warrior">Nanotech Warrior by glovkwam</a>
+                </iframe>
+              </a>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
