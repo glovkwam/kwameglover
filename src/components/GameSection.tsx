@@ -21,6 +21,15 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
+
+  const handleLinkClick = (url: string, linkName: string) => {
+    console.log(`${linkName} link clicked, attempting to open: ${url}`);
+    try {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error(`Failed to open ${linkName} link:`, error);
+    }
+  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -110,24 +119,22 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://glovkwam.itch.io/nanotech-warrior"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer"
+                <button 
+                  onClick={() => handleLinkClick("https://glovkwam.itch.io/nanotech-warrior", "itch.io")}
+                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer relative z-50"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <Gamepad className="h-4 w-4" />
                   Play on itch.io
-                </a>
-                <a 
-                  href="https://glovkwam.github.io/Nanotech-Warrior/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent"
+                </button>
+                <button 
+                  onClick={() => handleLinkClick("https://glovkwam.github.io/Nanotech-Warrior/", "GitHub Pages")}
+                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent relative z-50"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <Link className="h-4 w-4" />
                   Play Online
-                </a>
+                </button>
               </div>
             </div>
           </div>
