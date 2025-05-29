@@ -3,18 +3,39 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Gamepad, Link, Terminal, Code } from 'lucide-react';
 
+interface GameFeature {
+  text: string;
+}
+
+interface GameTechnology {
+  name: string;
+}
+
+interface GameInfo {
+  title: string;
+  description: string;
+  features: GameFeature[];
+  technologies: GameTechnology[];
+  screenshots: string[];
+}
+
 const GameSection = () => {
-  const gameInfo = {
+  const gameInfo: GameInfo = {
     title: "Nanotech_Warrior.exe",
     description: "A cyberpunk-inspired 2D platformer exploring the symbiotic relationship between human creativity and artificial intelligence. Built with Unity engine and featuring custom pixel art assets, this interactive experience challenges players to navigate through digital landscapes while contemplating our technological future.",
     features: [
-      "Multi-threaded level progression system",
-      "AI-driven dynamic difficulty adjustment", 
-      "Interactive cyberpunk narrative elements",
-      "Real-time particle effect rendering",
-      "Optimized collision detection algorithms"
+      { text: "Multi-threaded level progression system" },
+      { text: "AI-driven dynamic difficulty adjustment" },
+      { text: "Interactive cyberpunk narrative elements" },
+      { text: "Real-time particle effect rendering" },
+      { text: "Optimized collision detection algorithms" }
     ],
-    technologies: ["Unity Engine", "C# Scripting", "Adobe Photoshop", "Digital Audio Workstation"],
+    technologies: [
+      { name: "Unity Engine" },
+      { name: "C# Scripting" },
+      { name: "Adobe Photoshop" },
+      { name: "Digital Audio Workstation" }
+    ],
     screenshots: [
       "/lovable-uploads/45b9641a-59f8-48ff-b75b-20ce167bfad5.png",
       "/lovable-uploads/d981768f-0eab-4fe0-b14b-2a93f334ae71.png",
@@ -22,12 +43,8 @@ const GameSection = () => {
     ]
   };
 
-  const handleItchClick = () => {
-    window.open("https://glovkwam.itch.io/nanotech-warrior", "_blank", "noopener,noreferrer");
-  };
-
-  const handleOnlineClick = () => {
-    window.open("https://glovkwam.github.io/Nanotech-Warrior/", "_blank", "noopener,noreferrer");
+  const openLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
   };
   
   return (
@@ -64,7 +81,7 @@ const GameSection = () => {
                   zIndex: 10
                 }}
                 loading="eager"
-              ></iframe>
+              />
               <div className="absolute top-4 left-4 bg-cyber-accent/90 text-cyber-dark px-4 py-2 rounded-lg text-sm font-bold animate-pulse font-mono">
                 🎮 execute_game.sh
               </div>
@@ -81,7 +98,10 @@ const GameSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
             {gameInfo.screenshots.map((screenshot, index) => (
-              <div key={index} className={`rounded-lg overflow-hidden border border-cyber-accent/30 ${index === 2 ? 'col-span-2' : ''} transition-transform duration-300 hover:scale-105 hover:border-cyber-accent/60`}>
+              <div 
+                key={index} 
+                className={`rounded-lg overflow-hidden border border-cyber-accent/30 ${index === 2 ? 'col-span-2' : ''} transition-transform duration-300 hover:scale-105 hover:border-cyber-accent/60`}
+              >
                 <img 
                   src={screenshot} 
                   alt={`Nanotech Warrior Screenshot ${index + 1}`} 
@@ -110,7 +130,7 @@ const GameSection = () => {
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </span>
-                    <span className="text-gray-300">{feature}</span>
+                    <span className="text-gray-300">{feature.text}</span>
                   </li>
                 ))}
               </ul>
@@ -121,80 +141,22 @@ const GameSection = () => {
               <div className="flex flex-wrap gap-2 mb-8">
                 {gameInfo.technologies.map((tech, index) => (
                   <span key={index} className="px-3 py-1 bg-cyber-accent/10 text-cyber-accent text-sm rounded-lg border border-cyber-accent/30 font-mono">
-                    {tech}
+                    {tech.name}
                   </span>
                 ))}
               </div>
               
               <div className="flex flex-wrap gap-4">
                 <button
-                  onClick={handleItchClick}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    padding: '12px 20px',
-                    backgroundColor: 'transparent',
-                    border: '2px solid #9b87f5',
-                    color: '#9b87f5',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    fontFamily: 'Monaco, Menlo, Ubuntu Mono, monospace',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}
-                  onMouseEnter={(e) => {
-                    const target = e.currentTarget;
-                    target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-                    target.style.transform = 'scale(1.05)';
-                    target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.currentTarget;
-                    target.style.backgroundColor = 'transparent';
-                    target.style.transform = 'scale(1)';
-                    target.style.boxShadow = 'none';
-                  }}
+                  onClick={() => openLink("https://glovkwam.itch.io/nanotech-warrior")}
+                  className="cyber-button cyber-button-purple"
                 >
                   <Gamepad className="h-5 w-5" />
                   ./itch_io
                 </button>
                 <button
-                  onClick={handleOnlineClick}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    padding: '12px 20px',
-                    backgroundColor: 'transparent',
-                    border: '2px solid #00f6ff',
-                    color: '#00f6ff',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    fontWeight: '500',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    fontFamily: 'Monaco, Menlo, Ubuntu Mono, monospace',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}
-                  onMouseEnter={(e) => {
-                    const target = e.currentTarget;
-                    target.style.backgroundColor = 'rgba(0, 246, 255, 0.1)';
-                    target.style.transform = 'scale(1.05)';
-                    target.style.boxShadow = '0 0 15px rgba(0, 246, 255, 0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.currentTarget;
-                    target.style.backgroundColor = 'transparent';
-                    target.style.transform = 'scale(1)';
-                    target.style.boxShadow = 'none';
-                  }}
+                  onClick={() => openLink("https://glovkwam.github.io/Nanotech-Warrior/")}
+                  className="cyber-button cyber-button-cyan"
                 >
                   <Link className="h-5 w-5" />
                   ./play_online

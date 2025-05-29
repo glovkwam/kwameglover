@@ -3,30 +3,37 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
+interface NavLink {
+  to: string;
+  label: string;
+}
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
+  const navLinks: NavLink[] = [
+    { to: '/', label: './home' },
+    { to: '/about', label: './about' },
+    { to: '/youtube', label: './videos' },
+    { to: '/web-design', label: './web_dev' },
+    { to: '/javascript-art', label: './js_art' },
+    { to: '/models', label: './3d_models' },
+    { to: '/picow', label: './pico_w' },
+    { to: '/game', label: './game' }
+  ];
+  
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const handleMobileMenuClose = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <nav className={cn(
@@ -41,84 +48,31 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/about" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./about
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/youtube" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./videos
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/web-design" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./web_dev
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/javascript-art" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./js_art
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/models" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./3d_models
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/picow" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./pico_w
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link to="/game" className="text-white hover:text-cyber-accent transition-all duration-300 hover:scale-110 relative group">
-            ./game
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-accent transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <button
-            onClick={() => window.location.href = '/contact'}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              backgroundColor: 'transparent',
-              border: '2px solid #9b87f5',
-              color: '#9b87f5',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontWeight: '500',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer',
-              fontSize: '14px',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-              const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-              target.style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              const target = e.target as HTMLButtonElement;
-              target.style.backgroundColor = 'transparent';
-              target.style.transform = 'scale(1)';
-            }}
-          >
+          {navLinks.map((link) => (
+            <Link 
+              key={link.to}
+              to={link.to} 
+              className="nav-link"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/contact" className="cyber-button cyber-button-purple text-sm px-4 py-2">
             ./contact
-          </button>
+          </Link>
         </div>
         
         <button 
-          className="md:hidden text-white cursor-pointer hover:text-cyber-accent transition-colors"
-          onClick={handleMobileMenuToggle}
+          className="md:hidden text-white hover:text-cyber-accent transition-colors"
+          onClick={toggleMobileMenu}
           type="button"
         >
           {isMobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           )}
@@ -127,39 +81,23 @@ const Navbar = () => {
       
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-16 bg-cyber-dark/95 backdrop-blur-md flex flex-col items-center pt-10 space-y-6 animate-fade-in">
-          <Link to="/" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./home</Link>
-          <Link to="/about" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./about</Link>
-          <Link to="/youtube" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./videos</Link>
-          <Link to="/web-design" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./web_dev</Link>
-          <Link to="/javascript-art" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./js_art</Link>
-          <Link to="/models" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./3d_models</Link>
-          <Link to="/picow" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./pico_w</Link>
-          <Link to="/game" onClick={handleMobileMenuClose} className="text-white hover:text-cyber-accent transition-colors text-xl">./game</Link>
-          <button
-            onClick={() => {
-              handleMobileMenuClose();
-              window.location.href = '/contact';
-            }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              padding: '12px 24px',
-              backgroundColor: 'transparent',
-              border: '2px solid #9b87f5',
-              color: '#9b87f5',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontWeight: '500',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer',
-              fontSize: '18px',
-              marginTop: '16px'
-            }}
+          {navLinks.map((link) => (
+            <Link 
+              key={link.to}
+              to={link.to} 
+              onClick={closeMobileMenu} 
+              className="text-white hover:text-cyber-accent transition-colors text-xl"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link 
+            to="/contact" 
+            onClick={closeMobileMenu}
+            className="cyber-button cyber-button-purple text-lg px-6 py-3 mt-4"
           >
             ./contact
-          </button>
+          </Link>
         </div>
       )}
     </nav>
