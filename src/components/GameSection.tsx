@@ -21,6 +21,10 @@ const GameSection = () => {
     ]
   };
   
+  const handleItchClick = () => {
+    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+  };
+  
   return (
     <section id="game" className="section-container bg-transparent">
       <h2 className="section-heading">Nanotech Warrior</h2>
@@ -116,17 +120,22 @@ const GameSection = () => {
           <CardContent className="p-6">
             <h3 className="text-xl font-bold text-white mb-4 text-center">Play on itch.io</h3>
             <div className="flex justify-center">
-              <a href="https://glovkwam.itch.io/nanotech-warrior" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
+              <div 
+                onClick={handleItchClick}
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-lg overflow-hidden"
+                style={{ pointerEvents: 'auto' }}
+              >
                 <iframe 
                   frameBorder="0" 
                   src="https://itch.io/embed/3080260" 
                   width="552" 
                   height="167"
                   className="rounded-lg pointer-events-none"
+                  title="Nanotech Warrior on itch.io"
                 >
                   <a href="https://glovkwam.itch.io/nanotech-warrior">Nanotech Warrior by glovkwam</a>
                 </iframe>
-              </a>
+              </div>
             </div>
           </CardContent>
         </Card>
