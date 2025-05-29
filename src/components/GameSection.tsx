@@ -21,30 +21,6 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
-
-  const handleItchClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Itch button clicked - opening itch.io');
-    const url = 'https://glovkwam.itch.io/nanotech-warrior';
-    const newWindow = window.open(url, '_blank');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
-    }
-  };
-
-  const handlePlayClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Play button clicked - opening game');
-    const url = 'https://glovkwam.github.io/Nanotech-Warrior/';
-    const newWindow = window.open(url, '_blank');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
-    }
-  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -134,22 +110,24 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={handleItchClick}
+                <a 
+                  href="https://glovkwam.itch.io/nanotech-warrior"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer"
-                  type="button"
                 >
                   <Gamepad className="h-4 w-4" />
                   Play on itch.io
-                </button>
-                <button 
-                  onClick={handlePlayClick}
+                </a>
+                <a 
+                  href="https://glovkwam.github.io/Nanotech-Warrior/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer bg-transparent"
-                  type="button"
                 >
                   <Link className="h-4 w-4" />
                   Play Online
-                </button>
+                </a>
               </div>
             </div>
           </div>

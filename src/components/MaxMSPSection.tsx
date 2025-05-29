@@ -67,17 +67,17 @@ const MaxMSPSection = () => {
         <div>
           <div className="relative aspect-video bg-cyber-light rounded-lg overflow-hidden border border-cyber-accent/30">
             <img 
-              src="https://source.unsplash.com/random/800x450?audio+visualizer" 
-              alt="MaxMSP Project" 
+              src="/kg.gif" 
+              alt="MaxMSP Project Demo" 
               className="w-full h-full object-cover" 
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-cyber-accent/90 hover:bg-cyber-accent transition-colors duration-300 rounded-full p-4">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+              <div className="bg-cyber-accent/90 hover:bg-cyber-accent transition-colors duration-300 rounded-full p-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-cyber-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              </button>
+              </div>
             </div>
           </div>
           
