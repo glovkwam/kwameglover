@@ -187,3 +187,88 @@
   50% { transform: translateX(-25%); }
   100% { transform: translateX(0); }
 }
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  pointer-events: auto;
+  cursor: default; /* Changed from pointer to default to prevent cursor conflicts */
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  cursor: default; /* Changed from pointer to default */
+  z-index: 10;
+}
+
+.video-responsive:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.game-responsive {
+  overflow: hidden;
+  padding-bottom: 45%; /* Further reduced for even wider aspect ratio */
+  position: relative;
+  height: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  width: 100%;
+  max-width: 1600px; /* Increased from 1400px to make it significantly wider */
+}
+
+.game-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.game-responsive:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.game-responsive-narrow {
+  overflow: hidden;
+  padding-bottom: 50%; /* Slightly taller than the wide version */
+  position: relative;
+  height: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  width: 100%;
+  max-width: 1200px; /* Narrower than the original 1600px */
+}
+
+.game-responsive-narrow iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.game-responsive-narrow:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}

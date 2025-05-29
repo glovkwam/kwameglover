@@ -75,13 +75,12 @@ const Hero = () => {
           
           <div className="md:w-1/2 mt-12 md:mt-0 animate-float">
             <div ref={profileRef} className="relative transition-all duration-300">
-              {/* Placeholder for a profile image or artistic representation */}
               <div className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-r from-cyber-accent/30 to-cyber-purple/30 flex items-center justify-center overflow-hidden border border-cyber-accent/50 shadow-[0_0_30px_rgba(0,246,255,0.2)] transition-all duration-500">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-32 w-32 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                {/* Replace with your actual profile image when available */}
-                {/* <img src="/profile-image.jpg" alt="Digital Artist" className="w-full h-full object-cover" /> */}
+                <img 
+                  src="/lovable-uploads/48edb253-4d87-43c3-aa41-0ad7b797e209.png" 
+                  alt="Kwame Glover" 
+                  className="w-full h-full object-cover" 
+                />
               </div>
               
               {/* Decorative elements with animations */}

@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Youtube, Settings } from 'lucide-react';
-import YouTubeCMS from './YouTubeCMS';
 import { useToast } from "@/hooks/use-toast";
 import { useCMS } from '@/context/CMSContext';
-
-interface VideoData {
-  id: number;
-  title: string;
-  thumbnail: string;
-  youtubeId: string;
-  description: string;
-}
+import { VideoData } from '@/types/youtube';
 
 const YouTubeSection = () => {
   const { toast } = useToast();
