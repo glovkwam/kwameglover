@@ -21,8 +21,7 @@ const GameSection = () => {
     ]
   };
   
-  const handleItchClick = (e) => {
-    e.preventDefault();
+  const handleItchClick = () => {
     console.log('Opening itch.io game...');
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
@@ -132,12 +131,9 @@ const GameSection = () => {
                   </div>
                 </div>
                 
-                <a 
-                  href="https://glovkwam.itch.io/nanotech-warrior"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button 
                   onClick={handleItchClick}
-                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white"
+                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer"
                 >
                   <span className="font-medium">Launch Game</span>
                   <svg 
@@ -148,7 +144,7 @@ const GameSection = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </a>
+                </button>
               </div>
               
               <div className="mt-4 pt-4 border-t border-cyber-accent/10">
