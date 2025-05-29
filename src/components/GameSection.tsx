@@ -1,7 +1,6 @@
-
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { Code } from "lucide-react";
 
 const GameSection = () => {
   const gameInfo = {
@@ -23,8 +22,8 @@ const GameSection = () => {
   };
   
   const handleItchClick = (e) => {
-    console.log('Itch.io link clicked!');
     e.preventDefault();
+    console.log('Opening itch.io game...');
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
   
@@ -118,31 +117,48 @@ const GameSection = () => {
           </div>
         </div>
         
-        {/* Itch.io Link - Simple text link with debugging */}
-        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-3xl mx-auto">
-          <CardContent className="p-8 text-center" style={{ position: 'relative', zIndex: 20 }}>
-            <h3 className="text-xl font-bold text-white mb-4">Play on itch.io</h3>
-            <a 
-              href="https://glovkwam.itch.io/nanotech-warrior"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleItchClick}
-              className="text-cyber-accent hover:text-cyber-accent/80 transition-colors duration-300 underline cursor-pointer inline-block"
-              style={{ 
-                pointerEvents: 'auto', 
-                zIndex: 30,
-                position: 'relative',
-                display: 'inline-block',
-                padding: '8px 16px'
-              }}
-              onMouseEnter={() => console.log('Mouse entered itch.io link')}
-              onMouseLeave={() => console.log('Mouse left itch.io link')}
-            >
-              Play Nanotech Warrior on itch.io
-            </a>
-            <p className="text-gray-400 text-sm mt-4">
-              Experience the full game with additional features and community ratings
-            </p>
+        {/* Itch.io Link - Code-themed design */}
+        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-4xl mx-auto">
+          <CardContent className="p-8">
+            <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-cyber-accent/10 p-3 rounded-lg">
+                    <Code className="w-6 h-6 text-cyber-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-1">Play on itch.io</h3>
+                    <p className="text-gray-400 text-sm">Experience the full game with community features</p>
+                  </div>
+                </div>
+                
+                <a 
+                  href="https://glovkwam.itch.io/nanotech-warrior"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleItchClick}
+                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white"
+                >
+                  <span className="font-medium">Launch Game</span>
+                  <svg 
+                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-cyber-accent/10">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-400">Platform: itch.io</span>
+                  <span className="text-gray-400">Status: Available</span>
+                  <span className="text-cyber-accent">Free to Play</span>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -151,4 +167,3 @@ const GameSection = () => {
 };
 
 export default GameSection;
-
