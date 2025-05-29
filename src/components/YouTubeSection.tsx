@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -141,13 +142,13 @@ const YouTubeSection = () => {
       </div>
       
       <div className="mt-16 text-center">
-        <a 
-          href="https://www.youtube.com/watch?v=DHzldFRClGI" 
-          target="_blank" 
+        <a
+          href="https://www.youtube.com/watch?v=DHzldFRClGI"
+          target="_blank"
           rel="noopener noreferrer"
-          className="cyber-button inline-flex mx-auto"
+          className="bg-cyber-accent hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-md transition-colors duration-200 flex items-center gap-2 mx-auto cursor-pointer"
         >
-          <Youtube className="mr-2 h-5 w-5" />
+          <Youtube className="h-5 w-5" />
           Visit My YouTube Channel
         </a>
       </div>

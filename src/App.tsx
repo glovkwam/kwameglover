@@ -24,12 +24,12 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/art" element={<Art />} />
+            <Route path="/javascript-art" element={<JavaScriptArt />} />
             <Route path="/youtube" element={<YouTube />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/picow" element={<PicoW />} />
             <Route path="/models" element={<Models />} />
             <Route path="/web-design" element={<WebDesign />} />
-            <Route path="/javascript-art" element={<JavaScriptArt />} />
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

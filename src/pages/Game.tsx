@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const Game = () => {
   useEffect(() => {
-    document.title = "Nanotech Warrior | CreatorKwam";
+    document.title = "Nanotech Warrior";
   }, []);
 
   return (
