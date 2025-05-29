@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GraduationCap, ExternalLink } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 const AboutSection = () => {
   return (
@@ -26,48 +26,6 @@ const AboutSection = () => {
             </p>
           </div>
         </section>
-
-        {/* Portfolio Links */}
-        <section className="animate-fade-in">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyber-accent">Web Design Portfolio</h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <a 
-              href="https://kwames-awesome-site-671991.webflow.io/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                Webflow Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Professional web design showcase built with Webflow</p>
-            </a>
-            
-            <a 
-              href="https://glovkwam.github.io/Kwame-Portfolio-/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                GitHub Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Custom portfolio website hosted on GitHub Pages</p>
-            </a>
-            
-            <a 
-              href="https://tallydabandz.myportfolio.com/work" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                Creative Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Creative work portfolio showcasing diverse design projects</p>
-            </a>
-          </div>
-        </section>
         
         {/* Education Section */}
         <section className="animate-fade-in" id="education">
@@ -78,69 +36,37 @@ const AboutSection = () => {
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="bg-cyber-dark border border-cyber-accent/30 shadow-lg hover-glow transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-cyber-accent">Bachelor of Fine Arts in Digital Media Arts</CardTitle>
-                <p className="text-sm text-gray-400">San José State University</p>
+                <CardTitle className="text-cyber-accent">Computer Science</CardTitle>
+                <p className="text-sm text-gray-400">University of Technology, 2018 - 2022</p>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">Focus on web design, video game design, 3D modeling, animation, illustration, and programming. 
-                Completed capstone in game development and received minor in general business.</p>
-                <div className="text-sm text-gray-300">
-                  <strong>Specializations:</strong>
-                  <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>Web Design</li>
-                    <li>Video Game Design</li>
-                    <li>3D Modeling & Animation</li>
-                    <li>Digital Illustration</li>
-                    <li>Programming</li>
-                  </ul>
-                </div>
+                <p>Bachelor's degree with focus on cybersecurity, software development, and data structures. 
+                Graduated with honors and completed a capstone project on secure web application development.</p>
               </CardContent>
             </Card>
             
             <Card className="bg-cyber-dark border border-cyber-accent/30 shadow-lg hover-glow transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-cyber-accent">NPower IT/Cybersecurity Program</CardTitle>
-                <p className="text-sm text-gray-400">Professional Certification Program</p>
+                <CardTitle className="text-cyber-accent">Digital Arts Certificate</CardTitle>
+                <p className="text-sm text-gray-400">Creative Arts Academy, 2020 - 2021</p>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">Specialized training in IT cybersecurity, cloud security, and cloud computing with industry-recognized certifications.</p>
-                <div className="text-sm text-gray-300">
-                  <strong>Focus Areas:</strong>
-                  <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>IT Cybersecurity</li>
-                    <li>Cloud Security</li>
-                    <li>Cloud Computing</li>
-                  </ul>
-                </div>
+                <p>Specialized training in digital illustration, 3D modeling, and interactive media design.
+                Received award for outstanding digital portfolio.</p>
               </CardContent>
             </Card>
             
             <Card className="bg-cyber-dark border border-cyber-accent/30 shadow-lg hover-glow transition-all duration-300 md:col-span-2">
               <CardHeader>
-                <CardTitle className="text-cyber-accent">Professional Certifications</CardTitle>
+                <CardTitle className="text-cyber-accent">Certifications</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">Cloud & Azure</h4>
-                    <ul className="space-y-1 list-disc pl-5 text-gray-300">
-                      <li>Microsoft Azure Fundamentals (AZ-900)</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">Google Certifications</h4>
-                    <ul className="space-y-1 list-disc pl-5 text-gray-300">
-                      <li>Google IT Support Specialist</li>
-                      <li>Google: IT Automation with Python</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-2">CompTIA</h4>
-                    <ul className="space-y-1 list-disc pl-5 text-gray-300">
-                      <li>CompTIA Tech+</li>
-                    </ul>
-                  </div>
-                </div>
+                <ul className="space-y-2 list-disc pl-5">
+                  <li>AWS Certified Cloud Practitioner (2023)</li>
+                  <li>CompTIA Security+ (2022)</li>
+                  <li>Certified Ethical Hacker (CEH) (2023)</li>
+                  <li>Unity Game Development Certification (2021)</li>
+                </ul>
               </CardContent>
             </Card>
           </div>

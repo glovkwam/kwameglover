@@ -1,12 +1,40 @@
-
 import React, { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { Save } from 'lucide-react';
-import { VideoData, YouTubeCMSProps } from '@/types/youtube';
-import { extractYouTubeId } from '@/utils/youtubeUtils';
-import VideoList from './youtube/VideoList';
-import VideoForm from './youtube/VideoForm';
+import { PlusCircle, Save, Trash2 } from 'lucide-react';
+
+interface VideoData {
+  id: number;
+  title: string;
+  thumbnail: string;
+  youtubeId: string;
+  description: string;
+}
+
+interface YouTubeCMSProps {
+  isOpen: boolean;
+  onClose: () => void;
+  initialVideos: VideoData[];
+  onSave: (videos: VideoData[]) => void;
+}
+
+// Helper function to extract YouTube ID from URL or use direct ID
+const extractYouTubeId = (url: string): string => {
+  if (!url) return '';
+  
+  // Check if it's already an ID (not a URL)
+  if (url.length < 20 && !url.includes('/') && !url.includes('.')) {
+    return url;
+  }
+  
+  // Extract from URL
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : url;
+};
 
 const YouTubeCMS: React.FC<YouTubeCMSProps> = ({ initialVideos, onSave }) => {
   const [videos, setVideos] = useState<VideoData[]>(initialVideos);
@@ -84,26 +112,148 @@ const YouTubeCMS: React.FC<YouTubeCMSProps> = ({ initialVideos, onSave }) => {
     });
   };
 
+  const handleSave = () => {
+    onSave(videos);
+  };
+
   return (
     <div className="space-y-6">
       {/* Current Videos */}
-      <VideoList 
-        videos={videos} 
-        onInputChange={handleInputChange} 
-        onDeleteVideo={handleDeleteVideo} 
-      />
+      <div>
+        <h3 className="text-xl font-semibold mb-4 text-white">Current Videos</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {videos.map((video, index) => (
+            <Card key={video.id} className="bg-cyber-dark border border-cyber-light">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg font-medium text-white">
+                  <Input 
+                    name="title"
+                    value={video.title}
+                    onChange={(e) => handleInputChange(e, index)}
+                    className="bg-cyber-dark border-cyber-light text-white"
+                    placeholder="Video Title"
+                  />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="col-span-1">
+                    <img 
+                      src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-20 object-cover rounded"
+                    />
+                  </div>
+                  <div className="col-span-2 space-y-2">
+                    <div>
+                      <label className="text-xs text-gray-400">YouTube URL/ID</label>
+                      <Input
+                        name="youtubeId"
+                        value={video.youtubeId}
+                        onChange={(e) => handleInputChange(e, index)}
+                        className="bg-cyber-dark border-cyber-light text-white text-sm h-8"
+                        placeholder="YouTube URL or ID"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs text-gray-400">Thumbnail URL (optional)</label>
+                      <Input
+                        name="thumbnail"
+                        value={video.thumbnail}
+                        onChange={(e) => handleInputChange(e, index)}
+                        className="bg-cyber-dark border-cyber-light text-white text-sm h-8"
+                        placeholder="Custom thumbnail URL"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs text-gray-400">Description</label>
+                  <Textarea
+                    name="description"
+                    value={video.description}
+                    onChange={(e) => handleInputChange(e, index)}
+                    className="bg-cyber-dark border-cyber-light text-white"
+                    placeholder="Video description"
+                  />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button 
+                  variant="destructive" 
+                  size="sm"
+                  onClick={() => handleDeleteVideo(video.id)}
+                  className="ml-auto"
+                >
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Remove
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
 
       {/* Add New Video */}
-      <VideoForm 
-        newVideo={newVideo} 
-        onInputChange={handleInputChange} 
-        onAddVideo={handleAddVideo} 
-      />
+      <Card className="bg-cyber-dark border border-cyber-accent">
+        <CardHeader>
+          <CardTitle className="text-lg font-medium text-cyber-accent">Add New Video</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <label className="text-xs text-gray-400">Title*</label>
+            <Input 
+              name="title"
+              value={newVideo.title}
+              onChange={handleInputChange}
+              className="bg-cyber-dark border-cyber-light text-white"
+              placeholder="Video Title"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-gray-400">YouTube URL/ID*</label>
+            <Input
+              name="youtubeId"
+              value={newVideo.youtubeId}
+              onChange={handleInputChange}
+              className="bg-cyber-dark border-cyber-light text-white"
+              placeholder="Paste YouTube URL or Video ID"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-gray-400">Custom Thumbnail URL (optional)</label>
+            <Input
+              name="thumbnail"
+              value={newVideo.thumbnail}
+              onChange={handleInputChange}
+              className="bg-cyber-dark border-cyber-light text-white"
+              placeholder="Leave empty to use YouTube thumbnail"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-gray-400">Description</label>
+            <Textarea
+              name="description"
+              value={newVideo.description}
+              onChange={handleInputChange}
+              className="bg-cyber-dark border-cyber-light text-white"
+              placeholder="Video description"
+            />
+          </div>
+          <Button 
+            onClick={handleAddVideo}
+            className="w-full"
+          >
+            <PlusCircle className="h-4 w-4 mr-2" />
+            Add Video
+          </Button>
+        </CardContent>
+      </Card>
 
       {/* Save Changes */}
       <div className="flex justify-end">
         <Button 
-          onClick={() => onSave(videos)}
+          onClick={handleSave}
           className="bg-cyber-accent text-cyber-dark hover:bg-cyber-accent/80"
         >
           <Save className="h-4 w-4 mr-2" />
