@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -123,9 +124,9 @@ const GameSection = () => {
               href="https://glovkwam.itch.io/nanotech-warrior"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-cyber-dark font-bold rounded-lg hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105"
+              className="text-cyber-accent hover:text-cyber-accent/80 transition-colors duration-300 underline"
             >
-              🎮 Play Nanotech Warrior on itch.io
+              Play Nanotech Warrior on itch.io
             </a>
             <p className="text-gray-400 text-sm mt-4">
               Experience the full game with additional features and community ratings
