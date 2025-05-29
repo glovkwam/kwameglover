@@ -94,12 +94,14 @@ const Navbar = () => {
               overflow: 'hidden'
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-              e.target.style.transform = 'scale(1.05)';
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
+              target.style.transform = 'scale(1.05)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.transform = 'scale(1)';
+              const target = e.target as HTMLButtonElement;
+              target.style.backgroundColor = 'transparent';
+              target.style.transform = 'scale(1)';
             }}
           >
             ./contact

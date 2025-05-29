@@ -98,14 +98,16 @@ const Hero = () => {
                   zIndex: 1
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-                  e.target.style.transform = 'scale(1.05)';
-                  e.target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.5)';
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
+                  target.style.transform = 'scale(1.05)';
+                  target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.5)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = 'none';
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = 'transparent';
+                  target.style.transform = 'scale(1)';
+                  target.style.boxShadow = 'none';
                 }}
               >
                 ./contact
@@ -135,14 +137,16 @@ const Hero = () => {
                   zIndex: 1
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'rgba(0, 246, 255, 0.1)';
-                  e.target.style.transform = 'scale(1.05)';
-                  e.target.style.boxShadow = '0 0 15px rgba(0, 246, 255, 0.5)';
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = 'rgba(0, 246, 255, 0.1)';
+                  target.style.transform = 'scale(1.05)';
+                  target.style.boxShadow = '0 0 15px rgba(0, 246, 255, 0.5)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = 'none';
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = 'transparent';
+                  target.style.transform = 'scale(1)';
+                  target.style.boxShadow = 'none';
                 }}
               >
                 ./portfolio

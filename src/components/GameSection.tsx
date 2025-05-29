@@ -39,7 +39,7 @@ const GameSection = () => {
         Nanotech_Warrior
       </h2>
       <p className="text-gray-300 max-w-2xl mb-12 font-mono">
-        <span className="text-cyber-accent">{'>'}</span> Interactive gaming experience where cyberpunk aesthetics meet AI storytelling
+        <span className="text-cyber-accent">{'>'}}</span> Interactive gaming experience where cyberpunk aesthetics meet AI storytelling
       </p>
       
       <div className="space-y-12">
@@ -148,14 +148,16 @@ const GameSection = () => {
                     overflow: 'hidden'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-                    e.target.style.transform = 'scale(1.05)';
-                    e.target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.5)';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
+                    target.style.transform = 'scale(1.05)';
+                    target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.5)';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.transform = 'scale(1)';
-                    e.target.style.boxShadow = 'none';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'transparent';
+                    target.style.transform = 'scale(1)';
+                    target.style.boxShadow = 'none';
                   }}
                 >
                   <Gamepad className="h-5 w-5" />
@@ -182,14 +184,16 @@ const GameSection = () => {
                     overflow: 'hidden'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(0, 246, 255, 0.1)';
-                    e.target.style.transform = 'scale(1.05)';
-                    e.target.style.boxShadow = '0 0 15px rgba(0, 246, 255, 0.5)';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'rgba(0, 246, 255, 0.1)';
+                    target.style.transform = 'scale(1.05)';
+                    target.style.boxShadow = '0 0 15px rgba(0, 246, 255, 0.5)';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.transform = 'scale(1)';
-                    e.target.style.boxShadow = 'none';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'transparent';
+                    target.style.transform = 'scale(1)';
+                    target.style.boxShadow = 'none';
                   }}
                 >
                   <Link className="h-5 w-5" />

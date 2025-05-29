@@ -101,14 +101,16 @@ const WebDesign = () => {
                     fontSize: '14px'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
-                    e.target.style.transform = 'scale(1.02)';
-                    e.target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.3)';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'rgba(155, 135, 245, 0.1)';
+                    target.style.transform = 'scale(1.02)';
+                    target.style.boxShadow = '0 0 15px rgba(155, 135, 245, 0.3)';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.transform = 'scale(1)';
-                    e.target.style.boxShadow = 'none';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'transparent';
+                    target.style.transform = 'scale(1)';
+                    target.style.boxShadow = 'none';
                   }}
                 >
                   ./view_site <ExternalLink className="h-4 w-4" />
