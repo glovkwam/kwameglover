@@ -115,40 +115,21 @@ const GameSection = () => {
           </div>
         </div>
         
-        {/* Itch.io Embed - Moved to bottom and made clickable */}
+        {/* Itch.io Link - Simple text link */}
         <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-3xl mx-auto">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">Play on itch.io</h3>
-            <div className="flex justify-center">
-              <div 
-                onClick={handleItchClick}
-                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-lg overflow-hidden relative"
-                style={{ 
-                  pointerEvents: 'auto',
-                  width: '552px',
-                  height: '167px'
-                }}
-              >
-                <iframe 
-                  frameBorder="0" 
-                  src="https://itch.io/embed/3080260" 
-                  width="552" 
-                  height="167"
-                  className="rounded-lg absolute inset-0"
-                  title="Nanotech Warrior on itch.io"
-                  style={{
-                    pointerEvents: 'none',
-                    userSelect: 'none'
-                  }}
-                >
-                  <a href="https://glovkwam.itch.io/nanotech-warrior">Nanotech Warrior by glovkwam</a>
-                </iframe>
-                <div 
-                  className="absolute inset-0 bg-transparent cursor-pointer"
-                  onClick={handleItchClick}
-                />
-              </div>
-            </div>
+          <CardContent className="p-8 text-center">
+            <h3 className="text-xl font-bold text-white mb-4">Play on itch.io</h3>
+            <a 
+              href="https://glovkwam.itch.io/nanotech-warrior"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-cyber-accent text-cyber-dark font-bold rounded-lg hover:bg-cyber-accent/90 transition-all duration-300 hover:scale-105"
+            >
+              🎮 Play Nanotech Warrior on itch.io
+            </a>
+            <p className="text-gray-400 text-sm mt-4">
+              Experience the full game with additional features and community ratings
+            </p>
           </CardContent>
         </Card>
       </div>
