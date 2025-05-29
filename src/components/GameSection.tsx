@@ -39,7 +39,7 @@ const GameSection = () => {
         Nanotech_Warrior
       </h2>
       <p className="text-gray-300 max-w-2xl mb-12 font-mono">
-        <span className="text-cyber-accent">></span> Interactive gaming experience where cyberpunk aesthetics meet AI storytelling
+        <span className="text-cyber-accent">{'>'}</span> Interactive gaming experience where cyberpunk aesthetics meet AI storytelling
       </p>
       
       <div className="space-y-12">
@@ -100,7 +100,7 @@ const GameSection = () => {
               <p className="text-gray-300 mb-8 font-mono leading-relaxed">{gameInfo.description}</p>
               
               <h4 className="text-xl font-semibold text-white mb-4 font-mono text-cyber-accent">
-                > features.list()
+                {'>'} features.list()
               </h4>
               <ul className="space-y-3 mb-8">
                 {gameInfo.features.map((feature, index) => (
@@ -116,7 +116,7 @@ const GameSection = () => {
               </ul>
               
               <h4 className="text-xl font-semibold text-white mb-4 font-mono text-cyber-accent">
-                > tech_stack.json
+                {'>'} tech_stack.json
               </h4>
               <div className="flex flex-wrap gap-2 mb-8">
                 {gameInfo.technologies.map((tech, index) => (

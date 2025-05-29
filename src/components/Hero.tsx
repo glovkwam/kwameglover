@@ -71,9 +71,9 @@ const Hero = () => {
               <span className="neon-text">Cyber</span> Defender
             </h1>
             <div className="text-lg text-gray-300 max-w-lg font-mono space-y-2">
-              <div><span className="text-cyber-accent">></span> Creative coding & digital art</div>
-              <div><span className="text-cyber-accent">></span> Cybersecurity & cloud computing</div>
-              <div><span className="text-cyber-accent">></span> Interactive experiences & games</div>
+              <div><span className="text-cyber-accent">{'>'}</span> Creative coding & digital art</div>
+              <div><span className="text-cyber-accent">{'>'}</span> Cybersecurity & cloud computing</div>
+              <div><span className="text-cyber-accent">{'>'}</span> Interactive experiences & games</div>
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <button

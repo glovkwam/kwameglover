@@ -52,7 +52,7 @@ const WebDesign = () => {
           Web <span className="text-cyber-accent">Development</span>
         </h2>
         <p className="text-gray-300 max-w-3xl mb-12 text-center mx-auto font-mono">
-          <span className="text-cyber-accent">></span> Full-stack development portfolio featuring modern web technologies and responsive design implementations
+          <span className="text-cyber-accent">{'>'}</span> Full-stack development portfolio featuring modern web technologies and responsive design implementations
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -130,11 +130,11 @@ const WebDesign = () => {
                 frontend_technologies:
               </h4>
               <ul className="space-y-2 text-gray-300 font-mono">
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> HTML5 & CSS3</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> JavaScript (ES6+)</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> React.js & TypeScript</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Tailwind CSS Framework</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Responsive Grid Systems</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> HTML5 & CSS3</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> JavaScript (ES6+)</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> React.js & TypeScript</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Tailwind CSS Framework</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Responsive Grid Systems</li>
               </ul>
             </div>
             <div>
@@ -143,11 +143,11 @@ const WebDesign = () => {
                 development_tools:
               </h4>
               <ul className="space-y-2 text-gray-300 font-mono">
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Webflow Visual Editor</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Adobe Creative Suite</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Figma Design Systems</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> UI/UX Design Patterns</li>
-                <li className="flex items-center"><span className="text-cyber-accent mr-2">></span> Git Version Control</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Webflow Visual Editor</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Adobe Creative Suite</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Figma Design Systems</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> UI/UX Design Patterns</li>
+                <li className="flex items-center"><span className="text-cyber-accent mr-2">{'>'}</span> Git Version Control</li>
               </ul>
             </div>
           </div>
