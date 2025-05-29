@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -22,6 +21,7 @@ const GameSection = () => {
   };
   
   const handleItchClick = () => {
+    console.log('Itch.io embed clicked - opening link');
     window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
   };
   
@@ -122,19 +122,31 @@ const GameSection = () => {
             <div className="flex justify-center">
               <div 
                 onClick={handleItchClick}
-                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-lg overflow-hidden"
-                style={{ pointerEvents: 'auto' }}
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 rounded-lg overflow-hidden relative"
+                style={{ 
+                  pointerEvents: 'auto',
+                  width: '552px',
+                  height: '167px'
+                }}
               >
                 <iframe 
                   frameBorder="0" 
                   src="https://itch.io/embed/3080260" 
                   width="552" 
                   height="167"
-                  className="rounded-lg pointer-events-none"
+                  className="rounded-lg absolute inset-0"
                   title="Nanotech Warrior on itch.io"
+                  style={{
+                    pointerEvents: 'none',
+                    userSelect: 'none'
+                  }}
                 >
                   <a href="https://glovkwam.itch.io/nanotech-warrior">Nanotech Warrior by glovkwam</a>
                 </iframe>
+                <div 
+                  className="absolute inset-0 bg-transparent cursor-pointer"
+                  onClick={handleItchClick}
+                />
               </div>
             </div>
           </CardContent>
