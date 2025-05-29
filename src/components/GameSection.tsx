@@ -110,25 +110,34 @@ const GameSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
+                {/* Button-styled iframe game embed */}
+                <div className="relative inline-block">
+                  <div className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md cursor-pointer overflow-hidden">
+                    <iframe 
+                      src="https://glovkwam.github.io/Nanotech-Warrior/" 
+                      title="Play Nanotech Warrior"
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      frameBorder="0"
+                      allow="gamepad; fullscreen; pointer-lock"
+                      style={{ 
+                        pointerEvents: 'auto',
+                        zIndex: 10
+                      }}
+                    ></iframe>
+                    <Gamepad className="h-4 w-4 relative z-0" />
+                    <span className="relative z-0">Play Now (Embedded)</span>
+                  </div>
+                </div>
+                
                 <a 
                   href="https://glovkwam.itch.io/nanotech-warrior"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md no-underline"
+                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md bg-transparent no-underline"
                   onClick={() => console.log('itch.io link clicked')}
                 >
-                  <Gamepad className="h-4 w-4" />
-                  Play on itch.io
-                </a>
-                <a 
-                  href="https://glovkwam.github.io/Nanotech-Warrior/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 border border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium px-6 py-3 rounded-md bg-transparent no-underline"
-                  onClick={() => console.log('GitHub Pages link clicked')}
-                >
                   <Link className="h-4 w-4" />
-                  Play Online
+                  Play on itch.io
                 </a>
               </div>
             </div>
