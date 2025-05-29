@@ -31,17 +31,13 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-cyber-dark/90 backdrop-blur-md border-b border-cyber-accent/20' : 'bg-transparent'
+      scrolled ? 'bg-[#1a1d29]/90 backdrop-blur-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-cyber-accent to-cyber-purple rounded-full flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L13.09 8.26L16 6L14.74 12.26L22 12L15.74 13.09L18 16L11.74 14.74L12 22L10.91 15.74L8 18L9.26 11.74L2 12L8.26 10.91L6 8L12.26 9.26L12 2Z" fill="white"/>
-              </svg>
-            </div>
             <span className="text-xl font-bold text-cyber-accent">Portfolio</span>
+            <span className="text-cyber-accent text-xl">.</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,9 +51,6 @@ const Navbar = () => {
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyber-accent to-cyber-purple"></div>
-                )}
               </Link>
             ))}
           </div>
@@ -66,7 +59,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="cyber-button text-sm px-4 py-2"
+              className="px-4 py-2 border border-gray-500 text-gray-300 rounded-md hover:bg-gray-500/10 transition-all duration-300 text-sm font-medium"
             >
               Contact
             </Link>
@@ -83,7 +76,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden absolute top-16 left-0 w-full bg-cyber-dark/95 backdrop-blur-md border-b border-cyber-accent/20">
+          <div className="lg:hidden absolute top-16 left-0 w-full bg-[#1a1d29]/95 backdrop-blur-md border-b border-cyber-accent/20">
             <div className="px-6 py-4 space-y-4">
               {navigation.map((item) => (
                 <Link

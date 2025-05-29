@@ -37,66 +37,70 @@ const Hero = () => {
   }, [profileRef]);
 
   return (
-    <section id="home" className="pt-20 min-h-screen hero-gradient relative overflow-hidden flex items-center">
-      {/* Background grid decoration */}
-      <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: 'radial-gradient(#9b87f5 1px, transparent 1px), radial-gradient(#9b87f5 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-        backgroundPosition: '0 0, 20px 20px'
-      }}></div>
-      
-      {/* Animated background lights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyber-accent/10 rounded-full blur-[100px] animate-pulse"></div>
-      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-cyber-purple/10 rounded-full blur-[80px] animate-pulse" style={{animationDuration: '7s'}}></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-cyber-neon/10 rounded-full blur-[60px] animate-pulse" style={{animationDuration: '5s'}}></div>
+    <section id="home" className="pt-20 min-h-screen bg-[#1a1d29] relative overflow-hidden flex items-center">
+      {/* Decorative corner elements */}
+      <div className="absolute top-32 left-12 w-16 h-16 border-l-2 border-t-2 border-cyber-accent/30"></div>
+      <div className="absolute bottom-32 right-12 w-16 h-16 border-r-2 border-b-2 border-cyber-accent/30"></div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 space-y-6 animate-fade-in">
-            <h2 className="text-cyber-accent text-xl md:text-2xl font-semibold">Digital Artist & Aspiring Cybersecurity Professional</h2>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
-              Where <span className="neon-text">Creativity</span> Meets <span className="neon-text">Security</span>
+        <div className="flex flex-col lg:flex-row items-center justify-between">
+          {/* Left Content */}
+          <div className="lg:w-1/2 space-y-8 animate-fade-in">
+            <h2 className="text-cyber-accent text-lg md:text-xl font-medium tracking-wide">
+              Digital Artist & Aspiring Cybersecurity Professional
+            </h2>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Where <span className="text-transparent bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text">Creativity</span>
+              <br />
+              Meets <span className="text-transparent bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text">Security</span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-lg">
+            
+            <p className="text-lg text-gray-300 max-w-lg leading-relaxed">
               I create digital art, JavaScript visualizations, 3D models, and video games while pursuing my passion in cybersecurity and cloud computing.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link to="/contact" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+            
+            <div className="flex flex-wrap gap-4 pt-6">
+              <Link 
+                to="/contact" 
+                className="px-6 py-3 border border-cyber-accent text-cyber-accent rounded-md hover:bg-cyber-accent/10 transition-all duration-300 flex items-center gap-2 font-medium"
+              >
                 Get In Touch
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
-              <Link to="/videos" className="cyber-button transform transition duration-500 hover:scale-105 hover:shadow-[0_0_15px_rgba(155,135,245,0.5)]">
+              <Link 
+                to="/videos" 
+                className="px-6 py-3 border border-gray-500 text-gray-300 rounded-md hover:bg-gray-500/10 transition-all duration-300 font-medium"
+              >
                 View My Work
               </Link>
             </div>
           </div>
           
-          <div className="md:w-1/2 mt-12 md:mt-0 animate-float">
-            <div ref={profileRef} className="relative transition-all duration-300">
-              <div className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-r from-cyber-accent/30 to-cyber-purple/30 flex items-center justify-center overflow-hidden border border-cyber-accent/50 shadow-[0_0_30px_rgba(155,135,245,0.2)] transition-all duration-500">
-                <img 
-                  src="/lovable-uploads/48edb253-4d87-43c3-aa41-0ad7b797e209.png" 
-                  alt="Kwame Glover" 
-                  className="w-full h-full object-cover" 
-                />
+          {/* Right Profile Section */}
+          <div className="lg:w-1/2 mt-12 lg:mt-0 flex justify-center lg:justify-end relative">
+            <div className="relative">
+              {/* Profile Image */}
+              <div ref={profileRef} className="relative transition-all duration-300">
+                <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-600 shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/48edb253-4d87-43c3-aa41-0ad7b797e209.png" 
+                    alt="Kwame Glover" 
+                    className="w-full h-full object-cover" 
+                  />
+                </div>
               </div>
               
-              {/* Decorative elements with animations */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-cyber-accent animate-pulse"></div>
-              <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-cyber-accent animate-pulse" style={{animationDelay: '0.5s'}}></div>
-              <div className="absolute top-10 -right-2 w-4 h-4 bg-cyber-accent/80 rounded-full animate-ping" style={{animationDuration: '3s'}}></div>
-              <div className="absolute -bottom-2 left-10 w-3 h-3 bg-cyber-purple/80 rounded-full animate-ping" style={{animationDuration: '2.5s', animationDelay: '0.7s'}}></div>
+              {/* Explore indicator */}
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400">
+                <span className="text-sm mb-2">Explore</span>
+                <div className="w-px h-6 bg-gray-500"></div>
+                <div className="w-2 h-2 bg-cyber-accent rounded-full mt-2 animate-pulse"></div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce">
-          <span className="text-white/50 text-sm mb-2">Explore</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-cyber-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </div>
     </section>
