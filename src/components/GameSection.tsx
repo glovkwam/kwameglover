@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code } from "lucide-react";
+import { Code, ExternalLink } from "lucide-react";
 
 const GameSection = () => {
   const gameInfo = {
@@ -21,9 +21,10 @@ const GameSection = () => {
     ]
   };
   
-  const handleItchClick = () => {
-    console.log('Opening itch.io game...');
-    window.open('https://glovkwam.itch.io/nanotech-warrior', '_blank', 'noopener,noreferrer');
+  const createGameLinkMarkup = (url: string, text: string) => {
+    return {
+      __html: `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${text}</a>`
+    };
   };
   
   return (
@@ -131,20 +132,13 @@ const GameSection = () => {
                   </div>
                 </div>
                 
-                <button 
-                  onClick={handleItchClick}
-                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer"
-                >
-                  <span className="font-medium">Launch Game</span>
-                  <svg 
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </button>
+                <div className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer">
+                  <span 
+                    dangerouslySetInnerHTML={createGameLinkMarkup('https://glovkwam.itch.io/nanotech-warrior', 'Launch Game')}
+                    className="font-medium"
+                  />
+                  <ExternalLink className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
               </div>
               
               <div className="mt-4 pt-4 border-t border-cyber-accent/10">
