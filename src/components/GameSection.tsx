@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, ExternalLink } from "lucide-react";
@@ -19,12 +20,6 @@ const GameSection = () => {
       "/lovable-uploads/d981768f-0eab-4fe0-b14b-2a93f334ae71.png",
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
-  };
-  
-  const createGameLinkMarkup = (url: string, text: string) => {
-    return {
-      __html: `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${text}</a>`
-    };
   };
   
   return (
@@ -132,13 +127,15 @@ const GameSection = () => {
                   </div>
                 </div>
                 
-                <div className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer">
-                  <span 
-                    dangerouslySetInnerHTML={createGameLinkMarkup('https://glovkwam.itch.io/nanotech-warrior', 'Launch Game')}
-                    className="font-medium"
-                  />
+                <a 
+                  href="https://glovkwam.itch.io/nanotech-warrior" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer"
+                >
+                  <span className="font-medium">Launch Game</span>
                   <ExternalLink className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
-                </div>
+                </a>
               </div>
               
               <div className="mt-4 pt-4 border-t border-cyber-accent/10">
