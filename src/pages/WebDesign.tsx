@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -34,15 +33,15 @@ const WebDesign = () => {
     }
   ];
 
-  const handleSiteClick = (url: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSiteClick = (url: string) => {
     console.log('Opening site:', url);
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-    if (!newWindow) {
-      console.error('Failed to open new window, trying location.href');
-      window.location.href = url;
-    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const createLinkMarkup = (url: string, text: string) => {
+    return {
+      __html: `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">${text}</a>`
+    };
   };
 
   return (
@@ -86,11 +85,11 @@ const WebDesign = () => {
                   ))}
                 </div>
                 <button 
-                  onClick={(e) => handleSiteClick(site.url, e)}
+                  onClick={() => handleSiteClick(site.url)}
                   className="inline-flex items-center justify-center w-full py-2 px-4 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
-                  type="button"
                 >
-                  View Site <ExternalLink className="ml-2 h-4 w-4" />
+                  <span dangerouslySetInnerHTML={createLinkMarkup(site.url, "View Site")} />
+                  <ExternalLink className="ml-2 h-4 w-4" />
                 </button>
               </CardContent>
             </Card>
