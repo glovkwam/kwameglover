@@ -112,7 +112,7 @@ const GameSection = () => {
           </div>
         </div>
         
-        {/* Itch.io Link - Code-themed design */}
+        {/* Itch.io Link - Code-themed design with proper clickability */}
         <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-4xl mx-auto">
           <CardContent className="p-8">
             <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
@@ -131,7 +131,13 @@ const GameSection = () => {
                   href="https://glovkwam.itch.io/nanotech-warrior" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 flex items-center space-x-2 text-cyber-accent hover:text-white cursor-pointer"
+                  className="relative z-50 inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
+                  style={{ 
+                    pointerEvents: 'auto',
+                    cursor: 'pointer',
+                    zIndex: 50,
+                    position: 'relative'
+                  }}
                 >
                   <span className="font-medium">Launch Game</span>
                   <ExternalLink className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
