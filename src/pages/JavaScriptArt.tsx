@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -49,19 +48,6 @@ const JavaScriptArt = () => {
     }
   ];
 
-  const createIframeMarkup = (file: string, title: string, isExternal: boolean = false) => {
-    const src = isExternal ? file : `/${file}`;
-    return {
-      __html: `<iframe 
-        src="${src}"
-        title="${title}"
-        style="width: 100%; height: 100%; border: none; display: block;"
-        allowfullscreen
-        loading="lazy">
-      </iframe>`
-    };
-  };
-
   return (
     <div className="min-h-screen bg-cyber-dark text-white animated-bg">
       <div className="floating-orb w-96 h-96 top-10 -left-40 blur-3xl"></div>
@@ -99,10 +85,35 @@ const JavaScriptArt = () => {
                   </div>
                   
                   <div className="aspect-square w-full bg-cyber-dark relative border-t border-cyber-accent/30 overflow-hidden">
-                    <div 
-                      dangerouslySetInnerHTML={createIframeMarkup(artwork.file, artwork.title, artwork.isExternal)}
-                      className="w-full h-full"
-                    />
+                    {artwork.isExternal ? (
+                      <iframe 
+                        src={artwork.file}
+                        title={artwork.title}
+                        className="w-full h-full border-0"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{ 
+                          pointerEvents: 'auto',
+                          border: 'none',
+                          outline: 'none',
+                          zIndex: 10
+                        }}
+                      />
+                    ) : (
+                      <iframe 
+                        src={`/${artwork.file}`}
+                        title={artwork.title}
+                        className="w-full h-full border-0"
+                        allowFullScreen
+                        loading="lazy"
+                        style={{ 
+                          pointerEvents: 'auto',
+                          border: 'none',
+                          outline: 'none',
+                          zIndex: 10
+                        }}
+                      />
+                    )}
                   </div>
                   
                   <div className="p-4 bg-cyber-light/5 border-t border-cyber-accent/10">
