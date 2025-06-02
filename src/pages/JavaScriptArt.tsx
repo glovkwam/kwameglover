@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -87,34 +86,27 @@ const JavaScriptArt = () => {
                   
                   <div className="aspect-square w-full bg-cyber-dark relative border-t border-cyber-accent/30 overflow-hidden">
                     {artwork.isExternal ? (
-                      <div className="w-full h-full">
-                        <iframe 
-                          src={artwork.file}
-                          title={artwork.title}
-                          className="w-full h-full"
-                          style={{ 
-                            border: 'none',
-                            width: '100%',
-                            height: '100%',
-                            display: 'block'
-                          }}
-                          allowFullScreen
-                          loading="lazy"
-                          sandbox="allow-scripts allow-same-origin allow-forms"
-                        />
-                      </div>
-                    ) : (
                       <iframe 
-                        src={`/${artwork.file}`}
+                        src={artwork.file}
                         title={artwork.title}
                         className="w-full h-full border-0"
                         allowFullScreen
-                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         style={{ 
-                          pointerEvents: 'auto',
                           border: 'none',
-                          outline: 'none',
-                          zIndex: 10
+                          width: '100%',
+                          height: '100%'
+                        }}
+                      />
+                    ) : (
+                      <iframe 
+                        src={artwork.file}
+                        title={artwork.title}
+                        className="w-full h-full border-0"
+                        style={{ 
+                          border: 'none',
+                          width: '100%',
+                          height: '100%'
                         }}
                       />
                     )}
