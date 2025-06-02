@@ -21,28 +21,28 @@ const JavaScriptArt = () => {
     {
       title: "Random Triangles",
       description: "An interactive visualization that creates randomly colored and positioned triangles that rotate and transform based on user input. Click to change background colors and watch the geometric patterns evolve.",
-      file: "RNDM.html",
+      file: "/RNDM.html",
       icon: Layers,
       color: "from-purple-500 to-pink-500"
     },
     {
       title: "Random Cubes", 
       description: "A generative art piece that creates a colorful arrangement of 3D cubes in an isometric grid, with each cube having unique properties and colors that shift dynamically.",
-      file: "rr.html",
+      file: "/rr.html",
       icon: Code,
       color: "from-blue-500 to-cyan-500"
     },
     {
       title: "Interactive Butterfly Animation",
       description: "A dynamic animation featuring butterflies that follow mouse movement, combined with abstract shapes and sound-reactive patterns created with p5.js and Web Audio API.",
-      file: "fye.html",
+      file: "/fye.html",
       icon: MousePointer,
       color: "from-green-500 to-teal-500"
     },
     {
       title: "Fireworks Display",
       description: "An interactive fireworks simulation that responds to user clicks, creating colorful explosions against a night sky backdrop with houses, clouds, and animated celestial elements.",
-      file: "fl.html",
+      file: "/fl.html",
       icon: Sparkles,
       color: "from-orange-500 to-red-500"
     }
