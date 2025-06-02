@@ -70,6 +70,7 @@ const JavaScriptArt = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {artworks.map((artwork, index) => {
             const IconComponent = artwork.icon;
+            console.log(`Loading artwork: ${artwork.title}, file: ${artwork.file}`);
             return (
               <Card key={index} className="cyber-card overflow-hidden h-full transform transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
                 <CardContent className="p-0">
@@ -85,31 +86,18 @@ const JavaScriptArt = () => {
                   </div>
                   
                   <div className="aspect-square w-full bg-cyber-dark relative border-t border-cyber-accent/30 overflow-hidden">
-                    {artwork.isExternal ? (
-                      <iframe 
-                        src={artwork.file}
-                        title={artwork.title}
-                        className="w-full h-full border-0"
-                        allowFullScreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        style={{ 
-                          border: 'none',
-                          width: '100%',
-                          height: '100%'
-                        }}
-                      />
-                    ) : (
-                      <iframe 
-                        src={artwork.file}
-                        title={artwork.title}
-                        className="w-full h-full border-0"
-                        style={{ 
-                          border: 'none',
-                          width: '100%',
-                          height: '100%'
-                        }}
-                      />
-                    )}
+                    <iframe 
+                      src={artwork.file}
+                      title={artwork.title}
+                      className="w-full h-full border-0"
+                      style={{ 
+                        border: 'none',
+                        width: '100%',
+                        height: '100%'
+                      }}
+                      onLoad={() => console.log(`Iframe loaded for ${artwork.title}`)}
+                      onError={() => console.error(`Iframe failed to load for ${artwork.title}`)}
+                    />
                   </div>
                   
                   <div className="p-4 bg-cyber-light/5 border-t border-cyber-accent/10">
