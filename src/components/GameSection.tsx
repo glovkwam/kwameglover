@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, ExternalLink } from "lucide-react";
+import { Code, ExternalLink, Play } from "lucide-react";
 
 const GameSection = () => {
   const gameInfo = {
@@ -45,7 +45,6 @@ const GameSection = () => {
                 allow="gamepad; fullscreen; pointer-lock; clipboard-write"
                 style={{ 
                   pointerEvents: 'auto',
-                  cursor: 'pointer',
                   backgroundColor: 'black',
                   border: 'none',
                   outline: 'none',
@@ -112,48 +111,80 @@ const GameSection = () => {
           </div>
         </div>
         
-        {/* Itch.io Link - Code-themed design with proper clickability */}
-        <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)] max-w-4xl mx-auto">
-          <CardContent className="p-8">
-            <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-cyber-accent/10 p-3 rounded-lg">
-                    <Code className="w-6 h-6 text-cyber-accent" />
+        {/* Game Links - Two buttons side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* GitHub Pages Button */}
+          <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
+            <CardContent className="p-6">
+              <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-cyber-accent/10 p-3 rounded-lg">
+                      <Play className="w-6 h-6 text-cyber-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1">Play Online</h3>
+                      <p className="text-gray-400 text-sm">Direct browser access</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-1">Play on itch.io</h3>
-                    <p className="text-gray-400 text-sm">Experience the full game with community features</p>
-                  </div>
+                  
+                  <a 
+                    href="https://glovkwam.github.io/Nanotech-Warrior/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
+                  >
+                    <span className="font-medium">Play Now</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
                 
-                <a 
-                  href="https://glovkwam.itch.io/nanotech-warrior" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="relative z-50 inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
-                  style={{ 
-                    pointerEvents: 'auto',
-                    cursor: 'pointer',
-                    zIndex: 50,
-                    position: 'relative'
-                  }}
-                >
-                  <span className="font-medium">Launch Game</span>
-                  <ExternalLink className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
-                </a>
-              </div>
-              
-              <div className="mt-4 pt-4 border-t border-cyber-accent/10">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Platform: itch.io</span>
-                  <span className="text-gray-400">Status: Available</span>
-                  <span className="text-cyber-accent">Free to Play</span>
+                <div className="mt-4 pt-4 border-t border-cyber-accent/10">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Platform: GitHub Pages</span>
+                    <span className="text-cyber-accent">Free to Play</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          {/* Itch.io Button */}
+          <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
+            <CardContent className="p-6">
+              <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-cyber-accent/10 p-3 rounded-lg">
+                      <Code className="w-6 h-6 text-cyber-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1">Play on itch.io</h3>
+                      <p className="text-gray-400 text-sm">Community features included</p>
+                    </div>
+                  </div>
+                  
+                  <a 
+                    href="https://glovkwam.itch.io/nanotech-warrior" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-6 py-3 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
+                  >
+                    <span className="font-medium">Launch Game</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-cyber-accent/10">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-gray-400">Platform: itch.io</span>
+                    <span className="text-cyber-accent">Free to Play</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
