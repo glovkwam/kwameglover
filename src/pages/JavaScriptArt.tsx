@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, MousePointer, Layers, Sparkles } from 'lucide-react';
+import { Code, MousePointer, Layers, Sparkles, Flower } from 'lucide-react';
 
 const JavaScriptArt = () => {
   useEffect(() => {
@@ -12,39 +12,48 @@ const JavaScriptArt = () => {
 
   const artworks = [
     {
+      title: "3D Flower",
+      description: "A stunning 3D flower visualization created with p5.js in WEBGL mode. Features intricate mathematical curves and parametric equations to generate organic, flowing petals with dynamic color gradients and 3D transformations.",
+      file: "https://gainful-shocking-chard.glitch.me/",
+      icon: Flower,
+      color: "from-pink-500 to-rose-500",
+      isExternal: true
+    },
+    {
       title: "Random Triangles",
       description: "An interactive visualization that creates randomly colored and positioned triangles that rotate and transform based on user input. Click to change background colors and watch the geometric patterns evolve.",
-      file: "RNDM.html", // This matches your actual file
+      file: "RNDM.html",
       icon: Layers,
       color: "from-purple-500 to-pink-500"
     },
     {
       title: "Random Cubes", 
       description: "A generative art piece that creates a colorful arrangement of 3D cubes in an isometric grid, with each cube having unique properties and colors that shift dynamically.",
-      file: "rr.html", // This matches your actual file
+      file: "rr.html",
       icon: Code,
       color: "from-blue-500 to-cyan-500"
     },
     {
       title: "Interactive Butterfly Animation",
       description: "A dynamic animation featuring butterflies that follow mouse movement, combined with abstract shapes and sound-reactive patterns created with p5.js and Web Audio API.",
-      file: "fye.html", // This matches your actual file
+      file: "fye.html",
       icon: MousePointer,
       color: "from-green-500 to-teal-500"
     },
     {
       title: "Fireworks Display",
       description: "An interactive fireworks simulation that responds to user clicks, creating colorful explosions against a night sky backdrop with houses, clouds, and animated celestial elements.",
-      file: "fl.html", // This matches your actual file
+      file: "fl.html",
       icon: Sparkles,
       color: "from-orange-500 to-red-500"
     }
   ];
 
-  const createIframeMarkup = (file: string, title: string) => {
+  const createIframeMarkup = (file: string, title: string, isExternal: boolean = false) => {
+    const src = isExternal ? file : `/${file}`;
     return {
       __html: `<iframe 
-        src="/${file}"
+        src="${src}"
         title="${title}"
         style="width: 100%; height: 100%; border: none; display: block;"
         allowfullscreen
@@ -91,7 +100,7 @@ const JavaScriptArt = () => {
                   
                   <div className="aspect-square w-full bg-cyber-dark relative border-t border-cyber-accent/30 overflow-hidden">
                     <div 
-                      dangerouslySetInnerHTML={createIframeMarkup(artwork.file, artwork.title)}
+                      dangerouslySetInnerHTML={createIframeMarkup(artwork.file, artwork.title, artwork.isExternal)}
                       className="w-full h-full"
                     />
                   </div>
@@ -103,7 +112,7 @@ const JavaScriptArt = () => {
                         Built with p5.js
                       </span>
                       <span className="text-xs bg-cyber-accent/20 text-cyber-accent px-2 py-1 rounded-full">
-                        Interactive
+                        {artwork.isExternal ? '3D WEBGL' : 'Interactive'}
                       </span>
                     </div>
                   </div>
