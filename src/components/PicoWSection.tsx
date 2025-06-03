@@ -71,7 +71,7 @@ const PicoWSection = () => {
               <div>
                 <h4 className="text-md font-semibold text-cyber-accent mb-2">Technical Details</h4>
                 <p className="text-gray-300 text-sm">
-                  The installation uses MicroPython to process sensor data and control the LED patterns.
+                  The installation uses Arduino IDE programming to process sensor data and control the LED patterns.
                   A web interface allows remote control and pattern selection via the Pico W's WiFi capabilities.
                 </p>
               </div>
@@ -83,7 +83,7 @@ const PicoWSection = () => {
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <CircuitBoard className="h-6 w-6 text-cyber-accent mr-2" />
-              <h3 className="text-xl font-bold text-white">Environmental Monitor</h3>
+              <h3 className="text-xl font-bold text-white">VL53L0X Distance Sensor</h3>
             </div>
             
             <img 
@@ -93,16 +93,16 @@ const PicoWSection = () => {
             />
             
             <p className="text-gray-300 text-sm">
-              A connected device that monitors temperature, humidity, and air quality, 
-              visualizing environmental data through an artistic dashboard.
+              A time-of-flight distance sensor project using the VL53L0X sensor with LED strip visualization, 
+              creating dynamic light patterns based on proximity detection.
             </p>
             
             <div className="mt-4">
               <h4 className="text-md font-semibold text-cyber-accent mb-2">Key Features</h4>
               <ul className="list-disc list-inside text-gray-300 text-sm">
-                <li>Real-time data collection</li>
-                <li>Cloud connectivity via MQTT</li>
-                <li>Custom visualization interface</li>
+                <li>Real-time distance measurement</li>
+                <li>LED strip visualization</li>
+                <li>Arduino IDE programming</li>
               </ul>
             </div>
           </CardContent>
@@ -161,63 +161,74 @@ const PicoWSection = () => {
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <Code className="h-6 w-6 text-cyber-accent mr-2" />
-              <h3 className="text-xl font-bold text-white">Code Sample</h3>
+              <h3 className="text-xl font-bold text-white">Arduino Code Sample</h3>
             </div>
             
             <pre className="bg-cyber-dark p-4 rounded-lg overflow-x-auto text-xs text-gray-300 h-[280px]">
-              {`# MicroPython for Pico W LED Control
-from machine import Pin
-import network
-import socket
-import time
-from neopixel import NeoPixel
+              {`// Arduino code for VL53L0X sensor with LED strip
+#include <Wire.h>
+#include <Adafruit_NeoPixel.h>
+#include "Adafruit_VL53L1X.h"
 
-# Configure the number of WS2812 LEDs
-NUM_LEDS = 60
-led_pin = Pin(28, Pin.OUT)
-np = NeoPixel(led_pin, NUM_LEDS)
+#define LED_STRIP_PIN 16  // Just one strip on GP16
+#define NUM_LEDS 5        // Limit to 5 LEDs to reduce power draw
 
-# WiFi credentials
-ssid = 'YourWiFiNetwork'
-password = 'YourPassword'
+// Create single LED strip object
+Adafruit_NeoPixel strip(NUM_LEDS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_VL53L1X vl53 = Adafruit_VL53L1X(0);
 
-# Connect to WiFi
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(ssid, password)
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  
+  // Initialize sensor
+  if (!vl53.begin(0x29, &Wire)) {
+    Serial.println("Failed to find VL53L1X chip");
+    while(1);
+  }
+  
+  // Initialize LED strip
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+  strip.setBrightness(50); // Set brightness (0-255)
+  
+  Serial.println("VL53L1X sensor ready!");
+}
 
-# Wait for connection
-max_wait = 10
-while max_wait > 0:
-    if wlan.status() < 0 or wlan.status() >= 3:
-        break
-    max_wait -= 1
-    print('waiting for connection...')
-    time.sleep(1)
+void loop() {
+  int16_t distance;
+  
+  if (vl53.dataReady()) {
+    distance = vl53.distance();
+    if (distance == -1) {
+      Serial.println("Couldn't get distance");
+      return;
+    }
+    
+    // Map distance to LED color
+    uint32_t color = mapDistanceToColor(distance);
+    
+    // Light up LEDs based on distance
+    for(int i = 0; i < NUM_LEDS; i++) {
+      strip.setPixelColor(i, color);
+    }
+    strip.show();
+    
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" mm");
+    
+    vl53.clearInterrupt();
+  }
+  
+  delay(100);
+}
 
-# Define color patterns
-def rainbow_cycle(wait):
-    for j in range(255):
-        for i in range(NUM_LEDS):
-            rc_index = (i * 256 // NUM_LEDS) + j
-            np[i] = wheel(rc_index & 255)
-        np.write()
-        time.sleep(wait)
-
-def wheel(pos):
-    # Generate rainbow colors
-    if pos < 85:
-        return (pos * 3, 255 - pos * 3, 0)
-    elif pos < 170:
-        pos -= 85
-        return (255 - pos * 3, 0, pos * 3)
-    else:
-        pos -= 170
-        return (0, pos * 3, 255 - pos * 3)
-
-# Start the light show
-while True:
-    rainbow_cycle(0.01)`}
+uint32_t mapDistanceToColor(int distance) {
+  if (distance < 100) return strip.Color(255, 0, 0);      // Red - close
+  else if (distance < 300) return strip.Color(255, 255, 0);  // Yellow - medium
+  else return strip.Color(0, 255, 0);                    // Green - far
+}`}
             </pre>
           </CardContent>
         </Card>
