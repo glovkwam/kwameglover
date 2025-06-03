@@ -13,7 +13,19 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cyber-dark">
+    <div className="min-h-screen hero-gradient text-white relative overflow-hidden flex items-center justify-center">
+      {/* Background grid decoration */}
+      <div className="absolute inset-0 opacity-10" style={{ 
+        backgroundImage: 'radial-gradient(#00f6ff 1px, transparent 1px), radial-gradient(#00f6ff 1px, transparent 1px)',
+        backgroundSize: '40px 40px',
+        backgroundPosition: '0 0, 20px 20px'
+      }}></div>
+      
+      {/* Animated background lights */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyber-accent/10 rounded-full blur-[100px] animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-cyber-purple/10 rounded-full blur-[80px] animate-pulse" style={{animationDuration: '7s'}}></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-cyber-neon/10 rounded-full blur-[60px] animate-pulse" style={{animationDuration: '5s'}}></div>
+      
       <div className="text-center relative z-10">
         <h1 className="text-6xl font-bold mb-4 text-cyber-accent animate-glow">404</h1>
         <p className="text-xl text-gray-300 mb-6">Oops! Page not found</p>
