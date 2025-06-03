@@ -1,123 +1,319 @@
 
-import React, { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Code } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
-interface ArtPiece {
-  id: number;
-  title: string;
-  thumbnail: string;
-  description: string;
-  codeSnippet: string;
-}
+// Simple Card Components (if you don't have shadcn/ui)
+const Card = ({ children, className, onClick }) => (
+  <div className={`rounded-lg shadow-lg ${className}`} onClick={onClick}>
+    {children}
+  </div>
+);
+
+const CardContent = ({ children, className }) => (
+  <div className={className}>{children}</div>
+);
+
+// Simple Dialog Components
+const Dialog = ({ open, onOpenChange, children }) => {
+  if (!open) return null;
+  
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div 
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm" 
+        onClick={() => onOpenChange(false)}
+      />
+      <div className="relative z-10 max-h-[90vh] overflow-auto">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const DialogContent = ({ children, className }) => (
+  <div className={`relative rounded-lg p-6 ${className}`}>
+    {children}
+  </div>
+);
+
+// Icons
+const Code = ({ className }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+  </svg>
+);
+
+const ExternalLink = ({ className }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+  </svg>
+);
+
+const X = ({ className }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
 
 const ArtGallery = () => {
-  // Sample art pieces - replace with your actual JavaScript art pieces
-  const artPieces: ArtPiece[] = [
+  // Your actual art pieces based on what I can see in your file structure
+  const artPieces = [
     {
       id: 1,
-      title: "Fractal Tree Generator",
-      thumbnail: "https://source.unsplash.com/random/600x400?fractal",
-      description: "An interactive JavaScript application that generates beautiful fractal trees with customizable parameters.",
-      codeSnippet: "function drawTree(startX, startY, length, angle, branchWidth) {\n  context.beginPath();\n  context.save();\n  context.strokeStyle = 'rgba(0, 246, 255, ' + (0.8 - length/200) + ')';\n  context.lineWidth = branchWidth;\n  context.translate(startX, startY);\n  context.rotate(angle * Math.PI/180);\n  context.moveTo(0, 0);\n  context.lineTo(0, -length);\n  context.stroke();\n\n  if(length < 10) {\n    context.restore();\n    return;\n  }\n\n  drawTree(0, -length, length*0.8, angle-15, branchWidth*0.8);\n  drawTree(0, -length, length*0.8, angle+15, branchWidth*0.8);\n\n  context.restore();\n}"
+      title: "Fireworks Animation",
+      filename: "fl.html",
+      description: "An experimental interactive art piece with user-responsive elements and dynamic colors.",
+      category: "Animation",
+      tech: ["Canvas API", "JavaScript", "Animation"]
     },
     {
       id: 2,
-      title: "Particle System",
-      thumbnail: "https://source.unsplash.com/random/600x400?particle",
-      description: "A dynamic particle system that responds to mouse movements, creating fluid and organic animations.",
-      codeSnippet: "class Particle {\n  constructor(x, y) {\n    this.x = x;\n    this.y = y;\n    this.size = Math.random() * 5 + 1;\n    this.speedX = Math.random() * 3 - 1.5;\n    this.speedY = Math.random() * 3 - 1.5;\n    this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;\n  }\n\n  update() {\n    this.x += this.speedX;\n    this.y += this.speedY;\n    if (this.size > 0.2) this.size -= 0.1;\n  }\n\n  draw() {\n    ctx.fillStyle = this.color;\n    ctx.beginPath();\n    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);\n    ctx.fill();\n  }\n}"
+      title: "Interactive Art Experiment",
+      filename: "fye.html", 
+      description: "An elegant butterfly animation with interactive elements and smooth flight patterns.",
+      category: "Experimental",
+      tech: ["Mouse Events", "Color Theory", "Algorithms"]
     },
     {
       id: 3,
-      title: "Audio Visualizer",
-      thumbnail: "https://source.unsplash.com/random/600x400?audio+wave",
-      description: "A JavaScript audio visualizer that creates beautiful patterns and animations based on sound frequencies.",
-      codeSnippet: "function setupAudioVisualizer() {\n  const audioContext = new (window.AudioContext || window.webkitAudioContext)();\n  const analyser = audioContext.createAnalyser();\n  analyser.fftSize = 2048;\n  \n  const bufferLength = analyser.frequencyBinCount;\n  const dataArray = new Uint8Array(bufferLength);\n  \n  function animate() {\n    requestAnimationFrame(animate);\n    analyser.getByteFrequencyData(dataArray);\n    \n    ctx.clearRect(0, 0, canvas.width, canvas.height);\n    \n    let barWidth = (canvas.width / bufferLength) * 2.5;\n    let barHeight;\n    let x = 0;\n    \n    for(let i = 0; i < bufferLength; i++) {\n      barHeight = dataArray[i] * 2;\n      \n      ctx.fillStyle = `hsl(${i * 360 / bufferLength}, 100%, 50%)`;\n      ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);\n      \n      x += barWidth + 1;\n    }\n  }\n  \n  animate();\n}"
+      title: "Random Number Display Machine",
+      filename: "RNDM.html",
+      description: "An interactive random number generator with dynamic visual display and real-time animations.",
+      category: "Interactive",
+      tech: ["Canvas API", "JavaScript", "CSS3"]
     },
     {
       id: 4,
-      title: "Generative Art Algorithm",
-      thumbnail: "https://source.unsplash.com/random/600x400?generative+art",
-      description: "An algorithm that creates unique abstract compositions using randomized shapes and colors.",
-      codeSnippet: "function generateComposition(width, height) {\n  const shapes = [];\n  const numShapes = Math.floor(Math.random() * 50) + 20;\n  \n  for(let i = 0; i < numShapes; i++) {\n    const shape = {\n      x: Math.random() * width,\n      y: Math.random() * height,\n      size: Math.random() * 100 + 10,\n      color: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 0.7 + 0.3})`,\n      type: ['circle', 'rect', 'triangle'][Math.floor(Math.random() * 3)]\n    };\n    shapes.push(shape);\n  }\n  \n  return shapes;\n}"
+      title: "Rainbow Art Generator", 
+      filename: "rr.html",
+      description: "A colorful art generator that creates rainbow-inspired visual compositions with mathematical precision.",
+      category: "Generative",
+      tech: ["HSL Colors", "Trigonometry", "Fractals"]
     },
     {
       id: 5,
-      title: "Interactive Network Graph",
-      thumbnail: "https://source.unsplash.com/random/600x400?network+graph",
-      description: "A force-directed graph visualization showing interconnected nodes with interactive elements.",
-      codeSnippet: "class NetworkGraph {\n  constructor(nodes, links) {\n    this.nodes = nodes;\n    this.links = links;\n    this.simulation = d3.forceSimulation(nodes)\n      .force('charge', d3.forceManyBody().strength(-100))\n      .force('center', d3.forceCenter(width / 2, height / 2))\n      .force('link', d3.forceLink(links).id(d => d.id).distance(100))\n      .on('tick', this.ticked.bind(this));\n  }\n  \n  ticked() {\n    svg.selectAll('.link')\n      .attr('x1', d => d.source.x)\n      .attr('y1', d => d.source.y)\n      .attr('x2', d => d.target.x)\n      .attr('y2', d => d.target.y);\n    \n    svg.selectAll('.node')\n      .attr('cx', d => d.x)\n      .attr('cy', d => d.y);\n  }\n}"
+      title: "3D Flower Animation",
+      filename: "https://gainful-shocking-chard.glitch.me/",
+      description: "A generative art piece hosted externally, featuring interactive and dynamic visuals.",
+      category: "Generative",
+      tech: ["WebGL", "JavaScript", "External"]
     }
   ];
   
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedArt, setSelectedArt] = useState<ArtPiece | null>(null);
+  const [selectedArt, setSelectedArt] = useState(null);
+  const [availableArt, setAvailableArt] = useState([]);
   
-  const handleArtClick = (art: ArtPiece) => {
+  // Check which files are actually available
+  useEffect(() => {
+    const checkAvailability = async () => {
+      const available = [];
+      for (const art of artPieces) {
+        // If it's an external URL, just add it
+        if (art.filename.startsWith('http')) {
+          available.push(art);
+          continue;
+        }
+        try {
+          const response = await fetch(`/${art.filename}`, { method: 'HEAD' });
+          if (response.ok) {
+            available.push(art);
+          }
+        } catch (error) {
+          console.log(`File not available: ${art.filename}`);
+        }
+      }
+      setAvailableArt(available);
+    };
+
+    checkAvailability();
+  }, []);
+  
+  const handleArtClick = (art) => {
+    console.log('Clicked:', art);
     setSelectedArt(art);
     setIsDialogOpen(true);
   };
+
+  const openInNewTab = (filename) => {
+    window.open(`/${filename}`, '_blank');
+  };
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+    setSelectedArt(null);
+  };
   
   return (
-    <section id="art" className="section-container bg-cyber-light">
-      <h2 className="section-heading">JavaScript Art</h2>
-      <p className="text-gray-300 max-w-2xl mb-12">
-        Interactive art pieces built with JavaScript, showcasing creative coding and algorithmic design.
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {artPieces.map((art) => (
-          <Card 
-            key={art.id} 
-            className="cyber-card overflow-hidden cursor-pointer"
-            onClick={() => handleArtClick(art)}
-          >
-            <CardContent className="p-0">
-              <div className="h-48 overflow-hidden relative">
-                <img 
-                  src={art.thumbnail} 
-                  alt={art.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
-                />
-                <div className="absolute bottom-4 right-4 bg-cyber-dark/80 p-2 rounded-full">
-                  <Code className="h-5 w-5 text-cyber-accent" />
-                </div>
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold text-white">{art.title}</h3>
-                <p className="text-gray-300 mt-2 text-sm">{art.description}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+    <section id="art" className="min-h-screen bg-gradient-to-br from-cyber-dark via-cyber-light to-cyber-dark py-20 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyber-accent to-purple-400 bg-clip-text text-transparent mb-6">
+            JavaScript Art Gallery
+          </h2>
+          <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+            Interactive art pieces built with pure JavaScript, showcasing creative coding, algorithmic design, and dynamic visualizations.
+          </p>
+          <div className="mt-8 text-cyber-accent">
+            {availableArt.length} interactive pieces available
+          </div>
+        </div>
+        
+        {/* Loading State */}
+        {availableArt.length === 0 && (
+          <div className="text-center py-16">
+            <div className="animate-spin w-12 h-12 border-2 border-cyber-accent border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-gray-400">Loading art pieces...</p>
+          </div>
+        )}
+        
+        {/* Gallery Grid */}
+        {availableArt.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {availableArt.map((art) => (
+              <Card 
+                key={art.id} 
+                className="group bg-cyber-light/50 backdrop-blur-sm border border-cyber-accent/20 hover:border-cyber-accent/50 transition-all duration-500 overflow-hidden cursor-pointer transform hover:scale-105 hover:shadow-2xl hover:shadow-cyber-accent/25"
+                onClick={() => handleArtClick(art)}
+              >
+                <CardContent className="p-0">
+                  {/* Live Preview Container */}
+                  <div className="h-48 overflow-hidden relative bg-cyber-dark">
+                    {/* Live iframe preview */}
+                    <iframe
+                      src={art.filename.startsWith('http') ? art.filename : `/${art.filename}`}
+                      className="w-full h-full border-0 pointer-events-none scale-50 origin-top-left"
+                      title={`${art.title} Preview`}
+                      style={{ 
+                        width: '200%', 
+                        height: '200%',
+                        transform: 'scale(0.5)',
+                        transformOrigin: 'top left'
+                      }}
+                      sandbox="allow-scripts allow-same-origin"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300"></div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3 bg-gradient-to-r from-cyber-accent to-purple-600 px-2 py-1 rounded-full text-xs font-bold text-white shadow-lg">
+                      {art.category}
+                    </div>
+                    
+                    {/* Code Icon */}
+                    <div className="absolute bottom-3 right-3 bg-cyber-accent/90 backdrop-blur-sm p-2 rounded-full transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                      <Code className="h-4 w-4 text-white" />
+                    </div>
+                    
+                    {/* Live Indicator */}
+                    <div className="absolute bottom-3 left-3 bg-green-500/90 px-2 py-1 rounded text-xs font-bold text-white">
+                      LIVE
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyber-accent group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
+                      {art.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                      {art.description}
+                    </p>
+                    
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {art.tech.slice(0, 2).map((tech, index) => (
+                        <span key={index} className="text-xs bg-cyber-dark/50 text-cyber-accent px-2 py-1 rounded">
+                          {tech}
+                        </span>
+                      ))}
+                      {art.tech.length > 2 && (
+                        <span className="text-xs text-gray-400">+{art.tech.length - 2}</span>
+                      )}
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-cyber-accent font-mono bg-cyber-dark/50 px-2 py-1 rounded">
+                        {art.filename}
+                      </span>
+                      <ExternalLink className="h-4 w-4 text-gray-500 group-hover:text-cyber-accent transition-colors duration-300" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <p className="text-gray-400 mb-6">
+            Click on any art piece to view it in full detail, or open it in a new tab for complete interaction.
+          </p>
+          <div className="inline-flex items-center space-x-2 text-cyber-accent">
+            <Code className="h-5 w-5" />
+            <span>Built with JavaScript, HTML5 Canvas, and Creative Vision</span>
+          </div>
+        </div>
       </div>
       
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-4xl bg-cyber-dark border border-cyber-accent/30">
+      {/* Modal Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={closeDialog}>
+        <DialogContent className="w-[95vw] max-w-6xl h-[90vh] bg-cyber-dark border border-cyber-accent/30 shadow-2xl">
           {selectedArt && (
-            <div>
-              <h2 className="text-2xl font-bold text-cyber-accent mb-4">{selectedArt.title}</h2>
-              <div className="mb-4">
-                <img 
-                  src={selectedArt.thumbnail} 
-                  alt={selectedArt.title} 
-                  className="w-full h-64 object-cover rounded-md" 
-                />
-              </div>
-              <p className="text-gray-300 mb-6">{selectedArt.description}</p>
-              <div className="bg-[#1e1e3f] rounded-md overflow-hidden">
-                <div className="flex items-center justify-between bg-[#131336] px-4 py-2">
-                  <span className="text-gray-400">Sample Code</span>
-                  <button className="text-gray-400 hover:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
-                      <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
-                    </svg>
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4 pb-4 border-b border-cyber-accent/20">
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold bg-gradient-to-r from-cyber-accent to-purple-400 bg-clip-text text-transparent mb-2">
+                    {selectedArt.title}
+                  </h2>
+                  <p className="text-gray-300 text-sm mb-2">{selectedArt.description}</p>
+                  <div className="flex items-center space-x-4 flex-wrap">
+                    <span className="text-sm text-cyber-accent bg-cyber-light/30 px-2 py-1 rounded">
+                      {selectedArt.category}
+                    </span>
+                    <span className="text-sm text-gray-400 font-mono">
+                      {selectedArt.filename}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 ml-4">
+                  <button 
+                    onClick={() => openInNewTab(selectedArt.filename)}
+                    className="flex items-center gap-2 bg-gradient-to-r from-cyber-accent to-purple-600 hover:from-cyber-accent/80 hover:to-purple-700 text-white px-3 py-2 rounded-lg transition-all duration-300 shadow-lg text-sm"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Full Screen
+                  </button>
+                  <button 
+                    onClick={closeDialog}
+                    className="bg-cyber-light hover:bg-cyber-light/80 text-white p-2 rounded-lg transition-colors duration-300"
+                  >
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
-                <pre className="p-4 text-gray-300 overflow-x-auto"><code>{selectedArt.codeSnippet}</code></pre>
+              </div>
+              
+              {/* Iframe Container */}
+              <div className="flex-1 min-h-0">
+                <div className="w-full h-full bg-cyber-light rounded-lg overflow-hidden border border-cyber-accent/20 shadow-inner">
+                  <iframe 
+                    src={selectedArt.filename.startsWith('http') ? selectedArt.filename : `/${selectedArt.filename}`}
+                    className="w-full h-full border-0"
+                    title={selectedArt.title}
+                    sandbox="allow-scripts allow-same-origin allow-pointer-lock"
+                  />
+                </div>
+              </div>
+              
+              {/* Footer */}
+              <div className="mt-3 pt-3 border-t border-cyber-accent/20">
+                <div className="flex items-center justify-between text-sm text-gray-500">
+                  <span>Interactive JavaScript Art • Click and drag to interact</span>
+                  <span>Press ESC or click outside to close</span>
+                </div>
               </div>
             </div>
           )}
