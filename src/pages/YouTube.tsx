@@ -11,12 +11,8 @@ const YouTube = () => {
 
   return (
     <div className="min-h-screen hero-gradient text-white relative overflow-hidden">
-      {/* Background grid decoration */}
-      <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: 'radial-gradient(#00f6ff 1px, transparent 1px), radial-gradient(#00f6ff 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-        backgroundPosition: '0 0, 20px 20px'
-      }}></div>
+      {/* Flickering background grid decoration */}
+      <div className="absolute inset-0 flickering-grid"></div>
       
       {/* Animated background lights */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyber-accent/10 rounded-full blur-[100px] animate-pulse"></div>

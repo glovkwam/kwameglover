@@ -100,6 +100,19 @@
   .floating-orb {
     @apply absolute rounded-full bg-cyber-accent/20 animate-pulse-slow;
   }
+
+  /* Flickering grid animation for non-home pages */
+  .flickering-grid {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #00f6ff 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, #00f6ff 1px, transparent 1px),
+      radial-gradient(circle at 50% 10%, #9b87f5 1px, transparent 1px),
+      radial-gradient(circle at 10% 90%, #00f6ff 1px, transparent 1px),
+      radial-gradient(circle at 90% 30%, #7E69AB 1px, transparent 1px);
+    background-size: 40px 40px, 60px 60px, 80px 80px, 50px 50px, 70px 70px;
+    background-position: 0 0, 20px 20px, 10px 30px, 35px 15px, 45px 45px;
+    animation: gridFlicker 8s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -186,6 +199,18 @@
   0% { transform: translateX(0); }
   50% { transform: translateX(-25%); }
   100% { transform: translateX(0); }
+}
+
+@keyframes gridFlicker {
+  0%, 20%, 40%, 60%, 80%, 100% { 
+    opacity: 0.1; 
+  }
+  10%, 30%, 50%, 70%, 90% { 
+    opacity: 0.3; 
+  }
+  15%, 35%, 55%, 75%, 95% { 
+    opacity: 0.15; 
+  }
 }
 
 .video-responsive {

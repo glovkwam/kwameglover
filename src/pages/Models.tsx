@@ -10,9 +10,18 @@ const Models = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
-      <Navbar />
-      <section className="section-container bg-transparent relative overflow-hidden">
+    <div className="min-h-screen hero-gradient text-white relative overflow-hidden">
+      {/* Flickering background grid decoration */}
+      <div className="absolute inset-0 flickering-grid"></div>
+      
+      {/* Animated background lights */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyber-accent/10 rounded-full blur-[100px] animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-cyber-purple/10 rounded-full blur-[80px] animate-pulse" style={{animationDuration: '7s'}}></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-cyber-neon/10 rounded-full blur-[60px] animate-pulse" style={{animationDuration: '5s'}}></div>
+      
+      <div className="relative z-10">
+        <Navbar />
+        <section className="section-container bg-transparent relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyber-purple/20 rounded-full blur-[100px] animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyber-accent/20 rounded-full blur-[100px] animate-pulse"></div>
         
@@ -174,7 +183,8 @@ const Models = () => {
           </div>
         </div>
       </section>
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
