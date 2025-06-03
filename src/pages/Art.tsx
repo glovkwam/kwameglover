@@ -10,11 +10,7 @@ const Art = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white animated-bg">
-      <div className="floating-orb w-72 h-72 top-40 -right-20 blur-3xl"></div>
-      <div className="floating-orb w-80 h-80 bottom-20 -left-20 blur-3xl"></div>
-      <div className="floating-orb w-64 h-64 bottom-1/3 right-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
-      
+    <div className="min-h-screen bg-cyber-dark text-white">
       <Navbar />
       <ArtGallery />
       <Footer />

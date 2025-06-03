@@ -45,11 +45,7 @@ const WebDesign = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white animated-bg">
-      <div className="floating-orb w-96 h-96 top-60 -right-40 blur-3xl"></div>
-      <div className="floating-orb w-80 h-80 bottom-20 -left-30 blur-3xl"></div>
-      <div className="floating-orb w-64 h-64 top-1/2 left-1/4 blur-3xl opacity-20 animate-rotate-slow"></div>
-      
+    <div className="min-h-screen bg-cyber-dark text-white">
       <Navbar />
       <section className="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
