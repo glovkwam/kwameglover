@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,31 +35,38 @@ const YouTubeSection = () => {
     return [
       {
         id: 1,
-        title: "Deepseek AI is Insane!",
+        title: "Digital Art Process",
         thumbnail: "https://source.unsplash.com/random/800x450?digital+art",
         youtubeId: "DHzldFRClGI",
         description: "A walkthrough of my digital art creation process using cutting-edge tools."
       },
       {
         id: 2,
-        title: "Claude 3.5 Explored",
+        title: "3D Modeling Basics",
         thumbnail: "https://source.unsplash.com/random/800x450?3d+modeling",
         youtubeId: "dQw4w9WgXcQ",
         description: "Learn the basics of 3D modeling with this comprehensive tutorial."
       },
       {
         id: 3,
-        title: "7 AI tools you need NOW",
+        title: "Cybersecurity for Artists",
         thumbnail: "https://source.unsplash.com/random/800x450?cybersecurity",
         youtubeId: "dQw4w9WgXcQ",
         description: "How artists can protect their digital creations in an online world."
       },
       {
         id: 4,
-        title: "$NVIDIA Down 8%",
+        title: "Game Development Journey",
         thumbnail: "https://source.unsplash.com/random/800x450?game+development",
         youtubeId: "dQw4w9WgXcQ",
         description: "My journey into game development - challenges and triumphs."
+      },
+      {
+        id: 5,
+        title: "Cloud Computing for Creative Projects",
+        thumbnail: "https://source.unsplash.com/random/800x450?cloud+computing",
+        youtubeId: "dQw4w9WgXcQ",
+        description: "How cloud computing enhances my creative workflow."
       }
     ];
   }

@@ -18,22 +18,54 @@ const AboutSection = () => {
             <p className="text-lg">
               I am a digital artist and aspiring cybersecurity professional with a passion for technology and creativity. 
               My journey through the digital landscape has allowed me to explore various forms of artistic expression while 
-              developing technical skills in cybersecurity and cloud computing. Throughout my career, I've worked on numerous 
-              projects that blend creative vision with technical expertise, from interactive digital installations to 
-              microcontroller programming with Arduino and Raspberry Pi Pico W.
+              developing technical skills in cybersecurity and cloud computing.
             </p>
             <p className="text-lg mt-4">
-              My artistic practice encompasses traditional digital media, generative art using JavaScript and creative coding, 
-              3D modeling and animation, as well as game development. I believe that the intersection of art and technology 
-              offers unlimited possibilities for innovation and expression. This philosophy drives my work in both creative 
-              and technical domains.
+              When I'm not creating digital art, I enjoy exploring new technologies, contributing to open-source projects, 
+              and expanding my knowledge in the ever-evolving field of cybersecurity.
             </p>
-            <p className="text-lg mt-4">
-              When I'm not creating digital art or working on cybersecurity projects, I enjoy exploring new technologies, 
-              contributing to open-source projects, and expanding my knowledge in the ever-evolving fields of artificial 
-              intelligence, cloud computing, and emerging tech trends. I'm particularly interested in how AI can augment 
-              creative processes and enhance cybersecurity practices.
-            </p>
+          </div>
+        </section>
+
+        {/* Portfolio Links */}
+        <section className="animate-fade-in">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyber-accent">Web Design Portfolio</h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            <a 
+              href="https://kwames-awesome-site-671991.webflow.io/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
+            >
+              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
+                Webflow Portfolio <ExternalLink className="ml-2 h-4 w-4" />
+              </h3>
+              <p className="text-gray-300">Professional web design showcase built with Webflow</p>
+            </a>
+            
+            <a 
+              href="https://glovkwam.github.io/Kwame-Portfolio-/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
+            >
+              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
+                GitHub Portfolio <ExternalLink className="ml-2 h-4 w-4" />
+              </h3>
+              <p className="text-gray-300">Custom portfolio website hosted on GitHub Pages</p>
+            </a>
+            
+            <a 
+              href="https://tallydabandz.myportfolio.com/work" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
+            >
+              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
+                Creative Portfolio <ExternalLink className="ml-2 h-4 w-4" />
+              </h3>
+              <p className="text-gray-300">Creative work portfolio showcasing diverse design projects</p>
+            </a>
           </div>
         </section>
         
