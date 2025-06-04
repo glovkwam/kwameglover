@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Github, Linkedin, Code, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,17 +15,14 @@ const Footer = () => {
               Digital artist and aspiring cybersecurity professional, creating at the intersection of art and technology.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
+              <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
+              <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
-                <Youtube className="h-5 w-5" />
+              <a href="https://editor.p5js.org/kwamglov/sketches" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
+                <Code className="h-5 w-5" />
               </a>
             </div>
           </div>

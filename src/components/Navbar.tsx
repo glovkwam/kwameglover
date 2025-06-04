@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="text-cyber-accent text-2xl font-bold">
           <Link to="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-            Kwame Glover<span className="text-white">.</span>
+            Kwame Glover
           </Link>
         </div>
         
