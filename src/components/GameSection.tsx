@@ -17,7 +17,7 @@ const GameSection = () => {
     technologies: ["Unity", "C#", "Photoshop", "Adobe After Effects"],
     screenshots: [
       "/lovable-uploads/45b9641a-59f8-48ff-b75b-20ce167bfad5.png",
-      "/lovable-uploads/f2508ecb-3bd5-407b-9a89-b33733a9cfe7.png",
+      "/lovable-uploads/d981768f-0eab-4fe0-b14b-2a93f334ae71.png",
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };

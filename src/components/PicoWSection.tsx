@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ const PicoWSection = () => {
   return (
     <section id="picow" className="section-container bg-cyber-light relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-accent/10 via-transparent to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-purple/10 via-transparent to-transparent"></div>
       
       <div className="flex justify-between items-center mb-8 relative z-10">
         <div>
@@ -25,7 +24,7 @@ const PicoWSection = () => {
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
-        <Card className="cyber-card transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
+        <Card className="cyber-card row-span-2 transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,246,255,0.3)]">
           <CardContent className="p-6">
             <div className="flex items-center mb-4">
               <div className="h-6 w-6 text-cyber-accent mr-2">
