@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap, ExternalLink } from 'lucide-react';
@@ -24,48 +23,6 @@ const AboutSection = () => {
               When I'm not creating digital art, I enjoy exploring new technologies, contributing to open-source projects, 
               and expanding my knowledge in the ever-evolving field of cybersecurity.
             </p>
-          </div>
-        </section>
-
-        {/* Portfolio Links */}
-        <section className="animate-fade-in">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyber-accent">Web Design Portfolio</h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <a 
-              href="https://kwames-awesome-site-671991.webflow.io/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                Webflow Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Professional web design showcase built with Webflow</p>
-            </a>
-            
-            <a 
-              href="https://glovkwam.github.io/Kwame-Portfolio-/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                GitHub Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Custom portfolio website hosted on GitHub Pages</p>
-            </a>
-            
-            <a 
-              href="https://tallydabandz.myportfolio.com/work" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
-            >
-              <h3 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                Creative Portfolio <ExternalLink className="ml-2 h-4 w-4" />
-              </h3>
-              <p className="text-gray-300">Creative work portfolio showcasing diverse design projects</p>
-            </a>
           </div>
         </section>
         
