@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Github, Linkedin, Code, Globe } from 'lucide-react';
+import { Mail, Github, Linkedin, Code, Globe, Youtube } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -39,14 +40,17 @@ const Contact = () => {
             
             <div className="mt-12">
               <h4 className="text-white font-medium mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
-                <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
                   <Github className="h-5 w-5 text-cyber-accent" />
                 </a>
-                <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors">
+                <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
                   <Linkedin className="h-5 w-5 text-cyber-accent" />
                 </a>
-                <a href="https://editor.p5js.org/kwamglov/sketches" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors">
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
+                  <Youtube className="h-5 w-5 text-cyber-accent" />
+                </a>
+                <a href="https://editor.p5js.org/kwamglov/collections/oDL_aMlVd" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
                   <Code className="h-5 w-5 text-cyber-accent" />
                 </a>
               </div>
@@ -57,8 +61,12 @@ const Contact = () => {
               <p className="text-gray-300 mb-6">
                 I'm currently available for freelance work, collaborations, or discussing opportunities in cybersecurity and cloud computing.
               </p>
-              <Button variant="outline" className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10">
-                View My Resume
+              <Button 
+                variant="outline" 
+                className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10"
+                onClick={() => window.open('https://www.linkedin.com/in/kwameglover/', '_blank')}
+              >
+                Message on LinkedIn
               </Button>
             </div>
           </CardContent>
