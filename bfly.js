@@ -11,7 +11,8 @@ let cloudy = 100;
 
 function setup() {
   pixelDensity(5);
-	createCanvas(400, 400);
+	let canvas = createCanvas(400, 400);
+  canvas.parent('canvas-container');
 	endColor = color(64, 0);
 	makeHouses();
   stars = createGraphics(width, height);
