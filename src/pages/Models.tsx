@@ -36,6 +36,37 @@ const Models = () => {
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-bold text-white">3D Flower Animation</h3>
+                <a 
+                  href="/flower.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  View Project
+                </a>
+              </div>
+              <p className="text-gray-300 mb-6">
+                An interactive 3D flower animation created with p5.js and WebGL. Features parametric equations 
+                for petal generation, dynamic coloring, and 3D orbital controls for immersive viewing.
+              </p>
+              <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                <iframe 
+                  src="/flower.html" 
+                  frameBorder="0" 
+                  scrolling="no" 
+                  width="100%" 
+                  height="100%" 
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold text-white">Wonderland Project</h3>
                 <a 
                   href="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/"
@@ -74,9 +105,9 @@ const Models = () => {
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-white">My Room Blend</h3>
+                <h3 className="text-2xl font-bold text-white">3D Room Environment</h3>
                 <a 
-                  href="https://myroomblend.glitch.me/"
+                  href="https://glovkwam.github.io/3DRoom/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
@@ -91,7 +122,7 @@ const Models = () => {
               </p>
               <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
                 <iframe 
-                  src="https://myroomblend.glitch.me/" 
+                  src="https://glovkwam.github.io/3DRoom/" 
                   frameBorder="0" 
                   scrolling="yes" 
                   width="100%" 
@@ -102,7 +133,7 @@ const Models = () => {
               <div className="mt-6">
                 <img 
                   src="/lovable-uploads/1188abf2-1e5e-44d2-baa4-888c4a383c40.png" 
-                  alt="My Room Blend" 
+                  alt="3D Room Environment" 
                   className="rounded-md border border-cyber-accent/30 max-h-80 object-contain mx-auto"
                 />
               </div>
