@@ -31,8 +31,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">Website</h4>
-                  <a href="https://www.example.com" className="text-gray-300 hover:text-cyber-accent transition-colors">
-                    www.example.com
+                  <a href="https://glovkwam.github.io/Kwame-Portfolio-/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-cyber-accent transition-colors">
+                    glovkwam.github.io/Kwame-Portfolio-/
                   </a>
                 </div>
               </div>
