@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -37,7 +36,7 @@ const PicoWSection = () => {
             </div>
             
             <div className="mb-6">
-              <div className="aspect-video bg-black relative overflow-hidden rounded-lg mb-4">
+              <div className="aspect-[9/16] bg-black relative overflow-hidden rounded-lg mb-4">
                 <iframe 
                   width="100%" 
                   height="100%" 
