@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 // Simple Card Components (if you don't have shadcn/ui)
@@ -60,10 +59,10 @@ const ArtGallery = () => {
     {
       id: 1,
       title: "Fireworks Animation",
-      filename: "fl.html",
-      description: "An experimental interactive art piece with user-responsive elements and dynamic colors.",
+      filename: "Fireworks.html",
+      description: "An interactive fireworks display with particle effects, gravity simulation, and dynamic explosions triggered by mouse clicks.",
       category: "Animation",
-      tech: ["Canvas API", "JavaScript", "Animation"]
+      tech: ["p5.js", "Particle Systems", "Physics"]
     },
     {
       id: 2,
