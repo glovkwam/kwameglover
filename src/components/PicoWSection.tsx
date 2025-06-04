@@ -10,9 +10,6 @@ const PicoWSection = () => {
 
   return (
     <section id="picow" className="section-container bg-cyber-light relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyber-purple/10 via-transparent to-transparent"></div>
-      
       <div className="flex justify-between items-center mb-8 relative z-10">
         <div>
           <h2 className="section-heading">Pico W Microcontroller Projects</h2>
