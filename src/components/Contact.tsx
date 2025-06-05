@@ -21,11 +21,11 @@ const Contact = () => {
                 <div className="bg-cyber-accent/20 p-3 rounded-full">
                   <Mail className="h-6 w-6 text-cyber-accent" />
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Email</h4>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">Email</h5>
                   <a 
                     href="mailto:gloverkwame@gmail.com" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors cursor-pointer"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
                   >
                     gloverkwame@gmail.com
                   </a>
@@ -36,47 +36,85 @@ const Contact = () => {
                 <div className="bg-cyber-accent/20 p-3 rounded-full">
                   <Globe className="h-6 w-6 text-cyber-accent" />
                 </div>
-                <div>
-                  <h4 className="text-white font-medium mb-1">Website</h4>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">Play Game</h5>
                   <a 
-                    href="https://glovkwam.github.io/Kwame-Portfolio-/" 
+                    href="https://glovkwam.github.io/Nanotech-Warrior/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors cursor-pointer"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
                   >
-                    glovkwam.github.io/Kwame-Portfolio-/
+                    glovkwam.github.io/Nanotech-Warrior/
                   </a>
                 </div>
               </div>
-            </div>
-            
-            <div className="mt-12">
-              <h4 className="text-white font-medium mb-4">Follow Me</h4>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <button 
-                  onClick={() => handleLinkClick("https://github.com/glovkwam/")}
-                  className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center cursor-pointer"
-                >
-                  <Github className="h-5 w-5 text-cyber-accent" />
-                </button>
-                <button 
-                  onClick={() => handleLinkClick("https://www.linkedin.com/in/kwameglover/")}
-                  className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center cursor-pointer"
-                >
-                  <Linkedin className="h-5 w-5 text-cyber-accent" />
-                </button>
-                <button 
-                  onClick={() => handleLinkClick("https://www.youtube.com/@KwameGlover")}
-                  className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center cursor-pointer"
-                >
-                  <Youtube className="h-5 w-5 text-cyber-accent" />
-                </button>
-                <button 
-                  onClick={() => handleLinkClick("https://editor.p5js.org/kwamglov/collections/oDL_aMlVd")}
-                  className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center cursor-pointer"
-                >
-                  <Code className="h-5 w-5 text-cyber-accent" />
-                </button>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-cyber-accent/20 p-3 rounded-full">
+                  <Github className="h-6 w-6 text-cyber-accent" />
+                </div>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">GitHub</h5>
+                  <a 
+                    href="https://github.com/glovkwam/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                  >
+                    github.com/glovkwam/
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-cyber-accent/20 p-3 rounded-full">
+                  <Linkedin className="h-6 w-6 text-cyber-accent" />
+                </div>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">LinkedIn</h5>
+                  <a 
+                    href="https://www.linkedin.com/in/kwameglover/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                  >
+                    linkedin.com/in/kwameglover/
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-cyber-accent/20 p-3 rounded-full">
+                  <Youtube className="h-6 w-6 text-cyber-accent" />
+                </div>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">YouTube</h5>
+                  <a 
+                    href="https://www.youtube.com/@KwameGlover" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                  >
+                    youtube.com/@KwameGlover
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-cyber-accent/20 p-3 rounded-full">
+                  <Code className="h-6 w-6 text-cyber-accent" />
+                </div>
+                <div className="flex-1">
+                  <h5 className="text-white font-medium mb-1">p5.js Editor</h5>
+                  <a 
+                    href="https://editor.p5js.org/kwamglov/collections/oDL_aMlVd" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                  >
+                    editor.p5js.org/kwamglov/collections/oDL_aMlVd
+                  </a>
+                </div>
               </div>
             </div>
             
