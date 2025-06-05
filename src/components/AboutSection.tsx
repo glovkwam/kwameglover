@@ -29,22 +29,35 @@ const AboutSection = () => {
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
                 I'm Kwame Glover, a passionate digital artist and aspiring cybersecurity professional who creates 
-                YouTube videos about artificial intelligence and technology. I received my BFA in Digital Media 
-                from San José State University in 2024 with a minor in General Business, where I developed expertise 
-                in web design, video game design, 3D modeling, animation, and programming.
+                YouTube videos about artificial intelligence and technology. My journey began with earning my Bachelor 
+                of Fine Arts in Digital Media Arts from San José State University in 2024, where I specialized in 
+                web design, video game design, 3D modeling, animation, digital illustration, and programming. 
+                This comprehensive education provided me with a strong foundation in both creative and technical skills, 
+                allowing me to bridge the gap between artistic expression and technological innovation.
               </p>
               <p>
-                Currently, I'm advancing my technical skills through the NPower Cybersecurity/Cloud Computing Program, 
-                focusing on IT cybersecurity, cloud security, and cloud computing. I'm working towards earning my 
-                AWS Cloud Practitioner and AWS Solutions Architect certifications in 2025, building on my foundation 
-                of completed certifications including Microsoft Azure Fundamentals, Google IT Support Specialist, 
-                and CompTIA Tech+.
+                Currently, I'm advancing my technical expertise through the NPower Cybersecurity/Cloud Computing Program, 
+                where I'm focusing on IT cybersecurity, cloud security, and cloud computing fundamentals. This intensive 
+                training is preparing me for industry-recognized certifications, and I'm working towards earning my 
+                AWS Cloud Practitioner and AWS Solutions Architect certifications in 2025. My commitment to continuous 
+                learning is evidenced by my completed certifications, including Microsoft Azure Fundamentals, 
+                Google IT Support Specialist, Google IT Automation with Python, and CompTIA Tech+.
               </p>
               <p>
                 My technical interests span from creative coding with JavaScript and p5.js to working with 
-                microcontrollers and exploring machine learning applications. I'm particularly interested in 
-                working as a machine learning engineer, combining my artistic background with cutting-edge AI 
-                technology to create innovative solutions that bridge the gap between creativity and technology.
+                microcontrollers like Arduino and Raspberry Pi, and exploring cutting-edge machine learning applications. 
+                I'm particularly passionate about working as a machine learning engineer, where I can combine my artistic 
+                background with AI technology to create innovative solutions. Through my YouTube channel, I share insights 
+                about artificial intelligence, technology trends, and the intersection of creativity and code, helping 
+                others understand complex concepts through engaging visual content.
+              </p>
+              <p>
+                What drives me is the belief that technology should be accessible, creative, and transformative. 
+                Whether I'm designing interactive digital experiences, securing cloud infrastructures, or experimenting 
+                with AI algorithms, I approach each project with curiosity and a commitment to excellence. My goal is 
+                to contribute to the evolving landscape of cybersecurity and machine learning while continuing to 
+                create content that inspires others to explore the endless possibilities at the intersection of 
+                art and technology.
               </p>
             </div>
           </CardContent>
