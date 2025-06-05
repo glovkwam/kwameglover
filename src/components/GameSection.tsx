@@ -21,10 +21,6 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
-
-  const handleLinkClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -121,25 +117,24 @@ const GameSection = () => {
           {/* Itch.io Link */}
           <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-6">
-              <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
+              <a 
+                href="https://glovkwam.itch.io/nanotech-warrior"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6 hover:bg-cyber-accent/10 transition-colors group"
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="bg-cyber-accent/10 p-3 rounded-lg">
                       <Code className="w-6 h-6 text-cyber-accent" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Play on itch.io</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 flex items-center group-hover:text-cyber-accent">
+                        Play on itch.io <ExternalLink className="ml-2 h-4 w-4" />
+                      </h3>
                       <p className="text-gray-400 text-sm">Experience with community features</p>
                     </div>
                   </div>
-                  
-                  <button 
-                    onClick={() => handleLinkClick("https://glovkwam.itch.io/nanotech-warrior")}
-                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white cursor-pointer"
-                  >
-                    <span className="font-medium">Launch</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-cyber-accent/10">
@@ -148,32 +143,31 @@ const GameSection = () => {
                     <span className="text-cyber-accent">Free to Play</span>
                   </div>
                 </div>
-              </div>
+              </a>
             </CardContent>
           </Card>
 
           {/* GitHub Pages Link */}
           <Card className="cyber-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(0,246,255,0.4)]">
             <CardContent className="p-6">
-              <div className="bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6">
+              <a 
+                href="https://glovkwam.github.io/Nanotech-Warrior/"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-cyber-dark/50 rounded-lg border border-cyber-accent/20 p-6 hover:bg-cyber-accent/10 transition-colors group"
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="bg-cyber-accent/10 p-3 rounded-lg">
                       <Github className="w-6 h-6 text-cyber-accent" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Play on GitHub</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 flex items-center group-hover:text-cyber-accent">
+                        Play on GitHub <ExternalLink className="ml-2 h-4 w-4" />
+                      </h3>
                       <p className="text-gray-400 text-sm">Direct browser gameplay</p>
                     </div>
                   </div>
-                  
-                  <button 
-                    onClick={() => handleLinkClick("https://glovkwam.github.io/Nanotech-Warrior/")}
-                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white cursor-pointer"
-                  >
-                    <span className="font-medium">Play Now</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-cyber-accent/10">
@@ -182,7 +176,7 @@ const GameSection = () => {
                     <span className="text-cyber-accent">Instant Access</span>
                   </div>
                 </div>
-              </div>
+              </a>
             </CardContent>
           </Card>
         </div>
