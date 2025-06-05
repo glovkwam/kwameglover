@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -33,37 +34,6 @@ const Models = () => {
         </p>
         
         <div className="grid grid-cols-1 gap-12 relative z-10 mb-12">
-          <Card className="cyber-card overflow-hidden">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-white">3D Flower Animation</h3>
-                <a 
-                  href="/flower.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  View Project
-                </a>
-              </div>
-              <p className="text-gray-300 mb-6">
-                An interactive 3D flower animation created with p5.js and WebGL. Features parametric equations 
-                for petal generation, dynamic coloring, and 3D orbital controls for immersive viewing.
-              </p>
-              <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
-                <iframe 
-                  src="/flower.html" 
-                  frameBorder="0" 
-                  scrolling="no" 
-                  width="100%" 
-                  height="100%" 
-                  className="absolute inset-0"
-                ></iframe>
-              </div>
-            </CardContent>
-          </Card>
-
           <Card className="cyber-card overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
@@ -160,7 +130,7 @@ const Models = () => {
 
         <div className="mt-20">
           <h2 className="section-heading relative z-10">MaxMSP Audio-Visual Project</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10 mb-20">
             <div>
               <Card className="cyber-card h-full transform transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(155,135,245,0.3)]">
                 <CardContent className="p-6">
@@ -212,6 +182,37 @@ const Models = () => {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-cyber-accent/20 rounded-full blur-3xl animate-pulse"></div>
             </div>
           </div>
+
+          <Card className="cyber-card overflow-hidden">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-bold text-white">3D Flower Animation</h3>
+                <a 
+                  href="/flower.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  View Project
+                </a>
+              </div>
+              <p className="text-gray-300 mb-6">
+                An interactive 3D flower animation created with p5.js and WebGL. Features parametric equations 
+                for petal generation, dynamic coloring, and 3D orbital controls for immersive viewing.
+              </p>
+              <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
+                <iframe 
+                  src="/flower.html" 
+                  frameBorder="0" 
+                  scrolling="no" 
+                  width="100%" 
+                  height="100%" 
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
         <Footer />

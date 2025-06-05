@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 // Simple Card Components (if you don't have shadcn/ui)
@@ -91,10 +92,10 @@ const ArtGallery = () => {
     {
       id: 5,
       title: "3D Flower Animation",
-      filename: "https://gainful-shocking-chard.glitch.me/",
-      description: "A generative art piece hosted externally, featuring interactive and dynamic visuals.",
-      category: "Generative",
-      tech: ["WebGL", "JavaScript", "External"]
+      filename: "flower.html",
+      description: "An interactive 3D flower animation created with p5.js and WebGL. Features parametric equations for petal generation, dynamic coloring, and 3D orbital controls for immersive viewing.",
+      category: "3D",
+      tech: ["p5.js", "WebGL", "3D Math"]
     }
   ];
   

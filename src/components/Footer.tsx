@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Code, Youtube } from 'lucide-react';
@@ -20,6 +21,9 @@ const Footer = () => {
               </a>
               <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://www.youtube.com/@KwameGlover" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
+                <Youtube className="h-5 w-5" />
               </a>
               <a href="https://editor.p5js.org/kwamglov/sketches" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Code className="h-5 w-5" />

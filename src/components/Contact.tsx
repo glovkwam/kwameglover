@@ -47,7 +47,7 @@ const Contact = () => {
                 <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
                   <Linkedin className="h-5 w-5 text-cyber-accent" />
                 </a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
+                <a href="https://www.youtube.com/@KwameGlover" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
                   <Youtube className="h-5 w-5 text-cyber-accent" />
                 </a>
                 <a href="https://editor.p5js.org/kwamglov/collections/oDL_aMlVd" target="_blank" rel="noopener noreferrer" className="bg-cyber-accent/20 p-3 rounded-full hover:bg-cyber-accent/40 transition-colors flex items-center justify-center">
