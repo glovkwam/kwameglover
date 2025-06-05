@@ -42,7 +42,7 @@ const Models = () => {
                   href="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   View Project
@@ -80,7 +80,7 @@ const Models = () => {
                   href="https://glovkwam.github.io/3DRoom/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   View Project
@@ -191,7 +191,7 @@ const Models = () => {
                   href="/flower.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium"
+                  className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   View Project

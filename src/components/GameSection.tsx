@@ -21,6 +21,10 @@ const GameSection = () => {
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
+
+  const handleLinkClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   
   return (
     <section id="game" className="section-container bg-transparent">
@@ -129,16 +133,13 @@ const GameSection = () => {
                     </div>
                   </div>
                   
-                  <a 
-                    href="https://glovkwam.itch.io/nanotech-warrior" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
-                    style={{ cursor: 'pointer' }}
+                  <button 
+                    onClick={() => handleLinkClick("https://glovkwam.itch.io/nanotech-warrior")}
+                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white cursor-pointer"
                   >
                     <span className="font-medium">Launch</span>
                     <ExternalLink className="w-4 h-4" />
-                  </a>
+                  </button>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-cyber-accent/10">
@@ -166,16 +167,13 @@ const GameSection = () => {
                     </div>
                   </div>
                   
-                  <a 
-                    href="https://glovkwam.github.io/Nanotech-Warrior/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white no-underline"
-                    style={{ cursor: 'pointer' }}
+                  <button 
+                    onClick={() => handleLinkClick("https://glovkwam.github.io/Nanotech-Warrior/")}
+                    className="inline-flex items-center space-x-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 border border-cyber-accent/30 hover:border-cyber-accent/50 px-4 py-2 rounded-lg transition-all duration-200 text-cyber-accent hover:text-white cursor-pointer"
                   >
                     <span className="font-medium">Play Now</span>
                     <ExternalLink className="w-4 h-4" />
-                  </a>
+                  </button>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-cyber-accent/10">
