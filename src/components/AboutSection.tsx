@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Code, Palette, Brain, Globe, Zap } from 'lucide-react';
+import { Shield, Code, Palette, Brain, Globe, Zap, GraduationCap, Award } from 'lucide-react';
 
 const AboutSection = () => {
   const skills = [
@@ -28,15 +28,9 @@ const AboutSection = () => {
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
                 I'm Kwame Glover, a passionate digital artist and aspiring cybersecurity professional who finds 
-                inspiration at the intersection of technology and creative expression. My journey began with a 
-                fascination for how code could be transformed into visual art, leading me to explore the endless 
-                possibilities of creative programming.
-              </p>
-              <p>
-                Currently pursuing my education in cybersecurity and cloud computing, I've developed a unique 
-                perspective that combines technical security expertise with artistic innovation. This dual focus 
-                allows me to approach problems creatively while maintaining a strong foundation in security 
-                principles and best practices.
+                inspiration at the intersection of technology and creative expression. My YouTube videos focus on 
+                artificial intelligence and technology, sharing insights about the latest developments in these 
+                rapidly evolving fields.
               </p>
               <p>
                 My artistic practice spans multiple mediums and technologies - from interactive JavaScript 
@@ -46,25 +40,36 @@ const AboutSection = () => {
               </p>
               <p>
                 Beyond my technical and artistic pursuits, I'm deeply passionate about sharing knowledge and 
-                building community. Through my YouTube channel and educational content, I strive to make complex 
-                concepts accessible to others, whether it's explaining cybersecurity fundamentals or demonstrating 
-                creative coding techniques. I believe that education and collaboration are key to pushing the 
-                boundaries of what's possible in both art and technology.
+                building community. Through my educational content, I strive to make complex concepts accessible 
+                to others, whether it's explaining cybersecurity fundamentals or demonstrating creative coding 
+                techniques.
               </p>
-              <p>
-                When I'm not coding or creating art, you'll find me exploring emerging technologies, contributing 
-                to open-source projects, or diving deep into the latest developments in AI and machine learning. 
-                I'm particularly fascinated by how artificial intelligence can augment human creativity rather 
-                than replace it, opening new avenues for artistic expression and problem-solving.
-              </p>
-              <p>
-                My goal is to leverage my growing expertise in cybersecurity to protect digital creative spaces 
-                while continuing to push the boundaries of what's possible in interactive media and digital art. 
-                I'm always eager to collaborate on projects that challenge conventional thinking and explore new 
-                frontiers in technology and creativity. Whether it's securing cloud infrastructures, creating 
-                immersive digital experiences, or mentoring the next generation of tech creators, I'm committed 
-                to making a meaningful impact at the intersection of security, technology, and art.
-              </p>
+            </div>
+            
+            <div className="mt-12">
+              <h4 className="text-2xl font-bold text-white mb-6">Education & Certifications</h4>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-cyber-accent/20 p-2 rounded-full">
+                    <GraduationCap className="h-5 w-5 text-cyber-accent" />
+                  </div>
+                  <div>
+                    <h5 className="text-white font-medium">Bachelor of Fine Arts in Digital Media</h5>
+                    <p className="text-gray-300 text-sm">San José State University • 2024</p>
+                    <p className="text-gray-300 text-sm">Minor in General Business</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="bg-cyber-purple/20 p-2 rounded-full">
+                    <Award className="h-5 w-5 text-cyber-purple" />
+                  </div>
+                  <div>
+                    <h5 className="text-white font-medium">AWS Certifications (In Progress)</h5>
+                    <p className="text-gray-300 text-sm">AWS Cloud Practitioner • Expected 2025</p>
+                    <p className="text-gray-300 text-sm">AWS Solutions Architect • Expected 2025</p>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <div className="mt-12">
