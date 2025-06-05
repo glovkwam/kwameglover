@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, ExternalLink, Github, Globe, Gamepad2 } from "lucide-react";
+import { Code, ExternalLink, Github, Globe, Gamepad2, Mail } from "lucide-react";
 
 const GameSection = () => {
   const gameInfo = {
@@ -17,7 +17,7 @@ const GameSection = () => {
     technologies: ["Unity", "C#", "Photoshop", "Adobe After Effects"],
     screenshots: [
       "/lovable-uploads/45b9641a-59f8-48ff-b75b-20ce167bfad5.png",
-      "/lovable-uploads/93750472-e636-41a4-ad5f-692b751f525f.png",
+      "/lovable-uploads/c8d9e2f3-4a5b-6c7d-8e9f-0a1b2c3d4e5f.png",
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
@@ -68,17 +68,32 @@ const GameSection = () => {
         
         {/* Content Section - Smaller Width */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Screenshots - Constrained Width */}
-          <div className="grid grid-cols-2 gap-4">
-            {gameInfo.screenshots.map((screenshot, index) => (
-              <div key={index} className={`rounded-lg overflow-hidden ${index === 2 ? 'col-span-2' : ''} transition-transform duration-300 hover:scale-105`}>
-                <img 
-                  src={screenshot} 
-                  alt={`Nanotech Warrior Screenshot ${index + 1}`} 
-                  className="w-full h-full object-cover" 
-                />
-              </div>
-            ))}
+          {/* Screenshots - Made first two images wider */}
+          <div className="space-y-4">
+            {/* First image - full width */}
+            <div className="rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+              <img 
+                src={gameInfo.screenshots[0]} 
+                alt="Nanotech Warrior Screenshot 1" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
+            {/* Second image - full width */}
+            <div className="rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+              <img 
+                src={gameInfo.screenshots[1]} 
+                alt="Nanotech Warrior Screenshot 2" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
+            {/* Third image - full width */}
+            <div className="rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+              <img 
+                src={gameInfo.screenshots[2]} 
+                alt="Nanotech Warrior Screenshot 3" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
           </div>
           
           <div>
@@ -107,6 +122,41 @@ const GameSection = () => {
                     {tech}
                   </span>
                 ))}
+              </div>
+
+              {/* Contact Information */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-cyber-accent/20 p-3 rounded-full">
+                    <Mail className="h-6 w-6 text-cyber-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <h5 className="text-white font-medium mb-1">Email</h5>
+                    <a 
+                      href="mailto:gloverkwame@gmail.com" 
+                      className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    >
+                      gloverkwame@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-cyber-accent/20 p-3 rounded-full">
+                    <Globe className="h-6 w-6 text-cyber-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <h5 className="text-white font-medium mb-1">Website</h5>
+                    <a 
+                      href="https://glovkwam.github.io/Kwame-Portfolio-/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    >
+                      glovkwam.github.io/Kwame-Portfolio-/
+                    </a>
+                  </div>
+                </div>
               </div>
 
               {/* Game Links Section */}
