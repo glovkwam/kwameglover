@@ -17,7 +17,7 @@ const GameSection = () => {
     technologies: ["Unity", "C#", "Photoshop", "Adobe After Effects"],
     screenshots: [
       "/lovable-uploads/45b9641a-59f8-48ff-b75b-20ce167bfad5.png",
-      "/lovable-uploads/c8d9e2f3-4a5b-6c7d-8e9f-0a1b2c3d4e5f.png",
+      "/lovable-uploads/7ea81484-03a1-45f7-9769-5c52e11872ae.png",
       "/lovable-uploads/394b3903-afe0-426e-8ca0-c6d66e6fc38f.png"
     ]
   };
@@ -157,22 +157,18 @@ const GameSection = () => {
                     </a>
                   </div>
                 </div>
-              </div>
 
-              {/* Game Links Section */}
-              <h4 className="text-xl font-semibold text-white mb-4">Play the Game</h4>
-              <div className="space-y-4">
+                {/* Game Links */}
                 <div className="flex items-start space-x-4">
                   <div className="bg-cyber-accent/20 p-3 rounded-full">
                     <Code className="h-6 w-6 text-cyber-accent" />
                   </div>
                   <div className="flex-1">
                     <h5 className="text-white font-medium mb-1">itch.io</h5>
-                    <p className="text-gray-300 text-sm mb-2">Experience with community features</p>
                     <a 
-                      href="https://glovkwam.itch.io/nanotech-warrior"
+                      href="https://glovkwam.itch.io/nanotech-warrior" 
                       target="_blank" 
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer" 
                       className="inline-flex items-center px-4 py-2 bg-cyber-accent/20 text-cyber-accent rounded-lg hover:bg-cyber-accent/30 transition-colors text-sm"
                     >
                       Play on itch.io <ExternalLink className="ml-2 h-4 w-4" />
@@ -186,11 +182,10 @@ const GameSection = () => {
                   </div>
                   <div className="flex-1">
                     <h5 className="text-white font-medium mb-1">GitHub Pages</h5>
-                    <p className="text-gray-300 text-sm mb-2">Direct browser gameplay</p>
                     <a 
-                      href="https://glovkwam.github.io/Nanotech-Warrior/"
+                      href="https://glovkwam.github.io/Nanotech-Warrior/" 
                       target="_blank" 
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer" 
                       className="inline-flex items-center px-4 py-2 bg-cyber-accent/20 text-cyber-accent rounded-lg hover:bg-cyber-accent/30 transition-colors text-sm"
                     >
                       Play on GitHub <ExternalLink className="ml-2 h-4 w-4" />
