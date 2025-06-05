@@ -27,22 +27,17 @@ const AboutSection = () => {
             <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                I'm Kwame Glover, a passionate digital artist and aspiring cybersecurity professional who finds 
-                inspiration at the intersection of technology and creative expression. My YouTube videos focus on 
-                artificial intelligence and technology, sharing insights about the latest developments in these 
-                rapidly evolving fields.
+                I'm Kwame Glover, a passionate digital artist and aspiring cybersecurity professional who creates 
+                YouTube videos about artificial intelligence and technology. I received my BFA in Digital Media 
+                from San José State University in 2024 with a minor in General Business, and I'm currently 
+                learning cybersecurity and cloud computing, earning my AWS Cloud Practitioner and AWS Solutions 
+                Architect certifications in 2025.
               </p>
               <p>
-                My artistic practice spans multiple mediums and technologies - from interactive JavaScript 
-                visualizations and p5.js sketches to complex 3D modeling in Blender and Cinema 4D. I'm particularly 
-                drawn to generative art, where algorithms and mathematical concepts create unexpected beauty, and 
-                audio-visual projects that bridge the gap between sound and sight using tools like MaxMSP.
-              </p>
-              <p>
-                Beyond my technical and artistic pursuits, I'm deeply passionate about sharing knowledge and 
-                building community. Through my educational content, I strive to make complex concepts accessible 
-                to others, whether it's explaining cybersecurity fundamentals or demonstrating creative coding 
-                techniques.
+                My technical interests span from creative coding with JavaScript and p5.js to working with 
+                microcontrollers and exploring machine learning applications. I'm particularly interested in 
+                working as a machine learning engineer, combining my artistic background with cutting-edge AI 
+                technology to create innovative solutions.
               </p>
             </div>
             
@@ -64,9 +59,56 @@ const AboutSection = () => {
                     <Award className="h-5 w-5 text-cyber-purple" />
                   </div>
                   <div>
+                    <h5 className="text-white font-medium">NPower Cybersecurity/Cloud Computing Program</h5>
+                    <p className="text-gray-300 text-sm">Professional Certification Program</p>
+                    <p className="text-gray-300 text-sm mt-2">Specialized training in IT cybersecurity, cloud security, and cloud computing with industry-recognized certifications.</p>
+                    <div className="mt-2">
+                      <p className="text-gray-300 text-sm font-medium">Focus Areas:</p>
+                      <ul className="text-gray-300 text-sm ml-4">
+                        <li>• IT Cybersecurity</li>
+                        <li>• Cloud Security</li>
+                        <li>• Cloud Computing</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="bg-cyber-accent/20 p-2 rounded-full">
+                    <Award className="h-5 w-5 text-cyber-accent" />
+                  </div>
+                  <div>
                     <h5 className="text-white font-medium">AWS Certifications (In Progress)</h5>
                     <p className="text-gray-300 text-sm">AWS Cloud Practitioner • Expected 2025</p>
                     <p className="text-gray-300 text-sm">AWS Solutions Architect • Expected 2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <h4 className="text-2xl font-bold text-white mb-6">Professional Certifications</h4>
+              <div className="space-y-6">
+                <div>
+                  <h5 className="text-white font-medium mb-3">Cloud & Azure</h5>
+                  <div className="bg-cyber-accent/10 p-3 rounded-lg border border-cyber-accent/20">
+                    <p className="text-gray-300 text-sm">Microsoft Azure Fundamentals (AZ-900)</p>
+                  </div>
+                </div>
+                <div>
+                  <h5 className="text-white font-medium mb-3">Google Certifications</h5>
+                  <div className="space-y-2">
+                    <div className="bg-cyber-purple/10 p-3 rounded-lg border border-cyber-purple/20">
+                      <p className="text-gray-300 text-sm">Google IT Support Specialist</p>
+                    </div>
+                    <div className="bg-cyber-purple/10 p-3 rounded-lg border border-cyber-purple/20">
+                      <p className="text-gray-300 text-sm">Google: IT Automation with Python</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h5 className="text-white font-medium mb-3">CompTIA</h5>
+                  <div className="bg-cyber-neon/10 p-3 rounded-lg border border-cyber-neon/20">
+                    <p className="text-gray-300 text-sm">CompTIA Tech+</p>
                   </div>
                 </div>
               </div>
