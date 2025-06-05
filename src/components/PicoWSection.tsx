@@ -20,7 +20,7 @@ const PicoWSection = () => {
             Exploring the intersection of art and technology through creative projects using the Raspberry Pi Pico W microcontroller.
           </p>
         </div>
-        <CMSButton section="picow" />
+      
       </div>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
