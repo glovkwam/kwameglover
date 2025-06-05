@@ -1,13 +1,10 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Github, Linkedin, Code, Globe, Youtube } from 'lucide-react';
 
 const Contact = () => {
-  const handleLinkClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <section id="contact" className="section-container bg-cyber-dark">
       <div className="max-w-4xl mx-auto">
@@ -122,13 +119,18 @@ const Contact = () => {
               <p className="text-gray-300 mb-6">
                 I'm currently available for freelance work, collaborations, or discussing opportunities in cybersecurity and cloud computing.
               </p>
-              <Button 
-                variant="outline" 
-                className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 cursor-pointer"
-                onClick={() => handleLinkClick('https://www.linkedin.com/in/kwameglover/')}
+              <a 
+                href="https://www.linkedin.com/in/kwameglover/" 
+                target="_blank" 
+                rel="noopener noreferrer"
               >
-                Message on LinkedIn
-              </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10"
+                >
+                  Message on LinkedIn
+                </Button>
+              </a>
             </div>
           </CardContent>
         </Card>
