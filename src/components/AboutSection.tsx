@@ -14,24 +14,6 @@ const AboutSection = () => {
     { name: 'Creative Coding', icon: Zap, color: 'bg-cyan-500/20 text-cyan-400' }
   ];
 
-  const portfolioLinks = [
-    {
-      title: 'Webflow Portfolio',
-      description: 'Professional web design showcase built with Webflow',
-      external: true
-    },
-    {
-      title: 'GitHub Portfolio',
-      description: 'Custom portfolio website hosted on GitHub Pages',
-      external: true
-    },
-    {
-      title: 'Creative Portfolio',
-      description: 'Creative work portfolio showcasing diverse design projects',
-      external: true
-    }
-  ];
-
   return (
     <section id="about" className="section-container bg-transparent relative overflow-hidden">
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyber-purple/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -48,34 +30,22 @@ const AboutSection = () => {
               <p>
                 I'm Kwame Glover, a passionate digital artist and aspiring cybersecurity professional who creates 
                 YouTube videos about artificial intelligence and technology. I received my BFA in Digital Media 
-                from San José State University in 2024 with a minor in General Business, and I'm currently 
-                learning cybersecurity and cloud computing, earning my AWS Cloud Practitioner and AWS Solutions 
-                Architect certifications in 2025.
+                from San José State University in 2024 with a minor in General Business, where I developed expertise 
+                in web design, video game design, 3D modeling, animation, and programming.
+              </p>
+              <p>
+                Currently, I'm advancing my technical skills through the NPower Cybersecurity/Cloud Computing Program, 
+                focusing on IT cybersecurity, cloud security, and cloud computing. I'm working towards earning my 
+                AWS Cloud Practitioner and AWS Solutions Architect certifications in 2025, building on my foundation 
+                of completed certifications including Microsoft Azure Fundamentals, Google IT Support Specialist, 
+                and CompTIA Tech+.
               </p>
               <p>
                 My technical interests span from creative coding with JavaScript and p5.js to working with 
                 microcontrollers and exploring machine learning applications. I'm particularly interested in 
                 working as a machine learning engineer, combining my artistic background with cutting-edge AI 
-                technology to create innovative solutions.
+                technology to create innovative solutions that bridge the gap between creativity and technology.
               </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Web Design Portfolio */}
-        <Card className="cyber-card">
-          <CardContent className="p-6">
-            <h3 className="text-2xl font-bold text-white mb-6">Web Design Portfolio</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {portfolioLinks.map((portfolio, index) => (
-                <div key={index} className="bg-cyber-light/50 p-4 rounded-lg border border-cyber-accent/20 hover:border-cyber-accent/40 transition-all duration-300">
-                  <h4 className="text-white font-medium mb-2 flex items-center gap-2">
-                    {portfolio.title}
-                    {portfolio.external && <span className="text-cyber-accent text-sm">↗</span>}
-                  </h4>
-                  <p className="text-gray-300 text-sm">{portfolio.description}</p>
-                </div>
-              ))}
             </div>
           </CardContent>
         </Card>
@@ -111,7 +81,7 @@ const AboutSection = () => {
 
               {/* NPower Program */}
               <div className="bg-cyber-light/50 p-6 rounded-lg border border-cyber-purple/20">
-                <h4 className="text-xl font-bold text-white mb-2">NPower IT/Cybersecurity Program</h4>
+                <h4 className="text-xl font-bold text-white mb-2">NPower Cybersecurity/Cloud Computing Program</h4>
                 <p className="text-cyber-purple font-medium mb-4">Professional Certification Program</p>
                 <p className="text-gray-300 text-sm mb-4">
                   Specialized training in IT cybersecurity, cloud security, and cloud 

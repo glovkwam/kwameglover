@@ -32,7 +32,7 @@ const WebDesign = () => {
           {/* Portfolio Links Section */}
           <div className="mb-16">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-cyber-accent">Live Portfolio Sites</h3>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <a 
                 href="https://kwames-awesome-site-671991.webflow.io/" 
                 target="_blank" 
@@ -67,6 +67,18 @@ const WebDesign = () => {
                   Creative Portfolio <ExternalLink className="ml-2 h-4 w-4" />
                 </h4>
                 <p className="text-gray-300">Creative work portfolio showcasing diverse design projects</p>
+              </a>
+
+              <a 
+                href="https://quest-for-security-mastery.lovable.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
+              >
+                <h4 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
+                  Security Mastery <ExternalLink className="ml-2 h-4 w-4" />
+                </h4>
+                <p className="text-gray-300">Quest for cybersecurity mastery learning platform</p>
               </a>
             </div>
           </div>
