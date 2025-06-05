@@ -21,7 +21,7 @@ const Contact = () => {
                   <h5 className="text-white font-medium mb-1">Email</h5>
                   <a 
                     href="mailto:gloverkwame@gmail.com" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     gloverkwame@gmail.com
                   </a>
@@ -38,7 +38,7 @@ const Contact = () => {
                     href="https://glovkwam.github.io/Nanotech-Warrior/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     glovkwam.github.io/Nanotech-Warrior/
                   </a>
@@ -55,7 +55,7 @@ const Contact = () => {
                     href="https://github.com/glovkwam/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     github.com/glovkwam/
                   </a>
@@ -72,7 +72,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/kwameglover/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     linkedin.com/in/kwameglover/
                   </a>
@@ -89,7 +89,7 @@ const Contact = () => {
                     href="https://www.youtube.com/@CreatorKwam" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     youtube.com/@CreatorKwam
                   </a>
@@ -106,7 +106,7 @@ const Contact = () => {
                     href="https://editor.p5js.org/kwamglov/collections/oDL_aMlVd" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
+                    className="text-gray-300 hover:text-cyber-accent transition-colors text-sm cursor-pointer"
                   >
                     editor.p5js.org/kwamglov/collections/oDL_aMlVd
                   </a>
@@ -123,10 +123,11 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/kwameglover/" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="inline-block"
               >
                 <Button 
                   variant="outline" 
-                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10"
+                  className="border-cyber-accent text-cyber-accent hover:bg-cyber-accent/10 hover:border-cyber-accent/80 transition-all duration-200 cursor-pointer"
                 >
                   Message on LinkedIn
                 </Button>
