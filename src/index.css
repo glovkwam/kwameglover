@@ -58,6 +58,8 @@
   .cyber-card::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-r from-cyber-accent/5 to-cyber-neon/5 opacity-50;
+      pointer-events: none; /* <-- Add this line */
+
   }
   
   .cyber-button {
@@ -85,6 +87,8 @@
   .animated-bg::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-r from-cyber-purple/10 to-cyber-accent/10 opacity-40;
+      pointer-events: none; /* <-- Add this line */
+
   }
   
   .animated-bg::after {
