@@ -22,7 +22,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/kwameglover/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://www.youtube.com/@KwameGlover" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
+              <a href="https://www.youtube.com/@CreatorKwam" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
                 <Youtube className="h-5 w-5" />
               </a>
               <a href="https://editor.p5js.org/kwamglov/sketches" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors transform hover:scale-110 transition duration-300">
@@ -65,16 +65,16 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-4">About</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
+                <a href="mailto:gloverkwame@gmail.com" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Projects</a>
+                <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Projects</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Blog</a>
+                <a href="https://www.youtube.com/@CreatorKwam" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Blog</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resources</a>
+                <a href="https://editor.p5js.org/kwamglov/collections/oDL_aMlVd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Resources</a>
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Privacy Policy</a>

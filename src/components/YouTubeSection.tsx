@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -142,7 +143,7 @@ const YouTubeSection = () => {
       
       <div className="mt-16 text-center">
         <a 
-          href="https://www.youtube.com/watch?v=DHzldFRClGI" 
+          href="https://www.youtube.com/@CreatorKwam" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cyber-button inline-flex mx-auto"

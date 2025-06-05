@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -90,12 +89,12 @@ const Contact = () => {
                 <div className="flex-1">
                   <h5 className="text-white font-medium mb-1">YouTube</h5>
                   <a 
-                    href="https://www.youtube.com/@KwameGlover" 
+                    href="https://www.youtube.com/@CreatorKwam" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
                   >
-                    youtube.com/@KwameGlover
+                    youtube.com/@CreatorKwam
                   </a>
                 </div>
               </div>
