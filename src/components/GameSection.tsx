@@ -146,14 +146,14 @@ const GameSection = () => {
                     <Globe className="h-6 w-6 text-cyber-accent" />
                   </div>
                   <div className="flex-1">
-                    <h5 className="text-white font-medium mb-1">Website</h5>
+                    <h5 className="text-white font-medium mb-1">Play Game</h5>
                     <a 
-                      href="https://glovkwam.github.io/Kwame-Portfolio-/" 
+                      href="https://glovkwam.github.io/Nanotech-Warrior/" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="text-gray-300 hover:text-cyber-accent transition-colors text-sm"
                     >
-                      glovkwam.github.io/Kwame-Portfolio-/
+                      glovkwam.github.io/Nanotech-Warrior/
                     </a>
                   </div>
                 </div>
