@@ -73,8 +73,8 @@ const AboutSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Bachelor's Degree */}
               <div className="bg-cyber-light/50 p-6 rounded-lg border border-cyber-accent/20">
-                <h4 className="text-xl font-bold text-white mb-2">Bachelor of Fine Arts in Digital Media Arts</h4>
-                <p className="text-cyber-accent font-medium mb-4">San José State University</p>
+                <h4 className="text-xl font-bold text-white mb-2">San José State University</h4>
+                <p className="text-cyber-accent font-medium mb-4">Bachelor of Fine Arts in Digital Media Arts</p>
                 <p className="text-gray-300 text-sm mb-4">
                   Focus on web design, video game design, 3D modeling, animation, 
                   illustration, and programming. Completed capstone in game 
