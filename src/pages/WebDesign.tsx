@@ -32,7 +32,7 @@ const WebDesign = () => {
           {/* Portfolio Links Section */}
           <div className="mb-16">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-cyber-accent">Live Portfolio Sites</h3>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               <a 
                 href="https://kwames-awesome-site-671991.webflow.io/" 
                 target="_blank" 
@@ -40,7 +40,7 @@ const WebDesign = () => {
                 className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
               >
                 <h4 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                  Webflow Portfolio <ExternalLink className="ml-2 h-4 w-4" />
+                  Pico W Light Show <ExternalLink className="ml-2 h-4 w-4" />
                 </h4>
                 <p className="text-gray-300">Professional web design showcase built with Webflow</p>
               </a>
@@ -79,6 +79,18 @@ const WebDesign = () => {
                   Security Mastery <ExternalLink className="ml-2 h-4 w-4" />
                 </h4>
                 <p className="text-gray-300">Quest for cybersecurity mastery learning platform</p>
+              </a>
+
+              <a 
+                href="https://jafasa.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
+              >
+                <h4 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
+                  JAFASA Organization <ExternalLink className="ml-2 h-4 w-4" />
+                </h4>
+                <p className="text-gray-300">Jamaica Foundation for the Advancement of Sports & Arts website</p>
               </a>
             </div>
           </div>

@@ -39,35 +39,35 @@ const YouTubeSection = () => {
         title: "Digital Art Process",
         thumbnail: "https://source.unsplash.com/random/800x450?digital+art",
         youtubeId: "DHzldFRClGI",
-        description: "A walkthrough of my digital art creation process using cutting-edge tools."
+        description: ""
       },
       {
         id: 2,
         title: "3D Modeling Basics",
         thumbnail: "https://source.unsplash.com/random/800x450?3d+modeling",
         youtubeId: "dQw4w9WgXcQ",
-        description: "Learn the basics of 3D modeling with this comprehensive tutorial."
+        description: ""
       },
       {
         id: 3,
         title: "Cybersecurity for Artists",
         thumbnail: "https://source.unsplash.com/random/800x450?cybersecurity",
         youtubeId: "dQw4w9WgXcQ",
-        description: "How artists can protect their digital creations in an online world."
+        description: ""
       },
       {
         id: 4,
         title: "Game Development Journey",
         thumbnail: "https://source.unsplash.com/random/800x450?game+development",
         youtubeId: "dQw4w9WgXcQ",
-        description: "My journey into game development - challenges and triumphs."
+        description: ""
       },
       {
         id: 5,
         title: "Cloud Computing for Creative Projects",
         thumbnail: "https://source.unsplash.com/random/800x450?cloud+computing",
         youtubeId: "dQw4w9WgXcQ",
-        description: "How cloud computing enhances my creative workflow."
+        description: ""
       }
     ];
   }
@@ -134,7 +134,6 @@ const YouTubeSection = () => {
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
-                <p className="text-gray-300 text-sm">{video.description}</p>
               </div>
             </CardContent>
           </Card>

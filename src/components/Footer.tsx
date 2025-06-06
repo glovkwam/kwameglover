@@ -68,7 +68,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-4">About</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
+                <a href="https://crimson-melisent-21.tiiny.site/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
               </li>
               <li>
                 <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Projects</a>
