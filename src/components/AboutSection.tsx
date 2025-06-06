@@ -103,7 +103,7 @@ const AboutSection = () => {
                 <div className="space-y-2">
                   <h5 className="text-white font-medium">Focus Areas:</h5>
                   <ul className="text-gray-300 text-sm space-y-1">
-                    <li>• IT Cybersecurity</li>
+                    <li>• IT/Cybersecurity</li>
                     <li>• Cloud Security</li>
                     <li>• Cloud Computing</li>
                   </ul>
@@ -128,7 +128,7 @@ const AboutSection = () => {
                 <h4 className="text-white font-medium mb-3">Google Certifications</h4>
                 <div className="space-y-2">
                   <div className="bg-cyber-purple/10 p-3 rounded-lg border border-cyber-purple/20">
-                    <p className="text-gray-300 text-sm">Google IT Support Specialist</p>
+                    <p className="text-gray-300 text-sm">Google: IT Support Specialist</p>
                   </div>
                   <div className="bg-cyber-purple/10 p-3 rounded-lg border border-cyber-purple/20">
                     <p className="text-gray-300 text-sm">Google: IT Automation with Python</p>
