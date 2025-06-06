@@ -88,9 +88,9 @@ const WebDesign = () => {
                 className="p-4 border border-cyber-accent/30 rounded-lg hover:bg-cyber-accent/10 transition-colors group"
               >
                 <h4 className="font-bold text-xl mb-2 flex items-center group-hover:text-cyber-accent">
-                  JAFASA Organization <ExternalLink className="ml-2 h-4 w-4" />
+                  JAFA Organization <ExternalLink className="ml-2 h-4 w-4" />
                 </h4>
-                <p className="text-gray-300">Jamaica Foundation for the Advancement of Sports & Arts website</p>
+                <p className="text-gray-300">Japan African American Friendship Association website</p>
               </a>
             </div>
           </div>
