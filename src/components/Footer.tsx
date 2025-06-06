@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Code, Youtube } from 'lucide-react';
+import { Github, Linkedin, Code, Youtube, ArrowDown } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,7 +32,10 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Quick Links</h3>
+            <div className="flex flex-col items-center animate-bounce mb-4">
+              <h3 className="text-xl font-bold text-white mb-2">View My Work</h3>
+              <ArrowDown className="h-4 w-4 text-cyber-accent" />
+            </div>
             <ul className="grid grid-cols-2 gap-2">
               <li>
                 <Link to="/" className="text-gray-400 hover:text-cyber-accent transition-colors">Home</Link>
