@@ -41,7 +41,7 @@ const Footer = () => {
                 <Link to="/youtube" className="text-gray-400 hover:text-cyber-accent transition-colors">YouTube</Link>
               </li>
               <li>
-                <Link to="/design" className="text-gray-400 hover:text-cyber-accent transition-colors">Design</Link>
+                <Link to="/web-design" className="text-gray-400 hover:text-cyber-accent transition-colors">Web Design</Link>
               </li>
               <li>
                 <Link to="/art" className="text-gray-400 hover:text-cyber-accent transition-colors">JS Art</Link>
@@ -65,7 +65,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-4">About</h3>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:gloverkwame@gmail.com" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
+                <a href="#" className="text-gray-400 hover:text-cyber-accent transition-colors">Resume</a>
               </li>
               <li>
                 <a href="https://github.com/glovkwam/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-accent transition-colors">Projects</a>
