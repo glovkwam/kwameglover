@@ -235,7 +235,7 @@ uint32_t mapDistanceToColor(int distance) {
       
       <div className="mt-16 text-center relative z-10">
         <a 
-          href="https://github.com/glovkwam" 
+          href="https://github.com/glovkwam/Arduino" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cyber-button inline-flex mx-auto transform transition duration-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(0,246,255,0.5)]"
