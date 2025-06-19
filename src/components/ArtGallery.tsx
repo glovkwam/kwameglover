@@ -69,7 +69,7 @@ const ArtGallery = () => {
       id: 2,
       title: "Interactive Art Experiment",
       filename: "fye.html", 
-      description: "An elegant butterfly animation with interactive elements and smooth flight patterns.",
+      description: "An elegant butterfly animation with interactive elements such as sound reactivity using microphone input and smooth flight patterns.",
       category: "Experimental",
       tech: ["Mouse Events", "Color Theory", "Algorithms"]
     },
