@@ -39,7 +39,7 @@ const Models = () => {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold text-white">Wonderland Project</h3>
                 <a 
-                  href="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/"
+                  href="https://glovkwam.github.io/Model/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-cyber-accent hover:bg-cyber-accent/80 text-cyber-dark rounded-md transition-colors font-medium cursor-pointer"
@@ -54,7 +54,7 @@ const Models = () => {
               </p>
               <div className="w-full aspect-[21/9] bg-cyber-dark relative overflow-hidden rounded-md border border-cyber-accent/30">
                 <iframe 
-                  src="https://sjsu-cadre-classes.github.io/SJSU_Art_101_F22_02/Groups/Kwame_Zuka_James_zak/wonderlandproject/" 
+                  src="https://glovkwam.github.io/Model/" 
                   frameBorder="0" 
                   scrolling="yes" 
                   width="100%" 
